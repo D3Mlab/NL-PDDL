@@ -1,0 +1,55 @@
+---
+title: "NL-PDDL"
+subtitle: "Open-World Goal-Oriented Commonsense Regression Planning for Embodied AI"
+---
+
+::: {.lead}
+**Natural Language PDDL (NL-PDDL)** extends symbolic PDDL into a flexible natural language representation, enabling open-world regression planning with LLM-based commonsense entailment.
+:::
+
+Published at **[ICLR 2026](https://iclr.cc/virtual/2026/poster/10007784)**.
+
+## Key Contributions
+
+1. **NL-PDDL representation** -- extends symbolic PDDL into natural language, improving accessibility for non-expert users and generalization across modalities.
+2. **Commonsense regression planning** -- generalizes regression-style planning to NL-PDDL with LLM-based entailment reasoning to handle goal--action specification misalignment in partially-observed environments.
+3. **Efficient open-world reasoning** -- leverages lifted specifications to avoid exhaustive grounding, achieving time and space complexity independent of the number of ground objects, states, and actions.
+
+## Results Highlights
+
+| Domain | Success Rate |
+|---|---|
+| ALFWorld Text | 94% |
+| ALFWorld Vision | 84% |
+| Blocksworld | 70% |
+
+NL-PDDL substantially outperforms existing baselines and is more robust to longer horizons and more complex goals.
+
+## Links
+
+- [Paper (OpenReview)](https://openreview.net/pdf?id=kWCNhRdcDI)
+- [ICLR 2026 Poster](https://iclr.cc/virtual/2026/poster/10007784)
+- [GitHub Repository](https://github.com/D3Mlab/NL-PDDL)
+- [Tutorial](tutorial.ipynb) -- step-by-step Blocksworld walkthrough
+- [Interactive Tree Viewer Demo](viewer.qmd) -- explore a regression plan interactively
+
+## Authors
+
+Xiaotian Liu, Armin Toroghi, Jiazhou Liang, David Courtis, Ruiwen Li, Ali Pesaranghader, Jaehong Kim, Tanmana Sadhu, Hyejeong Jeon, Scott Sanner
+
+University of Toronto
+
+## Citation
+
+Click the copy button to copy the BibTeX entry.
+
+```bibtex
+@inproceedings{
+liu2026natural,
+title={Natural Language {PDDL} ({NL}-{PDDL}) for Open-world Goal-oriented Commonsense Regression Planning in Embodied {AI}},
+author={Xiaotian Liu and Armin Toroghi and Jiazhou Liang and David Courtis and Ruiwen Li and Ali Pesaranghader and Jaehong Kim and Tanmana Sadhu and Hyejeong Jeon and Scott Sanner},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=kWCNhRdcDI}
+}
+```

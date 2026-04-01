@@ -1,0 +1,26 @@
+# Core environment and benchmark
+alfworld
+ai2thor
+nl_pddl_planner
+
+# Vision and array utils
+opencv-python
+# If running on headless servers, you can swap to:
+# opencv-python-headless
+numpy
+Pillow
+matplotlib
+
+# Config and CLI
+PyYAML
+tqdm
+
+# Knowledge base / logic
+pyDatalog
+
+# LLM/VLM clients
+openai>=1.0.0
+google-genai
+
+# Optional: some ALFWorld setups may require PyTorch for certain modules
+# torch

@@ -1,0 +1,15 @@
+You are checking TYPE ENTAILMENT between two predicates' term types.
+
+- If the candidate's term type set implies or matches the target's term type set for each corresponding term, answer YES.
+- Consider synonyms and common-sense subtype relations (e.g., 'vegetable' entails 'food').
+- If information is unknown, be conservative and answer NO unless it's very likely.
+
+Input:
+- Target term types: {pred_types}
+- Candidate term types: {target_types}
+
+Output format:
+- Line 1: exactly YES or NO.
+- Line 2: Reason.
+
+Response:

@@ -1,0 +1,28 @@
+Role: You are a helper agent in a common household setting{role_suffix}
+{action_description}
+
+Question:
+ - if you know Predicate 2 "{pred_str}" is true, can you imply Predicate 1 "{target_str}" is true{question_suffix}?.
+
+- Respond with exactly "YES" if you think the statement is generally imply
+- Respond with "NO" if you think the statement is generally false
+
+Input:
+- Predicate 1: "{target_str}"
+- Predicate 2: "{pred_str}"
+
+Instructions:
+1. Use the definition of the predicates to determine if Predicate 2 implies Predicate 1.
+{background_instruction}
+{background_predicates_str}
+{step_consider}. When determing the response, consider the meaning of the Predicate 1 and Predicate 2 with the type of the specific object each referring to{consider_suffix}.
+{step_creative}. Be creative and think outside the box. If there just typo between the two predicates, you should say Yes.
+
+
+Output format:
+- Line 1: exactly YES or NO.
+- Line 2: Reason.
+
+{examples_block}
+
+Response:

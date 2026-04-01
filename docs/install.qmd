@@ -1,0 +1,150 @@
+---
+title: "Installation & Quick Start"
+---
+
+## Install
+
+```bash
+# Clone the repository
+git clone https://github.com/D3Mlab/NL-PDDL.git
+cd NL-PDDL
+
+# (Recommended) Create a virtual environment
+python3 -m venv nl_pddl
+source nl_pddl/bin/activate
+pip install --upgrade pip
+
+# Install the package
+pip install -e .
+```
+
+## Set up LLM API Key
+
+An OpenAI API key is required for domains with goal--action misalignment (the LLM performs commonsense entailment). For closed-world domains like standard Blocksworld, no key is needed.
+
+```bash
+export OPENAI_API_KEY="your-api-key-here"
+```
+
+Or create a `.env` file in the project root:
+
+```
+OPENAI_API_KEY=your-api-key-here
+```
+
+## Run the Planner
+
+### Option 1: Unified runner
+
+Run any supported dataset with a single command:
+
+```bash
+python pddl_planner/tests/run_unified.py \
+  --dataset blockworld \
+  --max_depth 12 \
+  --max_time 120 \
+  --limit 3
+```
+
+**Supported datasets:** `blockworld`, `misalignment_blockworld`, `mystery_blockworld`, `randomized_blockworld`, `alfworld_text`, `alfworld_text_with_misalignment`
+
+### Option 2: Configurable runner
+
+For full control over inputs and outputs:
+
+```bash
+python pddl_planner/scripts/run_nl_pddl.py \
+  --model files/misalignment_blockworld/misalignment_blockworld_model.json \
+  --goals files/blockworld/blockworld_goal.json \
+  --max_depth 12 \
+  --time_limit 120 \
+  --output_dir outputs/misalignment_depth12 \
+  --log_dir logs/misalignment_depth12 \
+  --cache_path pddl_planner/tests/llm_cache/misalignment_blockworld.json \
+  --limit 3
+```
+
+### Option 3: Python API
+
+```python
+from pddl_planner.pddl_core.nl_domain import NLDomain
+from pddl_planner.pddl_core.nl_instance import NLInstance
+from pddl_planner.planner.nl_planner import NLFOLRegressionPlanner
+
+domain = NLDomain("files/blockworld/blockworld_model.json")
+instance = NLInstance("files/blockworld/blockworld_goal.json", problem_index=0)
+planner = NLFOLRegressionPlanner(domain, instance, max_depth=10)
+
+result = planner.regress_plan()
+```
+
+See the [Tutorial](tutorial.ipynb) for a complete walkthrough.
+
+## Arguments Reference
+
+| Argument | Description | Default |
+|---|---|---|
+| `--model` | Path to NL model JSON | `files/blockworld/blockworld_model.json` |
+| `--goals` | Path to NL goals JSON | `files/blockworld/blockworld_goal.json` |
+| `--max_depth` | Maximum regression depth | `10` |
+| `--time_limit` | Time limit per problem (seconds) | None |
+| `--llm_model` | LLM model name | `gpt-4o-mini` |
+| `--llm_api_key` | LLM API key (overrides env) | None |
+| `--cache_path` | Path to LLM cache JSON | auto |
+| `--output_dir` | Directory to write results | auto |
+| `--log_dir` | Directory to write logs | auto |
+| `--limit` | Number of problems to run | `1` |
+
+## Visualize Results
+
+After running the planner, visualize the regression tree:
+
+```bash
+python -m pddl_planner.plan_viewer path/to/result.txt
+```
+
+See the [Tree Viewer Demo](viewer.qmd) for an interactive example.
+
+## NL Domain & Goal File Format
+
+### Domain file
+
+A JSON array with predicates first, then one entry per action:
+
+```json
+[
+  {
+    "Predicate": [
+      ["the agent's hand is empty", {}],
+      ["?o is on top of ?u", {"?o": "object", "?u": "object"}]
+    ]
+  },
+  {
+    "Action": "PickUp",
+    "Action name": ["pick up ?o from table", {"?o": "object"}],
+    "Parameters": {"?o": "object"},
+    "Preconditions": [
+      ["?o is clear", {"?o": "object"}],
+      ["the agent's hand is empty", {}]
+    ],
+    "Effects": {
+      "Positive": [["the agent is holding ?o", {"?o": "object"}]],
+      "Negative": [["the agent's hand is empty", {}]]
+    }
+  }
+]
+```
+
+### Goal file
+
+A JSON array of goal sets. Each goal is a list of predicates that must hold:
+
+```json
+[
+  [
+    ["orange is on top of red", {"orange": "object", "red": "object"}]
+  ]
+]
+```
+
+For closed-world domains, initial states can be included before the goal conditions. See the [Tutorial](tutorial.ipynb) for a complete example.

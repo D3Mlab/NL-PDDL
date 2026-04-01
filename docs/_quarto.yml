@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "NL-PDDL"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: install.qmd
+        text: Install
+      - href: tutorial.ipynb
+        text: Tutorial
+      - href: viewer.qmd
+        text: Tree Viewer Demo
+    right:
+      - icon: github
+        href: https://github.com/D3Mlab/NL-PDDL
+      - text: Paper
+        href: https://openreview.net/pdf?id=kWCNhRdcDI
+
+format:
+  html:
+    theme: darkly
+    toc: true
+    code-copy: true

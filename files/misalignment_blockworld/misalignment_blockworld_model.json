@@ -1,0 +1,273 @@
+[
+    {
+      "Predicate": [
+        [
+          "the agent is not holding any objects",
+          {}
+        ],
+        [
+          "block ?b has no block above it",
+          {
+            "?b": "object"
+          }
+        ],
+        [
+          "block ?b sits directly on the table",
+          {
+            "?b": "object"
+          }
+        ],
+        [
+          "block ?b1 is directly above block ?b2",
+          {
+            "?b1": "object",
+            "?b2": "object"
+          }
+        ],
+        [
+          "the agent possesses block ?b",
+          {
+            "?b": "object"
+          }
+        ]
+      ]
+    },
+    {
+      "Action": "pick_up",
+      "Action name": [
+        "pick up block ?b",
+        {
+          "?b": "object"
+        }
+      ],
+      "Parameters": {
+        "?b": "object"
+      },
+      "Preconditions": [
+        [
+          "the agent is not holding any objects",
+          {}
+        ],
+        [
+          "block ?b has no block above it",
+          {
+            "?b": "object"
+          }
+        ],
+        [
+          "block ?b sits directly on the table",
+          {
+            "?b": "object"
+          }
+        ]
+      ],
+      "Effects": {
+        "Positive": [
+          [
+            "the agent possesses block ?b",
+            {
+              "?b": "object"
+            }
+          ]
+        ],
+        "Negative": [
+          [
+            "the agent is not holding any objects",
+            {}
+          ],
+          [
+            "block ?b has no block above it",
+            {
+              "?b": "object"
+            }
+          ],
+          [
+            "block ?b sits directly on the table",
+            {
+              "?b": "object"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "Action": "put_down",
+      "Action name": [
+        "put down block ?b",
+        {
+          "?b": "object"
+        }
+      ],
+      "Parameters": {
+        "?b": "object"
+      },
+      "Preconditions": [
+        [
+          "the agent possesses block ?b",
+          {
+            "?b": "object"
+          }
+        ]
+      ],
+      "Effects": {
+        "Positive": [
+          [
+            "the agent is not holding any objects",
+            {}
+          ],
+          [
+            "block ?b sits directly on the table",
+            {
+              "?b": "object"
+            }
+          ],
+          [
+            "block ?b has no block above it",
+            {
+              "?b": "object"
+            }
+          ]
+        ],
+        "Negative": [
+          [
+            "the agent possesses block ?b",
+            {
+              "?b": "object"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "Action": "stack",
+      "Action name": [
+        "stack block ?b1 on block ?b2",
+        {
+          "?b1": "object",
+          "?b2": "object"
+        }
+      ],
+      "Parameters": {
+        "?b1": "object",
+        "?b2": "object"
+      },
+      "Preconditions": [
+        [
+          "the agent possesses block ?b1",
+          {
+            "?b1": "object"
+          }
+        ],
+        [
+          "block ?b2 has no block above it",
+          {
+            "?b2": "object"
+          }
+        ]
+      ],
+      "Effects": {
+        "Positive": [
+          [
+            "block ?b1 is directly above block ?b2",
+            {
+              "?b1": "object",
+              "?b2": "object"
+            }
+          ],
+          [
+            "the agent is not holding any objects",
+            {}
+          ],
+          [
+            "block ?b1 has no block above it",
+            {
+              "?b1": "object"
+            }
+          ]
+        ],
+        "Negative": [
+          [
+            "the agent possesses block ?b1",
+            {
+              "?b1": "object"
+            }
+          ],
+          [
+            "block ?b2 has no block above it",
+            {
+              "?b2": "object"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "Action": "unstack",
+      "Action name": [
+        "unstack block ?b1 from block ?b2",
+        {
+          "?b1": "object",
+          "?b2": "object"
+        }
+      ],
+      "Parameters": {
+        "?b1": "object",
+        "?b2": "object"
+      },
+      "Preconditions": [
+        [
+          "the agent is not holding any objects",
+          {}
+        ],
+        [
+          "block ?b1 is directly above block ?b2",
+          {
+            "?b1": "object",
+            "?b2": "object"
+          }
+        ],
+        [
+          "block ?b1 has no block above it",
+          {
+            "?b1": "object"
+          }
+        ]
+      ],
+      "Effects": {
+        "Positive": [
+          [
+            "the agent possesses block ?b1",
+            {
+              "?b1": "object"
+            }
+          ],
+          [
+            "block ?b2 has no block above it",
+            {
+              "?b2": "object"
+            }
+          ]
+        ],
+        "Negative": [
+          [
+            "the agent is not holding any objects",
+            {}
+          ],
+          [
+            "block ?b1 is directly above block ?b2",
+            {
+              "?b1": "object",
+              "?b2": "object"
+            }
+          ],
+          [
+            "block ?b1 has no block above it",
+            {
+              "?b1": "object"
+            }
+          ]
+        ]
+      }
+    }
+  ]
+  

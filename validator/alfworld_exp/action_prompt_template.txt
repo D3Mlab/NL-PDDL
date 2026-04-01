@@ -1,0 +1,59 @@
+go to obj 1
+Precondition: None (the agent can move to any object).
+Effect: After execution, the agent is located at obj 1.
+
+open obj 1
+Precondition: The agent must be at obj 1.
+Effect: obj 1 becomes open.
+
+close obj 1
+Precondition: The agent must be at obj 1.
+Effect: obj 1 becomes closed.
+
+take obj 1 from obj 1
+Precondition:
+
+The agent must be at the obj 1.
+
+The agent’s hand must be empty.
+
+Effect: The agent is now holding the target obj 1.
+
+put obj 1 in/on obj 1
+Precondition:
+
+The agent must be at the receiving/supporting obj 1.
+
+The agent must be holding the object to be placed.
+Effect: The held object is released and placed inside/on the receiving obj 1. The agent’s hand becomes empty.
+
+clean obj 1 with obj 1
+Precondition:
+
+The agent must be at obj 1.
+
+The agent must be holding a cleaning tool or object.
+Effect: The target obj 1 becomes clean.
+
+heat obj 1 with obj 1
+Precondition:
+
+The agent must be at obj 1.
+
+The heating appliance/tool must be usable.
+Effect: The target obj 1 becomes heated.
+
+cool obj 1 with obj 1
+Precondition:
+
+The agent must be at obj 1.
+
+Effect: The target obj 1 becomes cool.
+
+turn on obj 1
+Precondition: The agent must be at obj 1.
+Effect: obj 1 is switched to the “on”.
+
+turn off obj 1
+Precondition: The agent must be at obj 1.
+Effect: obj 1 is switched to the “off”.

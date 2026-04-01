@@ -1,0 +1,4 @@
+Example of entailment:
+- The agent possesses POTATO implies the agent holds POTATO
+- POTATO is in the sink implies POTATO is in the sink
+- POTATO is baked implies POTATO is cooked

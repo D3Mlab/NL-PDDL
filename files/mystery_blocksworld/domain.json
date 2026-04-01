@@ -1,0 +1,272 @@
+[
+  {
+    "Predicate": [
+      [
+        "Harmony",
+        {}
+      ],
+      [
+        "Province ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "Planet ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "Pain ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "?x craves ?y",
+        {
+          "?x": "object",
+          "?y": "object"
+        }
+      ]
+    ]
+  },
+  {
+    "Action": "attack",
+    "Action name": [
+      "attack object ?o",
+      {
+        "?o": "object"
+      }
+    ],
+    "Parameters": {
+      "?o": "object"
+    },
+    "Preconditions": [
+      [
+        "Province ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "Planet ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "Harmony",
+        {}
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "Pain ?o",
+          {
+            "?o": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "Province ?o",
+          {
+            "?o": "object"
+          }
+        ],
+        [
+          "Planet ?o",
+          {
+            "?o": "object"
+          }
+        ],
+        [
+          "Harmony",
+          {}
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "succumb",
+    "Action name": [
+      "succumb object ?o",
+      {
+        "?o": "object"
+      }
+    ],
+    "Parameters": {
+      "?o": "object"
+    },
+    "Preconditions": [
+      [
+        "Pain ?o",
+        {
+          "?o": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "Province ?o",
+          {
+            "?o": "object"
+          }
+        ],
+        [
+          "Planet ?o",
+          {
+            "?o": "object"
+          }
+        ],
+        [
+          "Harmony",
+          {}
+        ]
+      ],
+      "Negative": [
+        [
+          "Pain ?o",
+          {
+            "?o": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "overcome",
+    "Action name": [
+      "overcome object ?x from object ?y",
+      {
+        "?x": "object",
+        "?y": "object"
+      }
+    ],
+    "Parameters": {
+      "?x": "object",
+      "?y": "object"
+    },
+    "Preconditions": [
+      [
+        "Province ?y",
+        {
+          "?y": "object"
+        }
+      ],
+      [
+        "Pain ?x",
+        {
+          "?x": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "Harmony",
+          {}
+        ],
+        [
+          "Province ?x",
+          {
+            "?x": "object"
+          }
+        ],
+        [
+          "?x craves ?y",
+          {
+            "?x": "object",
+            "?y": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "Province ?y",
+          {
+            "?y": "object"
+          }
+        ],
+        [
+          "Pain ?x",
+          {
+            "?x": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "feast",
+    "Action name": [
+      "feast object ?x from object ?y",
+      {
+        "?x": "object",
+        "?y": "object"
+      }
+    ],
+    "Parameters": {
+      "?x": "object",
+      "?y": "object"
+    },
+    "Preconditions": [
+      [
+        "?x craves ?y",
+        {
+          "?x": "object",
+          "?y": "object"
+        }
+      ],
+      [
+        "Province ?x",
+        {
+          "?x": "object"
+        }
+      ],
+      [
+        "Harmony",
+        {}
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "Pain ?x",
+          {
+            "?x": "object"
+          }
+        ],
+        [
+          "Province ?y",
+          {
+            "?y": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "?x craves ?y",
+          {
+            "?x": "object",
+            "?y": "object"
+          }
+        ],
+        [
+          "Province ?x",
+          {
+            "?x": "object"
+          }
+        ],
+        [
+          "Harmony",
+          {}
+        ]
+      ]
+    }
+  }
+]

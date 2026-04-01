@@ -1,0 +1,3730 @@
+[
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a lettuce",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a peppershaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a bowl",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cup",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a potato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a tomato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a egg",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a egg",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a cd",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a saltshaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a peppershaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a bowl",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbottle",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a toilet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a saltshaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a tomato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbottle",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a toilet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a book",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a pencil",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pencil",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a shelf",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pencil",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a shelf",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cup",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a peppershaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a saltshaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a tomato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a potato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a saltshaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a bread",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a alarmclock",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a spatula",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cd",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a plate",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a pencil",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a plate",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a peppershaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a bowl",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cloth",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a apple",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pillow",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a sofa",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pan",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a lettuce",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a potato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a bread",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a book",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pillow",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a sofa",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a keychain",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cloth",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a tomato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a apple",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a fridge",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a spatula",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a vase",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a peppershaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a potato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a apple",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a fridge",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cloth",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a apple",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a saltshaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pillow",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a sofa",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a egg",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cup",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a bowl",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a bread",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a desk",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a spatula",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pan",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a tomato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a knife",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a peppershaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a drawer",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a watch",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a lettuce",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pencil",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a shelf",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pan",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a desk",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a watch",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a cd",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a vase",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a watch",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a apple",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a alarmclock",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a keychain",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pan",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a alarmclock",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a toiletpaper",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a bowl",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a vase",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a egg",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cd",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a saltshaker",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a coffeemachine",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a mug",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a desk",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a cd",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a bowl",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cloth",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a potato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a cd",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a safe",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbar",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a cabinet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a knife",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a book",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a plate",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a apple",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a fridge",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pan",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is cool",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a egg",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a tomato",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a garbagecan",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is hot",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "goal_obj is a pencil",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_obj is under light toggle_obj",
+      {
+        "goal_obj": "object",
+        "toggle_obj": "object"
+      }
+    ],
+    [
+      "toggle_obj is a desklamp",
+      {
+        "toggle_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a knife",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a soapbottle",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a toilet",
+      {
+        "goal_recep": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a egg",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a microwave",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ],
+  [
+    [
+      "the agent's hand is empty",
+      {}
+    ],
+    [
+      "goal_obj is inside goal_recep",
+      {
+        "goal_obj": "object",
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is a pan",
+      {
+        "goal_obj": "object"
+      }
+    ],
+    [
+      "goal_recep is a countertop",
+      {
+        "goal_recep": "object"
+      }
+    ],
+    [
+      "goal_obj is clean",
+      {
+        "goal_obj": "object"
+      }
+    ]
+  ]
+]

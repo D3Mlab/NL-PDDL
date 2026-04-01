@@ -1,0 +1,272 @@
+[
+  {
+    "Predicate": [
+      [
+        "the hand is empty",
+        {}
+      ],
+      [
+        "?b is clear",
+        {
+          "?b": "object"
+        }
+      ],
+      [
+        "?b is on the table",
+        {
+          "?b": "object"
+        }
+      ],
+      [
+        "?b1 is on top of ?b2",
+        {
+          "?b1": "object",
+          "?b2": "object"
+        }
+      ],
+      [
+        "I am holding ?b",
+        {
+          "?b": "object"
+        }
+      ]
+    ]
+  },
+  {
+    "Action": "pick_up",
+    "Action name": [
+      "pick up ?b",
+      {
+        "?b": "object"
+      }
+    ],
+    "Parameters": {
+      "?b": "object"
+    },
+    "Preconditions": [
+      [
+        "the hand is empty",
+        {}
+      ],
+      [
+        "?b is clear",
+        {
+          "?b": "object"
+        }
+      ],
+      [
+        "?b is on the table",
+        {
+          "?b": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "I am holding ?b",
+          {
+            "?b": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "the hand is empty",
+          {}
+        ],
+        [
+          "?b is clear",
+          {
+            "?b": "object"
+          }
+        ],
+        [
+          "?b is on the table",
+          {
+            "?b": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "put_down",
+    "Action name": [
+      "put down ?b",
+      {
+        "?b": "object"
+      }
+    ],
+    "Parameters": {
+      "?b": "object"
+    },
+    "Preconditions": [
+      [
+        "I am holding ?b",
+        {
+          "?b": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "the hand is empty",
+          {}
+        ],
+        [
+          "?b is on the table",
+          {
+            "?b": "object"
+          }
+        ],
+        [
+          "?b is clear",
+          {
+            "?b": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "I am holding ?b",
+          {
+            "?b": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "stack",
+    "Action name": [
+      "stack ?b1 on top of ?b2",
+      {
+        "?b1": "object",
+        "?b2": "object"
+      }
+    ],
+    "Parameters": {
+      "?b1": "object",
+      "?b2": "object"
+    },
+    "Preconditions": [
+      [
+        "I am holding ?b1",
+        {
+          "?b1": "object"
+        }
+      ],
+      [
+        "?b2 is clear",
+        {
+          "?b2": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "?b1 is on top of ?b2",
+          {
+            "?b1": "object",
+            "?b2": "object"
+          }
+        ],
+        [
+          "the hand is empty",
+          {}
+        ],
+        [
+          "?b1 is clear",
+          {
+            "?b1": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "I am holding ?b1",
+          {
+            "?b1": "object"
+          }
+        ],
+        [
+          "?b2 is clear",
+          {
+            "?b2": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "unstack",
+    "Action name": [
+      "unstack ?b1 from ?b2",
+      {
+        "?b1": "object",
+        "?b2": "object"
+      }
+    ],
+    "Parameters": {
+      "?b1": "object",
+      "?b2": "object"
+    },
+    "Preconditions": [
+      [
+        "the hand is empty",
+        {}
+      ],
+      [
+        "?b1 is on top of ?b2",
+        {
+          "?b1": "object",
+          "?b2": "object"
+        }
+      ],
+      [
+        "?b1 is clear",
+        {
+          "?b1": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "I am holding ?b1",
+          {
+            "?b1": "object"
+          }
+        ],
+        [
+          "?b2 is clear",
+          {
+            "?b2": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "the hand is empty",
+          {}
+        ],
+        [
+          "?b1 is on top of ?b2",
+          {
+            "?b1": "object",
+            "?b2": "object"
+          }
+        ],
+        [
+          "?b1 is clear",
+          {
+            "?b1": "object"
+          }
+        ]
+      ]
+    }
+  }
+]

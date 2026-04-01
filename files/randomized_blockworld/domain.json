@@ -1,0 +1,272 @@
+[
+  {
+    "Predicate": [
+      [
+        "3covmuy4yrjthijd",
+        {}
+      ],
+      [
+        "aqcjuuehivl8auwt ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "51nbwlachmfartjn ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "?x 4dmf1cmtyxgsp94g ?y",
+        {
+          "?x": "object",
+          "?y": "object"
+        }
+      ],
+      [
+        "gk5asm3f7u1fekpj ?o",
+        {
+          "?o": "object"
+        }
+      ]
+    ]
+  },
+  {
+    "Action": "pick_up",
+    "Action name": [
+      "1jpkithdyjmlikck object ?o",
+      {
+        "?o": "object"
+      }
+    ],
+    "Parameters": {
+      "?o": "object"
+    },
+    "Preconditions": [
+      [
+        "3covmuy4yrjthijd",
+        {}
+      ],
+      [
+        "aqcjuuehivl8auwt ?o",
+        {
+          "?o": "object"
+        }
+      ],
+      [
+        "51nbwlachmfartjn ?o",
+        {
+          "?o": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "gk5asm3f7u1fekpj ?o",
+          {
+            "?o": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "3covmuy4yrjthijd",
+          {}
+        ],
+        [
+          "aqcjuuehivl8auwt ?o",
+          {
+            "?o": "object"
+          }
+        ],
+        [
+          "51nbwlachmfartjn ?o",
+          {
+            "?o": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "put_down",
+    "Action name": [
+      "9big8ruzarkkquyu object ?o",
+      {
+        "?o": "object"
+      }
+    ],
+    "Parameters": {
+      "?o": "object"
+    },
+    "Preconditions": [
+      [
+        "gk5asm3f7u1fekpj ?o",
+        {
+          "?o": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "3covmuy4yrjthijd",
+          {}
+        ],
+        [
+          "51nbwlachmfartjn ?o",
+          {
+            "?o": "object"
+          }
+        ],
+        [
+          "aqcjuuehivl8auwt ?o",
+          {
+            "?o": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "gk5asm3f7u1fekpj ?o",
+          {
+            "?o": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "stack",
+    "Action name": [
+      "2ijg9q8swj2shjel object ?x from object ?y",
+      {
+        "?x": "object",
+        "?y": "object"
+      }
+    ],
+    "Parameters": {
+      "?x": "object",
+      "?y": "object"
+    },
+    "Preconditions": [
+      [
+        "gk5asm3f7u1fekpj ?x",
+        {
+          "?x": "object"
+        }
+      ],
+      [
+        "aqcjuuehivl8auwt ?y",
+        {
+          "?y": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "?x 4dmf1cmtyxgsp94g ?y",
+          {
+            "?x": "object",
+            "?y": "object"
+          }
+        ],
+        [
+          "3covmuy4yrjthijd",
+          {}
+        ],
+        [
+          "aqcjuuehivl8auwt ?x",
+          {
+            "?x": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "gk5asm3f7u1fekpj ?x",
+          {
+            "?x": "object"
+          }
+        ],
+        [
+          "aqcjuuehivl8auwt ?y",
+          {
+            "?y": "object"
+          }
+        ],
+        [
+          "51nbwlachmfartjn ?x",
+          {
+            "?x": "object"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "Action": "unstack",
+    "Action name": [
+      "xptxjrdkbi3pqsqr object ?x from object ?y",
+      {
+        "?x": "object",
+        "?y": "object"
+      }
+    ],
+    "Parameters": {
+      "?x": "object",
+      "?y": "object"
+    },
+    "Preconditions": [
+      [
+        "3covmuy4yrjthijd",
+        {}
+      ],
+      [
+        "?x 4dmf1cmtyxgsp94g ?y",
+        {
+          "?x": "object",
+          "?y": "object"
+        }
+      ],
+      [
+        "aqcjuuehivl8auwt ?x",
+        {
+          "?x": "object"
+        }
+      ]
+    ],
+    "Effects": {
+      "Positive": [
+        [
+          "gk5asm3f7u1fekpj ?x",
+          {
+            "?x": "object"
+          }
+        ],
+        [
+          "aqcjuuehivl8auwt ?y",
+          {
+            "?y": "object"
+          }
+        ]
+      ],
+      "Negative": [
+        [
+          "3covmuy4yrjthijd",
+          {}
+        ],
+        [
+          "?x 4dmf1cmtyxgsp94g ?y",
+          {
+            "?x": "object",
+            "?y": "object"
+          }
+        ]
+      ]
+    }
+  }
+]

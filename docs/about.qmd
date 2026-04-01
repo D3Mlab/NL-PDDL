@@ -1,0 +1,76 @@
+---
+title: "About NL-PDDL"
+---
+
+## Abstract
+
+Planning in open-world environments, where agents must act with partially observed states and incomplete knowledge, is a central challenge in embodied AI. Open-world planning involves not only sequencing actions but also determining what information the agent needs to sense to enable those actions. Existing approaches using Large Language Models (LLM) and Vision-Language Models (VLM) cannot reliably plan over long horizons and complex goals, where they often hallucinate and fail to reason causally over agent-environment interactions. Alternatively, classical PDDL planners offer correct and principled reasoning, but fail in open-world settings: they presuppose complete models and depend on exhaustive grounding over all objects, states, and actions; they cannot address misalignment between goal specifications (e.g., "heat the bread") and action specifications (e.g., "toast the bread"); and they do not generalize across modalities.
+
+To address these challenges, we contribute the following:
+
+1. We extend symbolic PDDL into a flexible natural language representation that we term **NL-PDDL**, improving accessibility for non-expert users as well as generalization over modalities.
+2. We generalize regression-style planning to NL-PDDL with **commonsense entailment reasoning** to determine what needs to be observed for goal achievement in partially-observed environments with potential goal-action specification misalignment.
+3. We leverage the **lifted specification** of NL-PDDL to facilitate open-world reasoning that avoids exhaustive grounding and yields a time and space complexity independent of the number of ground objects, states, and actions.
+
+## Methodology
+
+### NL-PDDL Representation
+
+NL-PDDL replaces symbolic PDDL predicates and action schemas with natural language descriptions while preserving the formal structure needed for regression planning. This allows domain authors to specify planning problems in plain English rather than learning PDDL syntax.
+
+### Regression Planning with LLM Entailment
+
+The planner reasons backward from a goal state, using first-order logic regression to determine what preconditions must hold before each action. When the goal and action specifications are misaligned (e.g., different wording for the same concept), an LLM-based entailment oracle bridges the gap through commonsense reasoning.
+
+### Lifted Open-World Reasoning
+
+By operating on lifted (variable-containing) representations rather than grounding over all possible objects, NL-PDDL achieves complexity independent of the domain size -- a critical advantage in open-world settings with potentially unbounded objects.
+
+## Results
+
+### ALFWorld Text
+
+| Method | SR (%) |
+|---|---|
+| ReAct | 71 |
+| Reflexion | 78 |
+| ADaPT | 80 |
+| AutoGuide | 88 |
+| **NL-PDDL (Ours)** | **94** |
+
+### ALFWorld Vision
+
+| Method | SR (%) |
+|---|---|
+| SayCan | 36 |
+| ProgPrompt | 49 |
+| LLM-Planner | 54 |
+| **NL-PDDL (Ours)** | **84** |
+
+### Blocksworld
+
+| Method | SR (%) |
+|---|---|
+| Chain-of-Thought | 34 |
+| Tree-of-Thought | 42 |
+| RAP | 48 |
+| **NL-PDDL (Ours)** | **70** |
+
+## Citation
+
+```bibtex
+@inproceedings{
+liu2026natural,
+title={Natural Language {PDDL} ({NL}-{PDDL}) for Open-world Goal-oriented Commonsense Regression Planning in Embodied {AI}},
+author={Xiaotian Liu and Armin Toroghi and Jiazhou Liang and David Courtis and Ruiwen Li and Ali Pesaranghader and Jaehong Kim and Tanmana Sadhu and Hyejeong Jeon and Scott Sanner},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=kWCNhRdcDI}
+}
+```
+
+## Links
+
+- [Paper (OpenReview)](https://openreview.net/pdf?id=kWCNhRdcDI)
+- [ICLR 2026 Poster](https://iclr.cc/virtual/2026/poster/10007784)
+- [GitHub Repository](https://github.com/D3Mlab/NL-PDDL)

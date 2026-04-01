@@ -1,0 +1,255 @@
+Subgoal S0:
+((is on top of(orange, red)))
+[]
+{}
+--------------------
+Subgoal S1:
+((block  has no block above it(red) ∧ the agent possesses block(orange)))
+[Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red}
+--------------------
+Subgoal S2:
+((block  has no block above it(orange) ∧ block  has no block above it(red) ∧ block  sits directly on the table(orange) ∧ not the agent is holding any objects()))
+[Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange}
+--------------------
+Subgoal S3:
+((the agent possesses block(orange) ∧ the agent possesses block(red)))
+[Action('put down block ?b'([red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V37: red}
+--------------------
+Subgoal S4:
+((block  has no block above it(?V40) ∧ is on top of(?V40, red) ∧ the agent possesses block(orange) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red}
+--------------------
+Subgoal S5:
+((block  has no block above it(orange) ∧ block  has no block above it(red) ∧ is on top of(orange, ?V41) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange}
+--------------------
+Subgoal S6:
+((block  has no block above it(orange) ∧ block  sits directly on the table(orange) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V43: red}
+--------------------
+Subgoal S7:
+((?V46 != orange ∧ block  has no block above it(?V46) ∧ block  has no block above it(orange) ∧ block  sits directly on the table(orange) ∧ is on top of(?V46, red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V46, red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: red}
+--------------------
+Subgoal S8:
+((?V46 != red ∧ block  has no block above it(?V46) ∧ block  has no block above it(red) ∧ block  is directly above block(?V46, orange) ∧ block  sits directly on the table(orange) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V46, orange])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: orange}
+--------------------
+Subgoal S9:
+((block  has no block above it(orange) ∧ is on top of(orange, ?V53) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([orange, ?V53])), Action('put down block ?b'([red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V37: red, ?V52: orange}
+--------------------
+Subgoal S10:
+((?V40 != orange ∧ is on top of(?V40, red) ∧ the agent possesses block(?V40) ∧ the agent possesses block(orange) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V55: ?V40}
+--------------------
+Subgoal S11:
+((?V40 != ?V58 ∧ block  has no block above it(?V58) ∧ is on top of(?V40, red) ∧ is on top of(?V58, ?V40) ∧ the agent possesses block(orange) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V58, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40}
+--------------------
+Subgoal S12:
+((?V40 != orange ∧ block  has no block above it(?V40) ∧ block  has no block above it(orange) ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V59) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([orange, ?V59])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V58: orange}
+--------------------
+Subgoal S13:
+((?V40 != orange ∧ block  has no block above it(orange) ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V40) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([orange, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V58: orange}
+--------------------
+Subgoal S14:
+((?V63 != orange ∧ block  has no block above it(?V63) ∧ block  has no block above it(orange) ∧ is on top of(orange, ?V41) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('stack block ?b1 on block ?b2'([red, ?V63])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V62: red}
+--------------------
+Subgoal S15:
+((?V64 != orange ∧ ?V64 != red ∧ block  has no block above it(?V64) ∧ block  has no block above it(red) ∧ block  is directly above block(?V64, orange) ∧ is on top of(orange, ?V41) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V64, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V65: orange}
+--------------------
+Subgoal S16:
+((block  has no block above it(?V70) ∧ block  is directly above block(?V70, orange) ∧ block  sits directly on the table(orange) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V70, orange])), Action('put down block ?b'([red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V43: red, ?V71: orange}
+--------------------
+Subgoal S17:
+((block  has no block above it(red) ∧ block  is directly above block(red, orange) ∧ block  sits directly on the table(orange) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([red, orange])), Action('put down block ?b'([red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V43: red, ?V70: red, ?V71: orange}
+--------------------
+Subgoal S18:
+((?V46 != orange ∧ block  has no block above it(?V46) ∧ is on top of(?V46, red) ∧ the agent possesses block(orange) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([orange])), Action('unstack block ?b1 from block ?b2'([?V46, red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: red, ?V73: orange}
+--------------------
+Subgoal S19:
+((?V46 != orange ∧ block  has no block above it(orange) ∧ block  sits directly on the table(orange) ∧ is on top of(?V46, red) ∧ the agent possesses block(?V46) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([?V46])), Action('unstack block ?b1 from block ?b2'([?V46, red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: red, ?V73: ?V46}
+--------------------
+Subgoal S20:
+((?V46 != ?V76 ∧ ?V46 != orange ∧ ?V76 != orange ∧ block  has no block above it(?V76) ∧ block  has no block above it(orange) ∧ block  sits directly on the table(orange) ∧ is on top of(?V46, red) ∧ is on top of(?V76, ?V46) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V76, ?V46])), Action('unstack block ?b1 from block ?b2'([?V46, red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: red, ?V77: ?V46}
+--------------------
+Subgoal S21:
+((?V46 != ?V76 ∧ ?V46 != orange ∧ block  has no block above it(?V46) ∧ block  has no block above it(?V76) ∧ block  is directly above block(?V76, orange) ∧ block  sits directly on the table(orange) ∧ is on top of(?V46, red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V76, orange])), Action('unstack block ?b1 from block ?b2'([?V46, red])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: red, ?V77: orange}
+--------------------
+Subgoal S22:
+((?V46 != red ∧ block  has no block above it(?V46) ∧ block  is directly above block(?V46, orange) ∧ block  sits directly on the table(orange) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([red])), Action('unstack block ?b1 from block ?b2'([?V46, orange])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: orange, ?V79: red}
+--------------------
+Subgoal S23:
+((?V46 != red ∧ block  has no block above it(red) ∧ block  is directly above block(?V46, orange) ∧ block  sits directly on the table(orange) ∧ the agent possesses block(?V46) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([?V46])), Action('unstack block ?b1 from block ?b2'([?V46, orange])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: orange, ?V79: ?V46}
+--------------------
+Subgoal S24:
+((?V46 != ?V82 ∧ ?V46 != red ∧ ?V82 != red ∧ block  has no block above it(?V82) ∧ block  has no block above it(red) ∧ block  is directly above block(?V46, orange) ∧ block  sits directly on the table(orange) ∧ is on top of(?V82, ?V46) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V82, ?V46])), Action('unstack block ?b1 from block ?b2'([?V46, orange])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: orange, ?V83: ?V46}
+--------------------
+Subgoal S25:
+((?V46 != ?V82 ∧ ?V46 != red ∧ block  has no block above it(?V46) ∧ block  has no block above it(?V82) ∧ block  is directly above block(?V46, orange) ∧ block  sits directly on the table(orange) ∧ is on top of(?V82, red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V82, red])), Action('unstack block ?b1 from block ?b2'([?V46, orange])), Action('pick up block ?b'([orange])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V36: orange, ?V47: orange, ?V83: red}
+--------------------
+Subgoal S26:
+((block  has no block above it(orange) ∧ block  has no block above it(red) ∧ block  sits directly on the table(red) ∧ is on top of(orange, ?V53) ∧ not the agent is holding any objects()))
+[Action('pick up block ?b'([red])), Action('unstack block ?b1 from block ?b2'([orange, ?V53])), Action('put down block ?b'([red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V37: red, ?V52: orange, ?V84: red}
+--------------------
+Subgoal S27:
+((?V88 != orange ∧ block  has no block above it(?V88) ∧ block  is directly above block(?V88, orange) ∧ is on top of(orange, ?V53) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V88, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V53])), Action('put down block ?b'([red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V37: red, ?V52: orange, ?V89: orange}
+--------------------
+Subgoal S28:
+((block  has no block above it(orange) ∧ block  has no block above it(red) ∧ block  is directly above block(red, ?V89) ∧ is on top of(orange, ?V53) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([red, ?V89])), Action('unstack block ?b1 from block ?b2'([orange, ?V53])), Action('put down block ?b'([red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V37: red, ?V52: orange, ?V88: red}
+--------------------
+Subgoal S29:
+((block  has no block above it(red) ∧ block  is directly above block(red, orange) ∧ is on top of(orange, ?V53) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([red, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V53])), Action('put down block ?b'([red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V37: red, ?V52: orange, ?V88: red, ?V89: orange}
+--------------------
+Subgoal S30:
+((?V40 != orange ∧ block  has no block above it(orange) ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V95) ∧ the agent possesses block(?V40) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([orange, ?V95])), Action('put down block ?b'([?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V55: ?V40, ?V94: orange}
+--------------------
+Subgoal S31:
+((?V40 != ?V58 ∧ ?V58 != orange ∧ block  has no block above it(?V58) ∧ block  has no block above it(orange) ∧ block  sits directly on the table(orange) ∧ is on top of(?V40, red) ∧ is on top of(?V58, ?V40) ∧ not the agent is holding any objects()))
+[Action('pick up block ?b'([orange])), Action('unstack block ?b1 from block ?b2'([?V58, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V96: orange}
+--------------------
+Subgoal S32:
+((?V40 != ?V58 ∧ ?V58 != orange ∧ is on top of(?V40, red) ∧ is on top of(?V58, ?V40) ∧ the agent possesses block(?V58) ∧ the agent possesses block(orange) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([?V58])), Action('unstack block ?b1 from block ?b2'([?V58, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V97: ?V58}
+--------------------
+Subgoal S33:
+((?V40 != ?V100 ∧ ?V40 != ?V58 ∧ ?V58 != ?V100 ∧ block  has no block above it(?V100) ∧ is on top of(?V100, ?V58) ∧ is on top of(?V40, red) ∧ is on top of(?V58, ?V40) ∧ the agent possesses block(orange) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V100, ?V58])), Action('unstack block ?b1 from block ?b2'([?V58, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V101: ?V58}
+--------------------
+Subgoal S34:
+((?V40 != ?V58 ∧ ?V40 != orange ∧ ?V58 != orange ∧ block  has no block above it(?V58) ∧ block  has no block above it(orange) ∧ is on top of(?V40, red) ∧ is on top of(?V58, ?V40) ∧ is on top of(orange, ?V101) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([orange, ?V101])), Action('unstack block ?b1 from block ?b2'([?V58, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V100: orange}
+--------------------
+Subgoal S35:
+((?V40 != ?V58 ∧ ?V40 != orange ∧ ?V58 != orange ∧ block  has no block above it(orange) ∧ is on top of(?V40, red) ∧ is on top of(?V58, ?V40) ∧ is on top of(orange, ?V58) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([orange, ?V58])), Action('unstack block ?b1 from block ?b2'([?V58, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V101: ?V58, ?V100: orange}
+--------------------
+Subgoal S36:
+((?V105 != orange ∧ ?V40 != orange ∧ block  has no block above it(?V105) ∧ block  has no block above it(orange) ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V59) ∧ the agent possesses block(?V40) ∧ not the agent is holding any objects()))
+[Action('stack block ?b1 on block ?b2'([?V40, ?V105])), Action('unstack block ?b1 from block ?b2'([orange, ?V59])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V58: orange, ?V104: ?V40}
+--------------------
+Subgoal S37:
+((?V40 != orange ∧ block  has no block above it(orange) ∧ block  has no block above it(red) ∧ is on top of(orange, ?V59) ∧ the agent possesses block(?V40) ∧ not the agent is holding any objects()))
+[Action('stack block ?b1 on block ?b2'([?V40, red])), Action('unstack block ?b1 from block ?b2'([orange, ?V59])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V58: orange, ?V104: ?V40, ?V105: red}
+--------------------
+Subgoal S38:
+((?V106 != orange ∧ ?V40 != ?V106 ∧ ?V40 != orange ∧ block  has no block above it(?V106) ∧ block  has no block above it(?V40) ∧ block  is directly above block(?V106, orange) ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V59) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V106, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V59])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V58: orange, ?V107: orange}
+--------------------
+Subgoal S39:
+((?V106 != orange ∧ ?V40 != ?V106 ∧ ?V40 != orange ∧ block  has no block above it(?V106) ∧ block  has no block above it(orange) ∧ is on top of(?V106, ?V40) ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V59) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V106, ?V40])), Action('unstack block ?b1 from block ?b2'([orange, ?V59])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V58: orange, ?V107: ?V40}
+--------------------
+Subgoal S40:
+((?V40 != orange ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V40) ∧ the agent possesses block(orange) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V58: orange, ?V109: orange}
+--------------------
+Subgoal S41:
+((?V40 != orange ∧ block  has no block above it(orange) ∧ block  has no block above it(red) ∧ is on top of(orange, ?V40) ∧ the agent possesses block(?V40) ∧ not the agent is holding any objects()))
+[Action('stack block ?b1 on block ?b2'([?V40, red])), Action('unstack block ?b1 from block ?b2'([orange, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V58: orange, ?V110: ?V40, ?V111: red}
+--------------------
+Subgoal S42:
+((?V112 != orange ∧ ?V40 != ?V112 ∧ ?V40 != orange ∧ block  has no block above it(?V112) ∧ block  is directly above block(?V112, orange) ∧ is on top of(?V40, red) ∧ is on top of(orange, ?V40) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V112, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V40])), Action('unstack block ?b1 from block ?b2'([?V40, red])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V41: red, ?V59: ?V40, ?V58: orange, ?V113: orange}
+--------------------
+Subgoal S43:
+((?V63 != orange ∧ ?V63 != red ∧ block  has no block above it(orange) ∧ is on top of(orange, ?V41) ∧ the agent possesses block(?V63) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([?V63])), Action('stack block ?b1 on block ?b2'([red, ?V63])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V62: red, ?V115: ?V63}
+--------------------
+Subgoal S44:
+((?V118 != orange ∧ ?V63 != ?V118 ∧ ?V63 != orange ∧ block  has no block above it(?V118) ∧ block  has no block above it(?V63) ∧ block  is directly above block(?V118, orange) ∧ is on top of(orange, ?V41) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V118, orange])), Action('stack block ?b1 on block ?b2'([red, ?V63])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V62: red, ?V119: orange}
+--------------------
+Subgoal S45:
+((?V118 != orange ∧ ?V63 != orange ∧ block  has no block above it(?V118) ∧ block  has no block above it(orange) ∧ is on top of(?V118, ?V63) ∧ is on top of(orange, ?V41) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V118, ?V63])), Action('stack block ?b1 on block ?b2'([red, ?V63])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V62: red, ?V119: ?V63}
+--------------------
+Subgoal S46:
+((?V63 != orange ∧ ?V63 != red ∧ block  has no block above it(?V63) ∧ block  has no block above it(red) ∧ block  is directly above block(red, orange) ∧ is on top of(orange, ?V41) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([red, orange])), Action('stack block ?b1 on block ?b2'([red, ?V63])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V62: red, ?V118: red, ?V119: orange}
+--------------------
+Subgoal S47:
+((?V64 != orange ∧ ?V64 != red ∧ block  has no block above it(?V64) ∧ block  is directly above block(?V64, orange) ∧ is on top of(orange, ?V41) ∧ the agent possesses block(red) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([red])), Action('unstack block ?b1 from block ?b2'([?V64, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V65: orange, ?V121: red}
+--------------------
+Subgoal S48:
+((?V64 != orange ∧ ?V64 != red ∧ block  has no block above it(red) ∧ block  is directly above block(?V64, orange) ∧ is on top of(orange, ?V41) ∧ the agent possesses block(?V64) ∧ not the agent is holding any objects()))
+[Action('put down block ?b'([?V64])), Action('unstack block ?b1 from block ?b2'([?V64, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V65: orange, ?V121: ?V64}
+--------------------
+Subgoal S49:
+((?V124 != orange ∧ ?V124 != red ∧ ?V64 != ?V124 ∧ ?V64 != orange ∧ ?V64 != red ∧ block  has no block above it(?V124) ∧ block  has no block above it(red) ∧ block  is directly above block(?V64, orange) ∧ is on top of(?V124, ?V64) ∧ is on top of(orange, ?V41) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V124, ?V64])), Action('unstack block ?b1 from block ?b2'([?V64, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V65: orange, ?V125: ?V64}
+--------------------
+Subgoal S50:
+((?V124 != orange ∧ ?V64 != ?V124 ∧ ?V64 != orange ∧ ?V64 != red ∧ block  has no block above it(?V124) ∧ block  has no block above it(?V64) ∧ block  is directly above block(?V64, orange) ∧ is on top of(?V124, red) ∧ is on top of(orange, ?V41) ∧ not the agent is holding any objects()))
+[Action('unstack block ?b1 from block ?b2'([?V124, red])), Action('unstack block ?b1 from block ?b2'([?V64, orange])), Action('unstack block ?b1 from block ?b2'([orange, ?V41])), Action('stack block ?b1 on block ?b2'([orange, red]))]
+{?V32: orange, ?V33: red, ?V40: orange, ?V65: orange, ?V125: red}
+--------------------

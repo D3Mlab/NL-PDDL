@@ -1,0 +1,59 @@
+go to obj 1
+Precondition: None (the agent can move to any object).
+Effect: After execution, the agent is located at obj 1.
+
+open obj 1
+Precondition: The agent must be at obj 1.
+Effect: obj 1 door is then opened.
+
+close obj 1
+Precondition: The agent must be at obj 1.
+Effect: obj 1  door is then shut close.
+
+take obj 1 from obj 1
+Precondition:
+
+The agent must be at the obj 1.
+
+The agent’s hand must be empty.
+
+Effect: The agent is in posessing of target obj 1.
+
+put obj 1 in/on obj 1
+Precondition:
+
+The agent must be at the receiving/supporting obj 1.
+
+The agent must be holding the object to be placed.
+Effect: The held object is stored inside of the receiving obj 1. The agent’s hand no longer holds any object.
+
+clean obj 1 with obj 1
+Precondition:
+
+The agent must be at obj 1. The agent is in posessing of obj 1.
+
+The agent must be holding a washing tool or object.
+Effect: The target obj 1 becomes washed.
+
+heat obj 1 with obj 1
+Precondition:
+
+The agent must be at obj 1. The agent is in posessing of obj 1.
+
+The heating appliance/tool must be usable.
+Effect: The target obj 1 becomes baked.
+
+cool obj 1 with obj 1
+Precondition:
+
+The agent must be at obj 1. The agent is in posessing of obj 1.
+
+Effect: The target obj 1 becomes chilled.
+
+turn on obj 1
+Precondition: The agent must be at obj 1. The agent is in posessing of obj 1.
+Effect: obj 1 is turned on.
+
+turn off obj 1
+Precondition: The agent must be at obj 1. The agent is in posessing of obj 1.
+Effect: obj 1 is turned off.

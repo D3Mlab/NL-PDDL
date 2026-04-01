@@ -1,0 +1,372 @@
+[
+   {
+      "Predicate": [
+         [
+            "the agent's hand is empty",
+            {}
+         ],
+         [
+            "?o is inside ?r",
+            {
+               "?o": "object",
+               "?r": "object"
+            }
+         ],
+         [
+            "?r can heat ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ],
+         [
+            "?o is hot",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "?r can wash ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ],
+         [
+            "?o is clean",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "?r can chill ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ],
+         [
+            "?o is cool",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "the agent is holding ?o",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "?r can light ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ],
+         [
+            "?r is turned on",
+            {
+               "?r": "object"
+            }
+         ],
+         [
+            "?r is a washing device",
+            {
+               "?r": "object"
+            }
+         ],
+         [
+            "?r is a heating device",
+            {
+               "?r": "object"
+            }
+         ],
+         [
+            "?r is a chilling device",
+            {
+               "?r": "object"
+            }
+         ],
+         [
+            "?r is a lighting device",
+            {
+               "?r": "object"
+            }
+         ],
+         [
+            "?o is under light ?r",
+            {
+               "?o": "object",
+               "?r": "object"
+            }
+         ],
+         [
+            "the agent is holding ?o",
+            {
+               "?o": "object"
+            }
+         ]
+      ]
+   },
+   {
+      "Action": "Pickup",
+      "Action name": [
+         "pick up ?o",
+         {
+            "?o": "object"
+         }
+      ],
+      "Parameters": {
+         "?o": "object"
+      },
+      "Preconditions": [
+         [
+            "the agent's hand is empty",
+            {}
+         ]
+      ],
+      "Effects": {
+         "Positive": [
+            [
+               "the agent is holding ?o",
+               {
+                  "?o": "object"
+               }
+            ]
+         ],
+         "Negative": [
+            [
+               "the agent's hand is empty",
+               {}
+            ]
+         ]
+      }
+   },
+   {
+      "Action": "PutIn",
+      "Action name": [
+         "put ?o into ?r",
+         {
+            "?o": "object",
+            "?r": "object"
+         }
+      ],
+      "Parameters": {
+         "?o": "object",
+         "?r": "object"
+      },
+      "Preconditions": [
+         [
+            "the agent is holding ?o",
+            {
+               "?o": "object"
+            }
+         ]
+      ],
+      "Effects": {
+         "Positive": [
+            [
+               "?o is inside ?r",
+               {
+                  "?o": "object",
+                  "?r": "object"
+               }
+            ],
+            [
+               "the agent's hand is empty",
+               {}
+            ]
+         ],
+         "Negative": [
+            [
+               "the agent is holding ?o",
+               {
+                  "?o": "object"
+               }
+            ]
+         ]
+      }
+   },
+   {
+      "Action": "Heat",
+      "Action name": [
+         "heat ?o using ?r",
+         {
+            "?o": "object",
+            "?r": "object"
+         }
+      ],
+      "Parameters": {
+         "?o": "object",
+         "?r": "object"
+      },
+      "Preconditions": [
+         [
+            "?r can heat ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ],
+         [
+            "the agent is holding ?o",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "?r is a heating device",
+            {
+               "?r": "object"
+            }
+         ]
+      ],
+      "Effects": {
+         "Positive": [
+            [
+               "?o is hot",
+               {
+                  "?o": "object"
+               }
+            ]
+         ]
+      }
+   },
+   {
+      "Action": "Wash",
+      "Action name": [
+         "wash ?o using ?r",
+         {
+            "?o": "object",
+            "?r": "object"
+         }
+      ],
+      "Parameters": {
+         "?o": "object",
+         "?r": "object"
+      },
+      "Preconditions": [
+         [
+            "?r can wash ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ],
+         [
+            "the agent is holding ?o",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "?r is a washing device",
+            {
+               "?r": "object"
+            }
+         ]
+      ],
+      "Effects": {
+         "Positive": [
+            [
+               "?o is clean",
+               {
+                  "?o": "object"
+               }
+            ]
+         ]
+      }
+   },
+   {
+      "Action": "Chill",
+      "Action name": [
+         "chill ?o using ?r",
+         {
+            "?o": "object",
+            "?r": "object"
+         }
+      ],
+      "Parameters": {
+         "?o": "object",
+         "?r": "object"
+      },
+      "Preconditions": [
+         [
+            "?r can chill ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ],
+         [
+            "the agent is holding ?o",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "?r is a chilling device",
+            {
+               "?r": "object"
+            }
+         ]
+      ],
+      "Effects": {
+         "Positive": [
+            [
+               "?o is cool",
+               {
+                  "?o": "object"
+               }
+            ]
+         ]
+      }
+   },
+   {
+      "Action": "Light",
+      "Action name": [
+         "light ?o using ?r",
+         {
+            "?r": "object",
+            "?o": "object"
+         }
+      ],
+      "Parameters": {
+         "?r": "object",
+         "?o": "object"
+      },
+      "Preconditions": [
+         [
+            "the agent is holding ?o",
+            {
+               "?o": "object"
+            }
+         ],
+         [
+            "?r is a lighting device",
+            {
+               "?r": "object"
+            }
+         ],
+         [
+            "?r can light ?o",
+            {
+               "?r": "object",
+               "?o": "object"
+            }
+         ]
+      ],
+      "Effects": {
+         "Positive": [
+            [
+               "?o is under light ?r",
+               {
+                  "?o": "object",
+                  "?r": "object"
+               }
+            ]
+         ]
+      }
+   }
+]
