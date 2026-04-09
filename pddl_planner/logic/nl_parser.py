@@ -4,19 +4,55 @@ from pddl_planner.logic.nl_formula import NLPredicate
 
 # Parser class to convert NL to logic fromulas
 class NLParser():
+    def _validate_predicate_structure(self, NL_predicate) -> None:
+        """Validate the structure of a NL predicate input and raise helpful errors."""
+        if not isinstance(NL_predicate, (tuple, list)):
+            raise TypeError(
+                f"NL predicate must be a tuple or list, got {type(NL_predicate).__name__}: {NL_predicate!r}. "
+                f"Expected format: (\"predicate text\", {{\"?var\": \"type\", ...}})"
+            )
+        if len(NL_predicate) != 2:
+            raise ValueError(
+                f"NL predicate must have exactly 2 elements (predicate_text, type_tags_dict), "
+                f"got {len(NL_predicate)} element(s): {NL_predicate!r}"
+            )
+        if not isinstance(NL_predicate[0], str):
+            raise TypeError(
+                f"First element of NL predicate must be a string (the predicate text), "
+                f"got {type(NL_predicate[0]).__name__}: {NL_predicate[0]!r}"
+            )
+        if not isinstance(NL_predicate[1], dict):
+            raise TypeError(
+                f"Second element of NL predicate must be a dict (type tags), "
+                f"got {type(NL_predicate[1]).__name__}: {NL_predicate[1]!r}. "
+                f"Expected format: {{\"?var\": \"type\", ...}} or {{}} for no variables"
+            )
+        for key, value in NL_predicate[1].items():
+            if not isinstance(key, str):
+                raise TypeError(
+                    f"Type tag keys must be strings (term names), got {type(key).__name__}: {key!r} "
+                    f"in predicate \"{NL_predicate[0]}\""
+                )
+            if not isinstance(value, str):
+                raise TypeError(
+                    f"Type tag values must be strings (type names), got {type(value).__name__}: {value!r} "
+                    f"for term \"{key}\" in predicate \"{NL_predicate[0]}\""
+                )
+
     def parse_predicate(self, NL_predicate: tuple[str, Dict[str, str]]) -> NLPredicate:
         """
         Parses a NL predicate into a logic predicate. Example of NL predicate: "("goal_obj is an tomato", {"goal_obj": "object"})"
-        
+
         This method extracts the name and terms from a NL predicate and creates a corresponding
         logic predicate. The predicate may be marked as negated based on the is_neg flag.
-        
+
         Args:
             NL_predicate (str): The NL predicate to be parsed.
-        
+
         Returns:
             Predicate: The logic predicate corresponding to the NL predicate.
         """
+        self._validate_predicate_structure(NL_predicate)
         # check if the predicate is negated by looking for "not" in the predicate (ingore the case)
         if "not" in NL_predicate[0].lower():
             is_neg = True

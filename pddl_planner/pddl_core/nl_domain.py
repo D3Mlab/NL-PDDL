@@ -1,14 +1,27 @@
-from calendar import c
+from difflib import get_close_matches
 from typing import List, Dict, Any
 from pddl_planner.pddl_core.action import Action
 from pddl_planner.logic.nl_parser import NLParser
 from pddl_planner.logic.formula import Predicate, Formula
 from pddl_planner.pddl_core.domain import Domain
 
+# Valid keys for each entry type in the domain JSON
+_VALID_PREDICATE_ENTRY_KEYS = {"Predicate"}
+_VALID_ACTION_ENTRY_KEYS = {"Action", "Action name", "Parameters", "Preconditions", "Effects"}
+_REQUIRED_ACTION_KEYS = {"Action", "Action name", "Parameters", "Preconditions", "Effects"}
+_VALID_EFFECTS_KEYS = {"Positive", "Negative"}
+
+def _suggest_correction(invalid_key: str, valid_keys: set) -> str:
+    """Return a suggestion string if a close match is found for the invalid key."""
+    matches = get_close_matches(invalid_key, valid_keys, n=1, cutoff=0.5)
+    if matches:
+        return f" Did you mean \"{matches[0]}\"?"
+    return f" Valid keys are: {sorted(valid_keys)}"
+
 class NLDomain(Domain):
     """
     A Domain represents a NL domain and provides parsed actions, predicates and types.
-    
+
     Attributes:
         _ppdl_domain (Any): The parsed PDDL domain object.
         _parser (Parser): The parser used to convert PDDL elements into logic representations.
@@ -17,24 +30,100 @@ class NLDomain(Domain):
         _types (Dict[str, List[str]]): The mapping of types as returned by the PDDL parser.
             (Keys are type names; values are lists of supertypes for that type.)
     """
-    
+
     def __init__(self, nl_domain: dict) -> None:
         """
         Initialize the Domain with its NL representation provided in a json file and loaded into a dictionary.
-        
+
         Args:
             nl_domain (dict): The NL domain object loaded from a json file.
         """
+        if not isinstance(nl_domain, list):
+            raise TypeError(
+                f"NL domain must be a list of dicts, got {type(nl_domain).__name__}. "
+                f"Expected format: [{{\"Predicate\": [...]}}, {{\"Action\": ..., ...}}, ...]"
+            )
         self._nl_domain = nl_domain
         self._parser = NLParser()
+        self._validate_domain_entries()
         self._predicates = self._parse_predicates()
         self._types = self._parse_types()
         self._actions = self._parse_actions()
     
+    def _validate_domain_entries(self) -> None:
+        """Validate all entries in the domain list have recognized keys."""
+        for i, entry in enumerate(self._nl_domain):
+            if not isinstance(entry, dict):
+                raise TypeError(
+                    f"Domain entry at index {i} must be a dict, got {type(entry).__name__}: {entry!r}"
+                )
+            keys = set(entry.keys())
+            is_predicate_entry = "Predicate" in keys
+            is_action_entry = "Action" in keys
+
+            if not is_predicate_entry and not is_action_entry:
+                # Try to detect misspelled "Predicate" or "Action"
+                all_known = _VALID_PREDICATE_ENTRY_KEYS | _VALID_ACTION_ENTRY_KEYS
+                suggestions = []
+                for key in keys:
+                    hint = _suggest_correction(key, all_known)
+                    suggestions.append(f"  - \"{key}\"{hint}")
+                raise ValueError(
+                    f"Domain entry at index {i} has no recognized entry type key "
+                    f"(expected \"Predicate\" or \"Action\").\n"
+                    f"Found keys:\n" + "\n".join(suggestions)
+                )
+
+            if is_predicate_entry:
+                unexpected = keys - _VALID_PREDICATE_ENTRY_KEYS
+                if unexpected:
+                    hints = [f"  - \"{k}\"{_suggest_correction(k, _VALID_ACTION_ENTRY_KEYS)}" for k in unexpected]
+                    raise ValueError(
+                        f"Predicate entry at index {i} has unexpected key(s):\n" +
+                        "\n".join(hints) +
+                        f"\nPredicate entries should only contain the key \"Predicate\"."
+                    )
+
+            if is_action_entry:
+                # Check for unexpected keys
+                unexpected = keys - _VALID_ACTION_ENTRY_KEYS
+                if unexpected:
+                    hints = [f"  - \"{k}\"{_suggest_correction(k, _VALID_ACTION_ENTRY_KEYS)}" for k in unexpected]
+                    action_label = entry.get("Action", f"(index {i})")
+                    raise ValueError(
+                        f"Action \"{action_label}\" has unexpected key(s):\n" +
+                        "\n".join(hints)
+                    )
+                # Check for missing required keys
+                missing = _REQUIRED_ACTION_KEYS - keys
+                if missing:
+                    action_label = entry.get("Action", f"(index {i})")
+                    raise ValueError(
+                        f"Action \"{action_label}\" is missing required key(s): {sorted(missing)}. "
+                        f"Required keys are: {sorted(_REQUIRED_ACTION_KEYS)}"
+                    )
+                # Validate Effects sub-keys
+                effects = entry["Effects"]
+                if not isinstance(effects, dict):
+                    action_label = entry.get("Action", f"(index {i})")
+                    raise TypeError(
+                        f"\"Effects\" in action \"{action_label}\" must be a dict with "
+                        f"\"Positive\" and/or \"Negative\" keys, got {type(effects).__name__}"
+                    )
+                unexpected_effects = set(effects.keys()) - _VALID_EFFECTS_KEYS
+                if unexpected_effects:
+                    action_label = entry.get("Action", f"(index {i})")
+                    hints = [f"  - \"{k}\"{_suggest_correction(k, _VALID_EFFECTS_KEYS)}" for k in unexpected_effects]
+                    raise ValueError(
+                        f"\"Effects\" in action \"{action_label}\" has unexpected key(s):\n" +
+                        "\n".join(hints) +
+                        f"\nValid keys are: {sorted(_VALID_EFFECTS_KEYS)}"
+                    )
+
     def _parse_actions(self) -> List[Action]:
         """
         Parse and construct the list of actions in the domain.
-        
+
         Returns:
             List[Action]: The actions parsed from the PDDL domain.
         """

@@ -1,6 +1,17 @@
-# Natural Language PDDL (NL-PDDL): Open-World Goal-Oriented Commonsense Regression Planning for Embodied AI
+<h1 align="center">Natural Language PDDL (NL-PDDL)</h1>
+<h3 align="center">Open-World Goal-Oriented Commonsense Regression Planning for Embodied AI</h3>
 
-This repository contains the implementation of our ICLR 2026 paper: [Natural Language PDDL (NL-PDDL) for Open-world Goal-oriented Commonsense Regression Planning in Embodied AI](https://openreview.net/pdf?id=kWCNhRdcDI).
+<p align="center">
+  <a href="https://d3mlab.github.io/NL-PDDL/"><img src="https://img.shields.io/badge/Project-Website-blue?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Website"></a>
+  <a href="https://openreview.net/pdf?id=kWCNhRdcDI"><img src="https://img.shields.io/badge/Paper-ICLR%202026-red?style=for-the-badge&logo=arxiv&logoColor=white" alt="Paper"></a>
+  <a href="https://github.com/D3Mlab/NL-PDDL"><img src="https://img.shields.io/github/stars/D3Mlab/NL-PDDL?style=for-the-badge&logo=github" alt="Stars"></a>
+</p>
+
+<p align="center">
+  <img src="examples/images/nl-pddl-v3.png" alt="NL-PDDL Overview" width="100%">
+</p>
+
+This repository contains the implementation of our **ICLR 2026** paper: [Natural Language PDDL (NL-PDDL) for Open-world Goal-oriented Commonsense Regression Planning in Embodied AI](https://openreview.net/pdf?id=kWCNhRdcDI).
 
 ## Abstract
 Planning in open-world environments, where agents must act with partially observed states and incomplete knowledge, is a central challenge in embodied AI. Open-world planning involves not only sequencing actions but also determining what information the agent needs to sense to enable those actions. Existing approaches using Large Language Models (LLM) and Vision-Language Models (VLM) cannot reliably plan over long horizons and complex goals, where they often hallucinate and fail to reason causally over agent-environment interactions. Alternatively, classical PDDL planners offer correct and principled reasoning, but fail in open-world settings: they presuppose complete models and depend on exhaustive grounding over all objects, states, and actions; they cannot address misalignment between goal specifications (e.g., 'heat the bread') and action specifications (e.g., 'toast the bread'); and they do not generalize across modalities. To address these challenges, we contribute the following: (i) we extend symbolic PDDL into a flexible natural language representation that we term NL-PDDL, improving accessibility for non-expert users as well as generalization over modalities; (ii) we generalize regression-style planning to NL-PDDL with commonsense entailment reasoning to determine what needs to be observed for goal achievement in partially-observed environments with potential goal-action specification misalignment; and
