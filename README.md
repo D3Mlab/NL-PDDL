@@ -14,8 +14,96 @@
 This repository contains the implementation of our **ICLR 2026** paper: [Natural Language PDDL (NL-PDDL) for Open-world Goal-oriented Commonsense Regression Planning in Embodied AI](https://openreview.net/pdf?id=kWCNhRdcDI).
 
 ## Abstract
+<details>
+<summary> (click to expand)</summary>
+
 Planning in open-world environments, where agents must act with partially observed states and incomplete knowledge, is a central challenge in embodied AI. Open-world planning involves not only sequencing actions but also determining what information the agent needs to sense to enable those actions. Existing approaches using Large Language Models (LLM) and Vision-Language Models (VLM) cannot reliably plan over long horizons and complex goals, where they often hallucinate and fail to reason causally over agent-environment interactions. Alternatively, classical PDDL planners offer correct and principled reasoning, but fail in open-world settings: they presuppose complete models and depend on exhaustive grounding over all objects, states, and actions; they cannot address misalignment between goal specifications (e.g., 'heat the bread') and action specifications (e.g., 'toast the bread'); and they do not generalize across modalities. To address these challenges, we contribute the following: (i) we extend symbolic PDDL into a flexible natural language representation that we term NL-PDDL, improving accessibility for non-expert users as well as generalization over modalities; (ii) we generalize regression-style planning to NL-PDDL with commonsense entailment reasoning to determine what needs to be observed for goal achievement in partially-observed environments with potential goal-action specification misalignment; and
 (iii) we leverage the lifted specification of NL-PDDL to facilitate open-world reasoning that avoids exhaustive grounding and yields a time and space complexity independent of the number of ground objects, states, and actions. Our experiments in three diverse domains --- classical Blocksworld and the embodied ALFWorld environment with both textual and visual states --- show that NL-PDDL substantially outperforms existing baselines, is more robust to longer horizons and more complex goals, and generalizes across modalities.
+
+</details>
+
+## Quick start
+
+Try NL-PDDL without any local setup, or follow the full interactive walkthrough:
+
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/13erVzvyZ6XU9dEfGliUU7xdNfd-m87Az?usp=sharing) &nbsp; **[Blockworld tutorial — Colab notebook](https://colab.research.google.com/drive/13erVzvyZ6XU9dEfGliUU7xdNfd-m87Az?usp=sharing)** — run the end-to-end misaligned-Blockworld tutorial (clone, install, LLM entailment, plan viewer) directly in your browser.
+- **[HTML tutorial](https://d3mlab.github.io/NL-PDDL/tutorial.html)** — the same walkthrough rendered on the project site, with a Colab link at the top of the page.
+
+### Local install
+
+```bash
+# 1) Create a dedicated Python environment (optional but recommended)
+python3 -m venv nl_pddl
+source nl_pddl/bin/activate
+python -m pip install --upgrade pip
+
+# 2) Clone and install
+git clone https://github.com/D3Mlab/NL-PDDL.git
+cd NL-PDDL
+pip install -e .
+
+# 3) LLM API key (required only for datasets with misalignment)
+export OPENAI_API_KEY="your api key"
+```
+
+### Option 1: Unified runner (single script) (For Text input Dataset Only)
+
+Run any supported dataset with one script and configurable depth/time limits using `pddl_planner/tests/run_unified.py`.
+
+```bash
+python pddl_planner/tests/run_unified.py --dataset blockworld --max_depth 12 --max_time 120 --limit 3
+```
+
+Arguments
+
+- **--dataset**: Which dataset to run. Choices:
+  - `alfworld_text`
+  - `alfworld_text_with_misalignment`
+  - `blockworld`
+  - `misalignment_blockworld`
+  - `mystery_blockworld`
+  - `randomized_blockworld`
+
+- **--max_depth**: Maximum regression depth. Higher explores more but takes longer. Default: `10`.
+- **--max_time**: Per-problem time limit in seconds; `None` for no limit. Default: `None`.
+- **--limit**: Number of problems from the dataset to run (starting from index 0). Default: `1`.
+
+Outputs
+
+- **Results**: `pddl_planner/tests/results/{result_prefix}_results_depth{max_depth}/{result_prefix}_results_{i}.txt`
+- **Logs**: `pddl_planner/tests/logs/{result_prefix}_results_depth{max_depth}/{result_prefix}_results_depth{max_depth}_{i}.txt`
+- **LLM cache**: Auto-created under `pddl_planner/tests/llm_cache/` (per dataset) to speed up repeated runs.
+
+Examples
+
+- Blockworld, 12 depth in plan, time-capped, 3 problems:
+```bash
+python pddl_planner/tests/run_unified.py --dataset blockworld --max_depth 12 --max_time 120 --limit 3
+```
+
+- ALFWorld text default time, 1 problem:
+```bash
+python pddl_planner/tests/run_unified.py --dataset alfworld_text --max_depth 10 --limit 1
+```
+
+### Option 2: Script for each dataset
+
+```bash
+# 3) Generating Regressed Plan for the Text Based Dataset or ALFWorld Text, Blockworlds, and its variants
+
+# Closed World Task
+python scripts/run_blocksworld.py # Blocksworld
+python scripts/run_misalignment_blockworld.py # Misalignment Blocksworld
+python pddl_planner/tests/run_mystery_blockworld.py # Mystery Blocksworld
+python pddl_planner/tests/run_randomized_blockworld.py # Randomize Blocksworld
+
+# Open World Task
+python scripts/run_alfworld_text.py  # ALFWorld Text 
+python scripts/run_alfworld_text_with_misalignment.py # ALFWorld Text with Misalignment
+python validator/alfworld_exp/run_alfworld_VLM.py  #ALFWorld Vision without/with Misalignment with Validation (Require additional setup for the Visiual Enviorment specified in validator/alfworld_exp/README.md) 
+
+```
+
 
 ---
 ## Table of Contents
@@ -117,82 +205,6 @@ pddl_solver/
 │   ├── block_test_repo           # Validator for Blockworlds
 │
 └── README.md                     # This file
-```
-
-## Quick start
-
-Scripts are included to run the NL-PDDL on three different planning tasks and their variants: ALFWorld Vision, ALFWorld Text, and Blockworld.
-
-```bash
-# 1) Create a dedicated Python environment for this project (optional but recommended).
-
-python3 -m venv nl_pddl
-source nl_pddl/bin/activate
-python -m pip install --upgrade pip
-
-# 2) Install
-pip install -e .
-
-# 3) LLM API KEY (Optional for dataset without misalignment)
-export OPENAI_API_KEY="your api key"
-```
-### Option 1: Unified runner (single script) (For Text input Dataset Only)
-
-Run any supported dataset with one script and configurable depth/time limits using `pddl_planner/tests/run_unified.py`.
-
-```bash
-# 3) Regressed Plan using NL-PDDL
-python pddl_planner/tests/run_unified.py --dataset blockworld --max_depth 12 --max_time 120 --limit 3
-```
-
-Arguments
-
-- **--dataset**: Which dataset to run. Choices:
-  - `alfworld_text`
-  - `alfworld_text_with_misalignment`
-  - `blockworld`
-  - `misalignment_blockworld`
-  - `mystery_blockworld`
-  - `randomized_blockworld`
-
-- **--max_depth**: Maximum regression depth. Higher explores more but takes longer. Default: `10`.
-- **--max_time**: Per-problem time limit in seconds; `None` for no limit. Default: `None`.
-- **--limit**: Number of problems from the dataset to run (starting from index 0). Default: `1`.
-
-Outputs
-
-- **Results**: `pddl_planner/tests/results/{result_prefix}_results_depth{max_depth}/{result_prefix}_results_{i}.txt`
-- **Logs**: `pddl_planner/tests/logs/{result_prefix}_results_depth{max_depth}/{result_prefix}_results_depth{max_depth}_{i}.txt`
-- **LLM cache**: Auto-created under `pddl_planner/tests/llm_cache/` (per dataset) to speed up repeated runs.
-
-Examples
-
-- Blockworld, 12 depth in plan, time-capped, 3 problems:
-```bash
-python pddl_planner/tests/run_unified.py --dataset blockworld --max_depth 12 --max_time 120 --limit 3
-```
-
-- ALFWorld text default time, 1 problem:
-```bash
-python pddl_planner/tests/run_unified.py --dataset alfworld_text --max_depth 10 --limit 1
-```
-
-### Option 2: Script for each dataset
-
-```bash
-# 3) Generating Regressed Plan for the Text Based Dataset or ALFWorld Text, Blockworlds, and its variants
-
-# Closed World Task
-python scripts/run_blocksworld.py # Blocksworld
-python scripts/run_misalignment_blockworld.py # Misalignment Blocksworld
-python pddl_planner/tests/run_mystery_blockworld.py # Mystery Blocksworld
-python pddl_planner/tests/run_randomized_blockworld.py # Randomize Blocksworld
-
-# Open World Task
-python scripts/run_alfworld_text.py  # ALFWorld Text 
-python scripts/run_alfworld_text_with_misalignment.py # ALFWorld Text with Misalignment
-python validator/alfworld_exp/run_alfworld_VLM.py  #ALFWorld Vision without/with Misalignment with Validation (Require additional setup for the Visiual Enviorment specified in validator/alfworld_exp/README.md) 
-
 ```
 
 ## Blockworld Validation Suite (Required a Linux System)

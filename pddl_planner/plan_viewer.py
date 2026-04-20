@@ -529,8 +529,12 @@ function updateTree(source) {
     const leafCount = visibleNodes.filter(d => !(d.children && d.children.length) && !(d._children && d._children.length)).length || 1;
     const dynamicH = Math.max(h - 40, leafCount * 55);
     const maxDepth = d3.max(visibleNodes, d => d.depth) || 1;
-    const treeLayout = d3.tree().size([dynamicH, maxDepth * 260]).separation((a, b) => a.parent === b.parent ? 1 : 1.6);
+    const totalY = maxDepth * 260;
+    const treeLayout = d3.tree().size([dynamicH, totalY]).separation((a, b) => a.parent === b.parent ? 1 : 1.6);
     treeLayout(root);
+    // Reverse horizontal axis so time flows left-to-right:
+    // deeper subgoals on the left, final goal (root) on the right.
+    root.descendants().forEach(d => { d.y = totalY - d.y; });
 
     // --- Links ---
     const linkData = root.links().filter(l => l.target.data.id <= maxIter);
