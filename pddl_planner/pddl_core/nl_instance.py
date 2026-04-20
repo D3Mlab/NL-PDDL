@@ -1,3 +1,4 @@
+import copy
 import logging
 from pddl_planner.logic.nl_parser import NLParser
 from pddl_planner.pddl_core.nl_domain import NLDomain
@@ -8,6 +9,9 @@ logger = logging.getLogger("pddl_planner.domain")
 
 class NLInstance():
     def __init__(self, nl_problem: List[tuple], nl_init: List[tuple]|None, domain: NLDomain):
+        # Defensive deep copies so parsing/mutation cannot leak back into the caller's input.
+        nl_problem = copy.deepcopy(nl_problem)
+        nl_init = copy.deepcopy(nl_init) if nl_init is not None else None
         self._domain = domain
         self._parser = NLParser()
         self._predicates = None

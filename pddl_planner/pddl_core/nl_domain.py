@@ -1,3 +1,4 @@
+import copy
 from difflib import get_close_matches
 from typing import List, Dict, Any
 from pddl_planner.pddl_core.action import Action
@@ -43,7 +44,8 @@ class NLDomain(Domain):
                 f"NL domain must be a list of dicts, got {type(nl_domain).__name__}. "
                 f"Expected format: [{{\"Predicate\": [...]}}, {{\"Action\": ..., ...}}, ...]"
             )
-        self._nl_domain = nl_domain
+        # Defensive deep copy so parsing/mutation cannot leak back into the caller's input.
+        self._nl_domain = copy.deepcopy(nl_domain)
         self._parser = NLParser()
         self._validate_domain_entries()
         self._predicates = self._parse_predicates()
