@@ -18,23 +18,65 @@ logger = logging.getLogger("pddl_planner.llm")
 class LLM:
     """
     A class to intilize and interact with the LLM for various task in the regression planner.
+
+    Two backends are supported:
+        * ``"openai"`` (default) — the hosted OpenAI chat completions API.
+        * ``"gemma"`` — a locally hosted Google Gemma instruction-tuned model via
+          :class:`pddl_planner.llm.gemma_llm.GemmaLLM`, which transparently exposes
+          an OpenAI-compatible ``chat.completions.create`` surface so the rest of
+          this class does not need to branch on backend.
+
+    Backend selection is either explicit (``backend="gemma"``) or auto-detected
+    from ``model_name`` (anything starting with ``"gemma"`` or
+    ``"google/gemma"`` routes to the local Gemma backend).
     """
 
-    def __init__(self, model_name: str, api_key: str, cache_path: str|None ='cache.json', verbose: bool = True):
+    def __init__(self, model_name: str, api_key: str|None = None, cache_path: str|None ='cache.json', verbose: bool = True,
+                  backend: str|None = None, backend_options: dict|None = None):
         """
         Initialize the LLM.
 
         Args:
-            model_name (str): The name of the model to use.
-            api_key (str): The API key to use.
+            model_name (str): The name of the model to use. For the Gemma
+                backend this is either a size token (``"1b"``, ``"4b"``,
+                ``"12b"``, ``"27b"``), a generation-qualified name
+                (``"gemma-3-4b"``), or a full Hugging Face repo id
+                (``"google/gemma-3-4b-it"``).
+            api_key (str|None): The API key for the OpenAI backend. Ignored
+                when the Gemma backend is selected.
             cache_path (str|None): The path to the cache file.
+            verbose (bool): Passthrough verbosity flag for call-site logging.
+            backend (str|None): ``"openai"`` or ``"gemma"``. When ``None``,
+                the backend is inferred from ``model_name``.
+            backend_options (dict|None): Extra keyword arguments forwarded to
+                the selected backend's constructor. For ``"gemma"`` this
+                accepts e.g. ``device``, ``dtype``, ``max_new_tokens``,
+                ``hf_token``, ``cache_dir`` — see
+                :class:`pddl_planner.llm.gemma_llm.GemmaLLM`.
         """
         self.model_name = model_name
         self._api_key = api_key
         self._cache_path = cache_path
         self._cache = self._load_cache()
-        self.client = openai.OpenAI(api_key=api_key)
+        self.backend = (backend or self._detect_backend(model_name)).lower()
+        if self.backend not in {"openai", "gemma"}:
+            raise ValueError(
+                f"Unsupported LLM backend {backend!r}. Expected 'openai' or 'gemma'."
+            )
+        backend_options = dict(backend_options or {})
+        if self.backend == "gemma":
+            # Lazy import so users on the OpenAI backend don't pay the
+            # torch/transformers import cost.
+            from pddl_planner.llm.gemma_llm import GemmaLLM
+            logger.info("Initializing local Gemma backend for model %r", model_name)
+            self.client = GemmaLLM(model_size=model_name, **backend_options)
+        else:
+            self.client = openai.OpenAI(api_key=api_key, **backend_options)
         self._n_iter = 5 # number of iterations for the entailment check for self consistency check
+        # Local Gemma backend returns deterministic-ish output already; running
+        # five samples per check would waste compute for no real vote gain.
+        if self.backend == "gemma":
+            self._n_iter = 1
         self._operations = Operations()
         self._verbose = verbose
         # Track total entailment checks (including cache-served)
@@ -45,6 +87,20 @@ class LLM:
         # Track API latency (successful request durations only)
         self.api_latency_sum = 0.0
         self.api_latency_count = 0
+
+    @staticmethod
+    def _detect_backend(model_name: str) -> str:
+        """Infer the backend from a model name, defaulting to OpenAI.
+
+        Any identifier starting with ``"gemma"`` (e.g. ``"gemma-3-4b"``) or
+        ``"google/gemma"`` routes to the local Gemma backend.
+        """
+        if not isinstance(model_name, str):
+            return "openai"
+        n = model_name.strip().lower()
+        if n.startswith("gemma") or n.startswith("google/gemma"):
+            return "gemma"
+        return "openai"
 
     def entailment(self, predicate: NLPredicate, predicates: List[NLPredicate], background_predicates: Tuple[Action, List[NLPredicate]] = (None, []),
                     domain_predicates: bool = False, flag = True) -> NLPredicate|None:

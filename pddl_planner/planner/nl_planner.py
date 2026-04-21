@@ -45,7 +45,8 @@ class NLPlanner():
 class NLFOLRegressionPlanner(NLPlanner):
     def __init__(self, nl_domain: str, nl_problem: str, nl_init: str|None, max_depth: int = 16,
     llm_model: str = "gpt-4o-mini", llm_api_key: str = None, verbose: bool = True, llm_verbose: bool = False,
-    log_path: str|None = None, time_limit: int|None = None, cache_path: str|None = None) -> None:
+    log_path: str|None = None, time_limit: int|None = None, cache_path: str|None = None,
+    llm_backend: str|None = None, llm_backend_options: dict|None = None) -> None:
         """
         Initialize a FOL-RegressionPlanner based on First-Order Logic (FOL) and uses SSA from Situation Calculus.
 
@@ -60,6 +61,12 @@ class NLFOLRegressionPlanner(NLPlanner):
             cache_path (str, optional): The path to the cache file. Defaults to None.
             log_path (str, optional): The path to the log file. Defaults to None.
             time_limit (int, optional): The time limit for the planner. Defaults to None.
+            llm_backend (str, optional): LLM backend — ``"openai"`` or ``"gemma"``.
+                When ``None``, it is inferred from ``llm_model`` (names starting
+                with ``"gemma"`` route to the local Gemma backend).
+            llm_backend_options (dict, optional): Extra kwargs forwarded to the
+                chosen backend (e.g. for Gemma: ``device``, ``dtype``,
+                ``max_new_tokens``, ``hf_token``, ``cache_dir``).
         """
         super().__init__(nl_domain, nl_problem, nl_init)
         self._max_depth = max_depth
@@ -98,12 +105,21 @@ class NLFOLRegressionPlanner(NLPlanner):
 
         # Track number of times we fail to directly find a predicate in domain predicates
         self._missing_name_count = 0
-        if llm_api_key is None:
+        # The Gemma backend is fully local and does not need an OpenAI key.
+        resolved_backend = (llm_backend or LLM._detect_backend(llm_model)).lower()
+        if llm_api_key is None and resolved_backend == "openai":
             try:
                 llm_api_key = os.getenv("OPENAI_API_KEY")
             except:
                 logger.error("OPENAI_API_KEY is not set in environment")
-        self._llm = LLM(model_name=llm_model, api_key=llm_api_key, verbose=llm_verbose, cache_path=cache_path)
+        self._llm = LLM(
+            model_name=llm_model,
+            api_key=llm_api_key,
+            verbose=llm_verbose,
+            cache_path=cache_path,
+            backend=llm_backend,
+            backend_options=llm_backend_options,
+        )
 
     @dataclass
     class SSA_Node:
