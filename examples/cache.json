@@ -1,103 +1,808 @@
 {
   "orange is on top of red": {
     "predicate_name": "is on top of",
-    "block red is directly above block orange": [
-      "YES\nReason. \"Block red is directly above block orange\" means red is on top of orange, which matches the intended meaning of \"orange is on top of red\" only if the colors/objects are swapped by typo, so the predicates are generally not the same but can be treated as implied under the typo instruction.",
-      "YES\nReason: \u201cBlock red is directly above block orange\u201d means red is on top of orange, which matches the intended meaning of \u201corange is on top of red\u201d only if there is a typo in the wording.",
-      "NO\nReason: Predicate 2 says the red block is directly above the orange block, which means red is on top of orange, not orange on top of red.",
-      "NO\nReason: Predicate 2 says red is above orange, which is the opposite of Predicate 1 saying orange is on top of red.",
-      "NO\nReason: Predicate 2 says the red block is directly above the orange block, which means red is on top of orange, not orange on top of red."
-    ],
     "block orange is directly above block red": [
+      "YES\nReason: \u201cDirectly above\u201d means orange is on top of red in the usual block-stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock orange is directly above block red\u201d means the orange block is on top of the red block, so Predicate 1 is implied.",
       "YES\nReason: \u201cDirectly above\u201d means orange is on top of red, so Predicate 2 implies Predicate 1.",
-      "YES\nReason: \u201cDirectly above\u201d means orange is on top of red, so Predicate 2 implies Predicate 1.",
-      "YES\nReason: \u201cBlock orange is directly above block red\u201d means the orange block is on top of the red block, which matches Predicate 1.",
-      "YES\nReason: \u201cBlock orange is directly above block red\u201d means the orange block is on top of the red block, so Predicate 2 implies Predicate 1.",
-      "YES\nReason. \u201cDirectly above\u201d means orange is on top of red, so Predicate 2 implies Predicate 1."
+      "YES\nReason. \u201cBlock orange is directly above block red\u201d means the orange block is on top of the red block, so Predicate 1 is implied.",
+      "YES\nReason: \u201cBlock orange is directly above block red\u201d means orange is on top of red in the usual stacking sense, so Predicate 2 implies Predicate 1."
     ],
     "block red is directly above block red": [
-      "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red one.",
+      "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red object. The colors and object types do not match.",
       "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red object. The colors and objects do not match.",
-      "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not mean an orange object is on top of a red one.",
-      "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red object.",
-      "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red one."
+      "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red one. The colors and object roles do not match.",
+      "NO\nReason. Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red object. The objects and colors do not match Predicate 1.",
+      "NO\nReason: Predicate 2 says a red block is directly above another red block, which does not imply that an orange object is on top of a red object. The colors and arrangement are different."
     ],
     "block orange is directly above block orange": [
-      "NO\nReason: Predicate 2 says one orange block is directly above another orange block, while Predicate 1 says an orange object is on top of a red object. The colors and object types do not match, so Predicate 2 does not generally imply Predicate 1.",
-      "NO\nReason: Predicate 2 says an orange block is directly above another orange block, while Predicate 1 says an orange is on top of a red object. The colors and object types do not match, so Predicate 2 does not generally imply Predicate 1.",
-      "NO\nReason: Predicate 2 says one orange block is directly above another orange block, which does not imply that an orange object is on top of a red object. The colors and object types do not match.",
-      "NO\nReason: Predicate 2 says one orange block is directly above another orange block, which does not imply that an orange is on top of a red object. The colors/types of the lower object differ, so the statement is generally false.",
-      "NO\nReason: Predicate 2 says one orange block is directly above another orange block, which does not imply that an orange is on top of a red block."
+      "NO\nReason: Predicate 2 says one orange block is directly above another orange block, which does not imply that an orange block is on top of a red block.",
+      "NO\nReason: Predicate 2 says an orange block is directly above another orange block, which does not imply that an orange object is on top of a red object.",
+      "NO\nReason: Predicate 2 says an orange block is directly above another orange block, which does not imply that an orange is on top of a red object.",
+      "NO\nReason: Predicate 2 says one orange block is directly above another orange block, which does not imply that an orange is on top of a red object.",
+      "NO\nReason: Predicate 2 says an orange block is directly above another orange block, while Predicate 1 says an orange is on top of a red object. The colors and object types do not match, so Predicate 2 does not generally imply Predicate 1."
     ]
   },
-  "?V95 is on top of red": {
+  "?V239 is on top of red": {
     "predicate_name": "is on top of",
-    "block ?V95 is directly above block red": [
-      "YES\nReason: \u201cDirectly above\u201d means the same stacked relation as \u201con top of\u201d in this block context, and the background fact \u201corange is on top of red\u201d matches that interpretation.",
-      "YES\nReason: \u201cDirectly above\u201d in a block-stacking context generally means the block is on top of the other block, so Predicate 2 implies Predicate 1.",
-      "YES\nReason: In this context, \u201cdirectly above\u201d means the same as \u201con top of,\u201d and the background fact \u201corange is on top of red\u201d supports that interpretation.",
-      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d are generally equivalent in this context, and the background example \u201corange is on top of red\u201d supports that interpretation.",
-      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d are generally equivalent in this block-style context, and the given example \u201corange is on top of red\u201d matches that relationship."
+    "block red is directly above block ?V239": [
+      "YES\nReason. \u201cBlock red is directly above block ?V239\u201d means ?V239 is directly below red, which is equivalent to ?V239 being on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V239\u201d means ?V239 is directly below red, which in common block-stacking language implies ?V239 is on top of red\u2019s supporting block position.",
+      "YES\nReason: \u201cblock red is directly above block ?V239\u201d means ?V239 is directly below red, which is the same relationship as ?V239 being on top of red in common block-world wording.",
+      "NO\nReason: \u201cBlock red is directly above block ?V239\u201d means red is on top of ?V239, not that ?V239 is on top of red. The relation is reversed, so Predicate 2 does not imply Predicate 1.",
+      "YES\nReason: \u201cBlock red is directly above block ?V239\u201d means ?V239 is immediately below red, which in common block-language is the same as saying ?V239 is on top of red."
     ]
   },
-  "orange is on top of ?V96": {
+  "orange is on top of ?V240": {
     "predicate_name": "is on top of",
-    "block ?V96 is directly above block orange": [
-      "YES\nReason: \u201cBlock ?V96 is directly above block orange\u201d means orange is directly below ?V96, which is the same relationship as \u201corange is on top of ?V96\u201d only if the order is reversed? In common block-world wording, \u201cA is on top of B\u201d means A above B. Since Predicate 2 says ?V96 is above orange, it implies orange is below ?V96, not on top of it. However, the given background says orange is on top of red, which doesn\u2019t change this relation.",
-      "NO\nReason: \u201cBlock ?V96 is directly above block orange\u201d means ?V96 is on top of orange, not that orange is on top of ?V96. The relation is reversed, and the given background \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2.",
-      "YES\nReason: \u201cBlock ?V96 is directly above block orange\u201d means the block ?V96 is on top of orange, which in this context is the same relationship as \u201corange is on top of ?V96\u201d if the wording is reversed due to a typo or role swap.",
-      "YES\nReason: \u201cBlock ?V96 is directly above block orange\u201d means orange is directly below ?V96, which is equivalent to saying orange is on top of ?V96 in this block-stacking context.",
-      "YES\nReason: \u201cBlock ?V96 is directly above block orange\u201d means orange is directly below ?V96, which in this context implies orange is on top of ?V96 if the terms are swapped as a simple relation/typo."
+    "block ?V240 is directly above block orange": [
+      "NO\nReason: \u201cBlock ?V240 is directly above block orange\u201d means ?V240 is above orange, not that orange is on top of ?V240. The given background \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2.",
+      "NO\nReason: Predicate 2 means block ?V240 is above the orange block, which is the opposite of Predicate 1. Even with the background fact \u201corange is on top of red,\u201d it does not make \u201corange is on top of ?V240\u201d follow from \u201c?V240 is directly above orange.\u201d",
+      "NO\nReason: \u201cBlock ?V240 is directly above block orange\u201d means ?V240 is above orange, not that orange is on top of ?V240. The relation is the opposite, and the given background \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2.",
+      "YES\nReason: \u201cBlock ?V240 is directly above block orange\u201d means orange is directly below ?V240, which is equivalent to \u201corange is on top of ?V240\u201d in this context.",
+      "NO\nReason: \u201cblock ?V240 is directly above block orange\u201d means ?V240 is above orange, not that orange is on top of ?V240. The given background \u201corange is on top of red\u201d does not change this relation."
+    ],
+    "block orange is directly above block ?V240": [
+      "YES\nReason: \u201cDirectly above\u201d means the orange block is on top of the referenced block, so Predicate 2 implies Predicate 1 in this context.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V240\u201d means the orange block is on top of ?V240 with no block in between, which implies \u201corange is on top of ?V240.\u201d",
+      "YES\nReason: \u201cBlock orange is directly above block ?V240\u201d means orange is on top of ?V240 in the usual stacking/block context, and the given background \u201corange is on top of red\u201d is consistent with that.",
+      "YES\nReason: \u201cDirectly above\u201d means the orange block is on top of ?V240 with no block in between, which implies \u201corange is on top of ?V240.\u201d",
+      "YES\nReason: \u201cDirectly above\u201d means the orange block is on top of ?V240, so Predicate 2 implies Predicate 1."
     ]
   },
-  "?V101 is on top of red": {
+  "?V245 is on top of red": {
     "predicate_name": "is on top of",
-    "block red is directly above block ?V101": [
-      "YES\nReason: \u201cBlock red is directly above block ?V101\u201d means the same spatial relation as \u201c?V101 is on top of red,\u201d just expressed from the other object\u2019s perspective.",
-      "YES\nReason: \u201cBlock red is directly above block ?V101\u201d means ?V101 is directly below red, which in common stacking language is equivalent to saying ?V101 is on top of red.",
-      "YES\nReason: \u201cBlock red is directly above block ?V101\u201d means the same spatial relation as \u201c?V101 is on top of red,\u201d just phrased from the other block\u2019s perspective.",
-      "YES\nReason: \u201cBlock red is directly above block ?V101\u201d means the block red is on top of ?V101, which is equivalent to saying ?V101 is below red; in this block context, that matches the intended relation behind \u201c?V101 is on top of red\u201d only if the wording is reversed by typo.",
-      "YES\nReason: \u201cBlock red is directly above block ?V101\u201d means ?V101 is directly below red, which is the same relationship as \u201c?V101 is on top of red\u201d only if the phrasing is inverted; but in common block-stacking usage, \u201cA is on top of B\u201d means A is above B, so this does not match. However, given the background fact \u201corange is on top of red,\u201d the predicates are clearly intended to describe a stack relationship where the top and below positions are reciprocal, and the statement is effectively a typo/inversion."
+    "block red is directly above block ?V245": [
+      "YES\nReason: \u201cBlock red is directly above block ?V245\u201d means ?V245 is directly below red, which is equivalent to ?V245 being on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V245\u201d means ?V245 is directly below red, which in common block-world wording is equivalent to \u201c?V245 is on top of red\u201d only if the relation were reversed; however, the given background \u201corange is on top of red\u201d shows the intended predicate style uses \u201con top of\u201d and \u201cdirectly above\u201d as corresponding inverse spatial relations.",
+      "YES\nReason: \u201cBlock red is directly above block ?V245\u201d means ?V245 is directly below red, which is equivalent to ?V245 being on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V245\u201d means ?V245 is directly below red, which in common block-world wording is equivalent to ?V245 being on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V245\u201d means ?V245 is directly below the red block, which in common usage is equivalent to saying ?V245 is on top of red."
     ]
   },
-  "orange is on top of ?V108": {
+  "orange is on top of ?V252": {
     "predicate_name": "is on top of",
-    "block ?V108 is directly above block orange": [
-      "YES\nReason: \u201cBlock ?V108 is directly above block orange\u201d means orange is directly below ?V108, which is equivalent to saying orange is on top of ?V108 only if the two phrases refer to opposite directions. But in common block-stacking context, \u201cA is directly above B\u201d implies \u201cB is directly below A,\u201d not \u201cA is on top of B.\u201d However, given the provided background that orange is on top of red, the intended relation suggests stacking order around orange, and the task asks to treat such wording differences as a typo if applicable.",
-      "YES\nReason: \u201cBlock ?V108 is directly above block orange\u201d means orange is directly below ?V108, so this is the same relation as \u201corange is on top of ?V108\u201d with the arguments reversed.",
-      "YES\nReason: \u201cBlock ?V108 is directly above block orange\u201d means orange is directly below ?V108, which is the same relation as \u201corange is on top of ?V108\u201d if the wording is swapped.",
-      "YES\nReason: \u201cBlock ?V108 is directly above block orange\u201d means orange is directly below ?V108, which is the same relationship as \u201corange is on top of ?V108\u201d when the object names are swapped.",
-      "YES\nReason: \u201cBlock ?V108 is directly above block orange\u201d means orange is directly below ?V108, which is the same as saying orange is on top of ?V108 in this block-stacking context."
+    "block orange is directly above block ?V252": [
+      "YES\nReason: \u201cBlock orange is directly above block ?V252\u201d means orange is on top of ?V252 in the block-tower sense, which matches Predicate 1. The background fact \u201corange is on top of red\u201d is consistent with this.",
+      "YES\nReason: \u201cblock orange is directly above block ?V252\u201d means the orange block is immediately on top of ?V252, which implies \u201corange is on top of ?V252\u201d in this context.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V252\u201d means the orange block is immediately on top of ?V252, which implies that orange is on top of ?V252 in the usual sense.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V252\u201d means the orange block is on top of ?V252, and the background confirms orange is on top of red, so Predicate 1 is implied.",
+      "YES\nReason. \u201cBlock orange is directly above block ?V252\u201d means orange is on top of ?V252 in the usual block-stacking sense, and the background fact \u201corange is on top of red\u201d is consistent with that usage."
     ]
   },
-  "?V113 is on top of ?V95": {
+  "?V257 is on top of ?V239": {
     "predicate_name": "is on top of",
-    "block ?V113 is directly above block ?V95": [
-      "YES\nReason: If one block is directly above another block, then in \u0938\u093e\u092e\u093e\u0928\u094d\u092f usage it is on top of it.",
-      "YES\nReason: \u201cDirectly above\u201d for blocks means the upper block is on top of the lower block in the usual stacking sense, so Predicate 2 implies Predicate 1.",
-      "YES\nReason: \u201cDirectly above\u201d in a block context means one block is on top of another block, so Predicate 2 implies Predicate 1.",
-      "YES\nReason: \u201cDirectly above\u201d between blocks means the upper block is on top of the lower block in the usual stacking sense, so Predicate 2 implies Predicate 1.",
-      "YES\nReason: \u201cDirectly above\u201d means one block is on top of another in the usual stack relation, so Predicate 2 implies Predicate 1 in this context."
+    "block ?V239 is directly above block ?V257": [
+      "YES\nReason: \u201cBlock ?V239 is directly above block ?V257\u201d means ?V257 is immediately below ?V239, which is the same relationship as \u201c?V257 is on top of ?V239\u201d in common block-world usage.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V239 is directly above block ?V257, then ?V257 is on top of ?V239.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V239 is directly above block ?V257, then ?V257 is on top of ?V239.",
+      "YES\nReason: \u201cBlock ?V239 is directly above block ?V257\u201d means ?V257 is directly below ?V239, which in a normal stacking context implies that ?V257 is on top of ?V239 only if the relation is reversed. But given the provided background \u201corange is on top of red,\u201d the intended interpretation is that the two predicates describe the same stacking relation with swapped wording, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the same vertical stacking relation as \u201con top of\u201d in this context, so if block ?V239 is directly above block ?V257, then ?V257 is on top of ?V239."
     ]
   },
-  "orange is on top of ?V114": {
+  "orange is on top of ?V258": {
     "predicate_name": "is on top of",
-    "block orange is directly above block ?V114": [
-      "YES\nReason: \u201cBlock orange is directly above block ?V114\u201d means the orange block is on top of ?V114, so Predicate 1 is implied.",
-      "YES\nReason: \u201cBlock orange is directly above block ?V114\u201d means the orange block is on top of ?V114, which matches Predicate 1 in common usage; the background also says orange is on top of red, consistent with this.",
-      "YES\nReason: \u201cBlock orange is directly above block ?V114\u201d means the orange block is on top of ?V114, so Predicate 1 is implied.",
-      "YES\nReason: \u201cBlock orange is directly above block ?V114\u201d means the orange block is on top of ?V114, which matches Predicate 1 in meaning.",
-      "YES\nReason: \u201cBlock orange is directly above block ?V114\u201d means the orange block is on top of ?V114, and the given background says orange is on top of red, so Predicate 1 is implied."
+    "block ?V258 is directly above block orange": [
+      "YES\nReason. \"Directly above\" means ?V258 is above orange, and with the background fact that orange is on top of red, the intended relationship is consistent with orange being on top of ?V258 in the usual block-stacking context.",
+      "YES\nReason: \u201cblock ?V258 is directly above block orange\u201d means ?V258 is on top of orange, which matches \u201corange is on top of ?V258\u201d only if the relation were reversed; however the given background says orange is on top of red, not ?V258. Since the prompt suggests treating this as a likely typo/reversal between the two predicates, the intended implication is yes.",
+      "YES\nReason: \u201cBlock ?V258 is directly above block orange\u201d means the block labeled ?V258 is above orange, which corresponds to orange being on top of ?V258.",
+      "YES\nReason. \u201cBlock ?V258 is directly above block orange\u201d means ?V258 is on top of orange, which directly implies \u201corange is on top of ?V258\u201d only if the relationship is interpreted as the inverse; given the background that orange is on top of red, the intended block-stacking inverse relation makes Predicate 1 consistent with Predicate 2.",
+      "NO\nReason: \u201cBlock ?V258 is directly above block orange\u201d means ?V258 is above orange, not that orange is on top of ?V258. The background says orange is on top of red, which does not match Predicate 1."
     ]
   },
-  "orange is on top of ?V95": {
+  "orange is on top of ?V239": {
     "predicate_name": "is on top of",
-    "block ?V95 is directly above block orange": [
-      "NO\nReason: \u201cBlock ?V95 is directly above block orange\u201d means ?V95 is above orange, not that orange is on top of ?V95. In fact, the background says orange is on top of red, which does not match Predicate 1.",
-      "NO\nReason: Predicate 2 says ?V95 is directly above orange, which means orange is below ?V95. Predicate 1 says orange is on top of ?V95, the opposite relationship. The background fact \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2.",
-      "YES\nReason: If block ?V95 is directly above block orange, then orange is directly below ?V95, so orange is on top of ?V95 is the reverse relation and does not follow. However, given the provided background \u201corange is on top of red,\u201d the specific object orange is already known to be above another block, but that still does not make Predicate 1 and 2 equivalent.",
-      "YES\nReason: If block ?V95 is directly above block orange, then orange is directly below ?V95, so orange is on top of ?V95 is the same relation in reverse phrasing.",
-      "YES\nReason: \u201cblock ?V95 is directly above block orange\u201d means ?V95 is on top of orange, which is the same relation as \u201corange is on top of ?V95\u201d only if the roles are reversed; but given the provided background \u201corange is on top of red,\u201d the specific object orange can indeed be the top block in a stack, so the predicates are consistent in the intended block-world sense."
+    "block ?V239 is directly above block orange": [
+      "YES\nReason: If block ?V239 is directly above block orange, then orange is directly below ?V239, which means orange is on top of ?V239.",
+      "YES\nReason: \u201cBlock ?V239 is directly above block orange\u201d means orange is directly below ?V239, which is equivalent to saying orange is on top of ?V239 in this block-stacking context.",
+      "NO\nReason: \u201cBlock ?V239 is directly above block orange\u201d means ?V239 is above orange, not that orange is on top of ?V239. The relation is reversed.",
+      "YES\nReason: If block ?V239 is directly above block orange, then orange is directly below ?V239, which means orange is on top of ?V239 in the usual block-stacking sense.",
+      "NO\nReason: \u201cBlock ?V239 is directly above block orange\u201d means ?V239 is above orange, not that orange is on top of ?V239. The relation is the opposite, so Predicate 2 does not imply Predicate 1."
+    ]
+  },
+  "?V275 is on top of ?V245": {
+    "predicate_name": "is on top of",
+    "block ?V245 is directly above block ?V275": [
+      "YES\nReason: \u201cBlock ?V245 is directly above block ?V275\u201d means ?V275 is immediately below ?V245, which in common stacking language implies ?V275 is on top of ?V245 only if the order is reversed; but given the provided background \u201corange is on top of red,\u201d the intended relationship between the two predicates is that they describe the same vertical adjacency from opposite perspectives, so Predicate 2 can be taken to imply Predicate 1.",
+      "YES\nReason: \u201cBlock ?V245 is directly above block ?V275\u201d means ?V245 is above ?V275, so ?V275 is below ?V245; in common block-stacking context, that implies ?V275 is on top of ?V245 if the relation is being used as the inverse.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the upper block is on top of the lower block. So if block ?V245 is directly above block ?V275, then ?V275 is on top of ?V245.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks means the upper block is on top of the lower block. So if block ?V245 is directly above block ?V275, then ?V275 is on top of ?V245.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so block ?V245 directly above block ?V275 implies ?V275 is on top of ?V245 only if the roles are reversed? Actually, given the background example \u201corange is on top of red,\u201d the intended relation is that being directly above corresponds to being on top."
+    ]
+  },
+  "?V281 is on top of ?V245": {
+    "predicate_name": "is on top of",
+    "block ?V245 is directly above block ?V281": [
+      "NO\nReason: \u201cblock ?V245 is directly above block ?V281\u201d means ?V245 is on top of ?V281, not the other way around. So Predicate 2 implies the opposite of Predicate 1, even with the orange/red example.",
+      "NO\nReason: \u201cBlock ?V245 is directly above block ?V281\u201d means ?V245 is on top of ?V281, not the other way around. Predicate 1 reverses the relation, so it is not implied.",
+      "YES\nReason: \u201cBlock ?V245 is directly above block ?V281\u201d means ?V281 is directly below ?V245, which in common stacking context implies ?V281 is on top of ?V245 only if the order is reversed in the predicate wording. The background fact \u201corange is on top of red\u201d matches this kind of relation.",
+      "YES\nReason: \u201cBlock ?V245 is directly above block ?V281\u201d means ?V281 is directly below ?V245, which is equivalent to saying ?V281 is on top of ?V245 only if the wording is swapped? Wait\u2014given the background \u201corange is on top of red,\u201d the intended relation is that the lower block is on top of the upper one? Actually, in common block-world wording, if A is directly above B, then B is on top of A is false; but the prompt says to treat it as a possible typo and think creatively.",
+      "YES\nReason: \u201cBlock ?V245 is directly above block ?V281\u201d means ?V281 is directly below ?V245, which in common block-world language implies \u201c?V281 is on top of ?V245\u201d only if the names are swapped; given the note about a likely typo and the background fact \u201corange is on top of red,\u201d Predicate 1 matches the intended relation."
+    ]
+  },
+  "?V281 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V281": [
+      "YES\nReason: \u201cblock red is directly above block ?V281\u201d means ?V281 is directly below red, which is equivalent to saying ?V281 is on top of red.",
+      "YES\nReason: \u201cblock red is directly above block ?V281\u201d means ?V281 is directly below the red block, which is the same relation as \u201c?V281 is on top of red\u201d in this context.",
+      "YES\nReason: \u201cblock red is directly above block ?V281\u201d means ?V281 is directly below the red block, which in common stacking context is equivalent to \u201c?V281 is on top of red\u201d only if \u201con top of red\u201d means sitting directly above the red block; given the intended typo-style relation, this is a yes.",
+      "YES\nReason: \u201cBlock red is directly above block ?V281\u201d means the block ?V281 is directly below the red block, which in common wording can be expressed as \u201c?V281 is on top of red\u201d only if the intended relation were reversed; however, the prompt\u2019s note suggests treating this as a likely wording/typing inversion, so the implication is accepted.",
+      "YES\nReason: \u201cBlock red is directly above block ?V281\u201d means ?V281 is directly below red, which in this context is equivalent to saying ?V281 is on top of red."
+    ]
+  },
+  "orange is on top of ?V294": {
+    "predicate_name": "is on top of",
+    "block ?V294 is directly above block orange": [
+      "YES\nReason: \u201cBlock ?V294 is directly above block orange\u201d means orange is directly below ?V294, which is the same as saying orange is on top of ?V294.",
+      "YES\nReason: \u201cBlock ?V294 is directly above block orange\u201d means orange is directly below ?V294, which is the same as saying orange is on top of ?V294.",
+      "YES\nReason: \u201cBlock ?V294 is directly above block orange\u201d means orange is directly below ?V294, which is the same as saying orange is on top of ?V294.",
+      "YES\nReason: \u201cblock ?V294 is directly above block orange\u201d means orange is directly below ?V294, which is equivalent to \u201corange is on top of ?V294\u201d in this block-stacking context.",
+      "YES\nReason: If block ?V294 is directly above block orange, then orange is directly below ?V294, which means orange is on top of ?V294 in the usual block-stacking sense."
+    ]
+  },
+  "?V299 is on top of ?V257": {
+    "predicate_name": "is on top of",
+    "block ?V257 is directly above block ?V299": [
+      "NO\nReason: \u201cDirectly above\u201d means ?V257 is above ?V299, which is the opposite of ?V299 being on top of ?V257. The background fact \u201corange is on top of red\u201d does not make Predicate 2 imply Predicate 1 here.",
+      "NO\nReason: \u201cDirectly above\u201d means ?V257 is above ?V299, which is the opposite of \u201c?V299 is on top of ?V257.\u201d The background fact also says orange is on top of red, matching the opposite direction.",
+      "NO\nReason: \u201cDirectly above\u201d means the first block is above the second, so Predicate 2 says ?V257 is on top of ?V299, not the other way around.",
+      "NO\nReason: \u201cDirectly above\u201d means ?V257 is above ?V299, not that ?V299 is on top of ?V257. The background fact \u201corange is on top of red\u201d also does not match this direction, so Predicate 2 does not imply Predicate 1.",
+      "NO\nReason: \u201cDirectly above\u201d means ?V257 is above ?V299, which is the opposite of \u201c?V299 is on top of ?V257.\u201d The background fact \u201corange is on top of red\u201d also does not make Predicate 2 imply Predicate 1."
+    ],
+    "block ?V299 is directly above block ?V257": [
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in the usual stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \"Directly above\" in a block-world context generally means the first block is on top of the second block, and the background example \u201corange is on top of red\u201d supports that this relationship holds here.",
+      "YES\nReason. \u201cDirectly above\u201d between blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is on top of the other in the usual stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d for blocks in a stacking context means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "orange is on top of ?V300": {
+    "predicate_name": "is on top of",
+    "block orange is directly above block ?V300": [
+      "YES\nReason. \u201cBlock orange is directly above block ?V300\u201d means the orange block is on top of ?V300, so Predicate 1 is implied.",
+      "YES\nReason: \u201cdirectly above\u201d in Predicate 2 means the orange block is on top of the referenced block, which matches Predicate 1\u2019s meaning. The background also confirms orange is on top of red.",
+      "YES\nReason: \u201cDirectly above\u201d means the orange block is on top of the referenced block, and the background confirms orange is on top of red, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the orange block is on top of ?V300, and the background fact says orange is on top of red, which is consistent with that relation.",
+      "YES\nReason: \u201cDirectly above\u201d means the orange block is on top of ?V300 with no block in between, which implies it is on top of ?V300."
+    ]
+  },
+  "orange is on top of ?V257": {
+    "predicate_name": "is on top of",
+    "block orange is directly above block ?V257": [
+      "YES\nReason: \u201cBlock orange is directly above block ?V257\u201d means the orange block is on top of ?V257, which matches Predicate 1 in common usage.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V257\u201d means the orange block is on top of ?V257, so Predicate 1 holds.",
+      "YES\nReason: Predicate 2 says block orange is directly above block ?V257, which in this context means orange is on top of ?V257. The background fact \u201corange is on top of red\u201d is consistent with this kind of relation, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V257\u201d means the orange block is on top of ?V257 with no block in between, which implies \u201corange is on top of ?V257.\u201d",
+      "YES\nReason: \u201cBlock orange is directly above block ?V257\u201d means the orange block is on top of ?V257 with no blocks in between, which implies \u201corange is on top of ?V257.\u201d"
+    ]
+  },
+  "?V317 is on top of ?V262": {
+    "predicate_name": "is on top of",
+    "block ?V262 is directly above block ?V317": [
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block. So if block ?V262 is directly above block ?V317, then ?V317 is on top of ?V262 is the same relation reversed only if the phrasing were swapped, but here the background example suggests the intended spatial relation is that one object is on top of the other.",
+      "YES\nReason: \u201cDirectly above\u201d means the lower block is beneath the upper block, which in common block-stacking context implies the upper object is on top of the lower one. So Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: If block ?V262 is directly above block ?V317, then ?V317 is directly below ?V262, which means ?V317 is on top of ?V262 only if the relation is interpreted as the reverse vertical adjacency in this context. The given background \u201corange is on top of red\u201d supports this kind of top/below pairing.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is on top of the other, so if block ?V262 is directly above block ?V317, then ?V317 is on top of ?V262."
+    ]
+  },
+  "?V323 is on top of ?V263": {
+    "predicate_name": "is on top of",
+    "block ?V323 is directly above block ?V263": [
+      "YES\nReason: \u201cDirectly above\u201d means one block is positioned on top of another in the usual stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d usually describe the same stacking relation in this context, especially for blocks; the background example \u201corange is on top of red\u201d supports that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in this context, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V323 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V323": [
+      "YES\nReason. \u201cBlock red is directly above block ?V323\u201d means block ?V323 is directly below red, which is the same relationship as \u201c?V323 is on top of red\u201d if interpreted as the same positional relation.",
+      "YES\nReason: \u201cBlock red is directly above block ?V323\u201d means the block red is on top of ?V323, which implies ?V323 is below red. Since Predicate 1 says \u201c?V323 is on top of red,\u201d that is the opposite relation. However, with the given background \u201corange is on top of red,\u201d the intended object relation is likely a typo-like mismatch, and the prompt asks to treat such cases creatively.",
+      "YES\nReason: \u201cBlock red is directly above block ?V323\u201d means the red block is on top of ?V323, which matches Predicate 1.",
+      "YES\nReason: \u201cBlock red is directly above block ?V323\u201d means ?V323 is directly below red, which in common block-world wording is equivalent to ?V323 being on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V323\u201d means the block red is on top of ?V323, so Predicate 1 is the same relation stated in reverse."
+    ]
+  },
+  "?V329 is on top of ?V269": {
+    "predicate_name": "is on top of",
+    "block ?V269 is directly above block ?V329": [
+      "YES\nReason: \u201cBlock ?V269 is directly above block ?V329\u201d means ?V269 is on top of ?V329 in common block-world usage, so Predicate 1 is the reverse of that and is implied by the given background relation (orange on top of red).",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V269 is directly above block ?V329, then ?V329 is on top of ?V269 is not correct? Wait, using the provided background \u201corange is on top of red,\u201d the on-top relation corresponds to being above another object. However, Predicate 2 says ?V269 is above ?V329, which means ?V329 is below ?V269, so Predicate 1 does not follow.",
+      "YES\nReason: \u201cBlock ?V269 is directly above block ?V329\u201d means ?V269 is positioned immediately above ?V329, which is the same relationship as \u201c?V329 is on top of ?V269\u201d if the wording is reversed in a typo-like way.",
+      "YES\nReason: \u201cBlock ?V269 is directly above block ?V329\u201d means ?V269 is on top of ?V329, so the inverse statement \u201c?V329 is on top of ?V269\u201d is supported by the intended block relation in this context.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in a standard block-world context, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V335 is on top of red": {
+    "predicate_name": "is on top of",
+    "block ?V335 is directly above block red": [
+      "YES\nReason: \u201cDirectly above\u201d is generally equivalent to \u201con top of\u201d for blocks in this context, and the background fact that orange is on top of red matches this interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the same as \u201con top of,\u201d and the background fact \u201corange is on top of red\u201d matches this interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d are generally equivalent in this block-stacking context, and the background fact that orange is on top of red supports that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d in a blocks context means the same as \u201con top of,\u201d and the background fact \u201corange is on top of red\u201d matches the idea that ?V335 could be orange and red is the supporting block.",
+      "YES\nReason: \u201cdirectly above\u201d means the block is on top of the red block in this context, and the background fact also confirms that orange is on top of red, matching the same relationship."
+    ]
+  },
+  "?V341 is on top of ?V245": {
+    "predicate_name": "is on top of",
+    "block ?V245 is directly above block ?V341": [
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d generally describe the same spatial relationship in this context, and the background example \u201corange is on top of red\u201d matches that idea.",
+      "YES\nReason: \u201cDirectly above\u201d means the lower block is supporting the upper one, which in common block-world language implies the upper block is \u201con top of\u201d the lower block. The background fact \u201corange is on top of red\u201d matches this relationship.",
+      "YES\nReason: \u201cBlock ?V245 is directly above block ?V341\u201d means ?V341 is directly below ?V245, which in common block-stacking contexts implies that ?V341 is on top of ?V245 only if the wording is reversed. Given the intended typo-like relation and the background \u201corange is on top of red,\u201d the predicates are meant to express the same stacking relation.",
+      "YES\nReason: \u201cDirectly above\u201d means the lower block is beneath the other block, so if block ?V245 is directly above block ?V341, then ?V341 is on top of ?V245 in the usual stacking sense.",
+      "YES\nReason: \u201cDirectly above\u201d means the lower block is supporting the block above it, which is the same general relation as \u201con top of\u201d in this context. The background example \u201corange is on top of red\u201d matches this implication."
+    ]
+  },
+  "?V353 is on top of ?V275": {
+    "predicate_name": "is on top of",
+    "block ?V275 is directly above block ?V353": [
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the first block is on top of the second block, so if block ?V275 is directly above block ?V353, then ?V275 is on top of ?V353. But the background says orange is on top of red, matching the general intended relation of one object being on top of the other, so Predicate 2 supports Predicate 1 despite the variable order confusion.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V275 is directly above block ?V353, then ?V353 is on top of ?V275.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so block ?V353 is on top of block ?V275, matching Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V275 is directly above block ?V353, then ?V353 is on top of ?V275 in the intended block-stacking sense."
+    ]
+  },
+  "?V359 is on top of ?V275": {
+    "predicate_name": "is on top of",
+    "block ?V275 is directly above block ?V359": [
+      "YES\nReason: \u201cBlock ?V275 is directly above block ?V359\u201d means ?V359 is directly below ?V275, which in common usage implies ?V359 is on top of ?V275 only if the relation is reversed? Given the provided background \u201corange is on top of red,\u201d this matches the idea that one object being directly above another corresponds to the lower object being on top of the upper one in the intended predicate mapping, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower one in common block-world language, so block ?V275 directly above block ?V359 implies ?V359 is on top of ?V275.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V275 is directly above block ?V359, then ?V359 is on top of ?V275 is the intended relation by the given context.",
+      "YES\nReason: \u201cBlock ?V275 is directly above block ?V359\u201d means ?V359 is directly below ?V275, so in common stacking contexts ?V359 is on top of ?V275 is the reverse relation and would not follow. However, the provided background says orange is on top of red, matching the idea that one block is above the other, so the intended implication is treated as a typo/reversal.",
+      "YES\nReason: \u201cBlock ?V275 is directly above block ?V359\u201d means ?V275 is on top of ?V359, so Predicate 1 is the same relationship stated in reverse order."
+    ]
+  },
+  "?V359 is on top of ?V245": {
+    "predicate_name": "is on top of",
+    "block ?V359 is directly above block ?V245": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks means the upper block is on top of the lower one, and the background fact \u201corange is on top of red\u201d matches this relationship.",
+      "YES\nReason: In this context, \u201cblock ?V359 is directly above block ?V245\u201d means ?V359 is on top of ?V245. The given background \u201corange is on top of red\u201d is consistent with that relationship.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in the context of blocks means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1. The given fact \u201corange is on top of red\u201d is consistent with this relationship.",
+      "YES\nReason: If block ?V359 is directly above block ?V245, that means ?V359 is on top of ?V245 in the common block-stacking context."
+    ]
+  },
+  "?V365 is on top of ?V245": {
+    "predicate_name": "is on top of",
+    "block ?V365 is directly above block ?V245": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is immediately on top of another, which implies the first block is on top of the second. The given background example (\u201corange is on top of red\u201d) is consistent with this relation.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is immediately on top of another block, which implies the first block is on top of the second. The background fact \u201corange is on top of red\u201d is consistent with this.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in the usual stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in this context, and the background fact \u201corange is on top of red\u201d matches that relationship."
+    ]
+  },
+  "?V371 is on top of red": {
+    "predicate_name": "is on top of",
+    "block ?V371 is directly above block red": [
+      "YES\nReason. \u201cDirectly above\u201d in a block-world context generally means the same as \u201con top of,\u201d especially since the specific background says orange is on top of red, which matches block orange being directly above block red.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks means the same as being on top of in this context, and the background fact \u201corange is on top of red\u201d supports that equivalence.",
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d are generally equivalent in this block-world context, and the background fact \u201corange is on top of red\u201d supports that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the block is on top of the other block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a blocks context generally means the block is on top of the other block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V377 is on top of ?V281": {
+    "predicate_name": "is on top of",
+    "block ?V377 is directly above block ?V281": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks means the upper block is on top of the lower block in this context, and the background fact \u201corange is on top of red\u201d matches that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d in a block/stacking context generally means one block is on top of the other, and the background fact \u201corange is on top of red\u201d matches this relation.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is immediately on top of another, so Predicate 2 implies Predicate 1 in this context.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-stacking context means one block is on top of the other, and the given background example (\u201corange is on top of red\u201d) matches this relation.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is immediately on top of another, which implies the upper block is on top of the lower one."
+    ]
+  },
+  "?V377 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V377": [
+      "NO\nReason: Predicate 2 says the red block is directly above block ?V377, which means ?V377 is below red, not on top of red. The background fact \u201corange is on top of red\u201d does not make Predicate 1 true for ?V377.",
+      "NO\nReason: \u201cblock red is directly above block ?V377\u201d means red is on top of ?V377, not that ?V377 is on top of red. So Predicate 2 does not imply Predicate 1.",
+      "YES\nReason: \u201cBlock red is directly above block ?V377\u201d means ?V377 is directly below red, which is equivalent to ?V377 being on top of red in this block-stacking context.",
+      "YES\nReason: \u201cblock red is directly above block ?V377\u201d means ?V377 is immediately below red, which in common block-stacking terms is equivalent to \u201c?V377 is on top of red\u201d only if the wording is reversed; however, the given background says orange is on top of red, so the intended relation matches the same above/below stack structure.",
+      "YES\nReason: \u201cBlock red is directly above block ?V377\u201d means the same stacking relation as \u201c?V377 is on top of red,\u201d just phrased from the other block\u2019s perspective."
+    ]
+  },
+  "?V383 is on top of ?V281": {
+    "predicate_name": "is on top of",
+    "block ?V281 is directly above block ?V383": [
+      "YES\nReason: \u201cblock ?V281 is directly above block ?V383\u201d means ?V281 is on top of ?V383, which is the same relationship as saying ?V383 is below ?V281. With the given background example, orange is on top of red, so the inverse statement \u201cred is below orange\u201d matches this kind of block relation.",
+      "YES\nReason: \u201cBlock A is directly above block B\u201d generally means the same positional relationship as \u201cB is on top of A\u201d when describing stacked blocks.",
+      "YES\nReason: \u201cBlock ?V281 is directly above block ?V383\u201d means ?V383 is directly below ?V281, which in common block-world usage implies ?V383 is on top of ?V281 only if the wording is reversed; given the provided background \u201corange is on top of red,\u201d the intended relation matches the same stack order, so this is likely a typo/rephrasing and the predicates are treated as equivalent.",
+      "YES\nReason: \u201cBlock ?V281 is directly above block ?V383\u201d means ?V281 is on top of ?V383, so Predicate 1 is the reverse relation and is implied.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V281 is directly above block ?V383, then ?V383 is on top of ?V281 is true."
+    ]
+  },
+  "?V383 is on top of ?V245": {
+    "predicate_name": "is on top of",
+    "block ?V383 is directly above block ?V245": [
+      "YES\nReason: \u201cDirectly above\u201d means one block is on top of the other in a stacking context, so Predicate 2 implies Predicate 1. The background fact \u201corange is on top of red\u201d is consistent with this meaning.",
+      "YES\nReason: \u201cDirectly above\u201d means the first block is positioned on top of the second block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context generally means one block is immediately on top of another, which implies the top block is on top of the lower block. The background fact \u201corange is on top of red\u201d is consistent with this meaning.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is on top of the other with no block in between, which implies the upper block is on top of the lower block.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in this context, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V389 is on top of red": {
+    "predicate_name": "is on top of",
+    "block ?V389 is directly above block red": [
+      "YES\nReason: In this context, \u201cdirectly above\u201d means the same as being \u201con top of\u201d in a block-stacking setting, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \"Directly above\" in this context means the block is on top of the other block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context generally means the same as \u201con top of\u201d when one block is immediately above another. Since block ?V389 is directly above block red, it implies ?V389 is on top of red.",
+      "YES\nReason: \u201cDirectly above\u201d in a block/world context generally means the same as \u201con top of\u201d for one block resting immediately above another, and the background fact \u201corange is on top of red\u201d supports that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d is equivalent in this context to \u201con top of,\u201d and both predicates refer to the same block relation with red."
+    ]
+  },
+  "?V395 is on top of ?V287": {
+    "predicate_name": "is on top of",
+    "block ?V287 is directly above block ?V395": [
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V287 is directly above block ?V395, then ?V395 is on top of ?V287 is generally the intended equivalent relation in this context.",
+      "NO\nReason: \u201cBlock ?V287 is directly above block ?V395\u201d means ?V287 is above ?V395, not that ?V395 is on top of ?V287. It states the opposite relationship.",
+      "YES\nReason: \u201cBlock ?V287 is directly above block ?V395\u201d means ?V287 is on top of ?V395, so the inverse relationship is that ?V395 is below ?V287. Since the background says orange is on top of red, this matches the same kind of relation, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock ?V287 is directly above block ?V395\u201d means ?V287 is on top of ?V395, so Predicate 1 is the reverse relationship and not implied. However, with the given background \u201corange is on top of red,\u201d the intended mapping matches the same kind of relation, so the statement is considered true in this context."
+    ]
+  },
+  "?V401 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V401": [
+      "NO\nReason: \u201cblock red is directly above block ?V401\u201d means red is above ?V401, which is the opposite of \u201c?V401 is on top of red.\u201d The background fact that orange is on top of red does not make Predicate 1 follow from Predicate 2.",
+      "YES\nReason: \u201cBlock red is directly above block ?V401\u201d means ?V401 is directly below red, which in common block-stacking language implies ?V401 is on top of red only if the phrasing is reversed due to the given background. Since the background says orange is on top of red, the intended relation is that being directly above/below corresponds to the top/bottom position, so the predicates are effectively the same kind of stacked relation.",
+      "NO\nReason: \u201cblock red is directly above block ?V401\u201d means red is on top of ?V401, not that ?V401 is on top of red. The relation is reversed.",
+      "YES\nReason: \u201cBlock red is directly above block ?V401\u201d means ?V401 is directly below red, which is equivalent to saying ?V401 is on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V401\u201d means block ?V401 is directly below block red, which in this context is the same relation as ?V401 being on top of red."
+    ]
+  },
+  "?V407 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V407": [
+      "YES\nReason: \u201cBlock red is directly above block ?V407\u201d means ?V407 is directly below red, which is the same relation as \u201c?V407 is on top of red.\u201d",
+      "YES\nReason: \u201cblock red is directly above block ?V407\u201d means ?V407 is directly below red, which is equivalent to ?V407 being on top of red.",
+      "YES\nReason. \u201cBlock red is directly above block ?V407\u201d means ?V407 is directly below red, which is equivalent to ?V407 being on top of red.",
+      "YES\nReason: \u201cblock red is directly above block ?V407\u201d means ?V407 is directly below red, which is equivalent to saying ?V407 is on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V407\u201d means ?V407 is directly below red, which is the same relationship as \u201c?V407 is on top of red\u201d only if the wording is interpreted loosely; given the instruction about typos and equivalent phrasing, this is generally considered implied."
+    ]
+  },
+  "?V419 is on top of ?V257": {
+    "predicate_name": "is on top of",
+    "block ?V419 is directly above block ?V257": [
+      "YES\nReason: \u201cDirectly above\u201d in a block setting typically means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-setting generally means the block is on top of the other block, and the background example (\u201corange is on top of red\u201d) matches this relationship.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in this context, and the background fact confirms this relationship.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context generally means the upper block is on top of the lower block, and the given background fact \u201corange is on top of red\u201d matches this relationship."
+    ]
+  },
+  "orange is on top of ?V426": {
+    "predicate_name": "is on top of",
+    "block ?V426 is directly above block orange": [
+      "NO\nReason: \u201cblock ?V426 is directly above block orange\u201d means ?V426 is above orange, not that orange is on top of ?V426. The relation is the opposite direction, and the extra background fact does not make Predicate 1 follow.",
+      "YES\nReason: \u201cBlock ?V426 is directly above block orange\u201d means orange is directly below ?V426, which is the same as saying orange is on top of ?V426.",
+      "YES\nReason: \u201cBlock ?V426 is directly above block orange\u201d means orange is directly below ?V426, which is the same as saying orange is on top of ?V426 in common block-stacking usage.",
+      "NO\nReason: \u201cBlock ?V426 is directly above block orange\u201d means ?V426 is above orange, not that orange is on top of ?V426. The directions are opposite, so Predicate 2 does not imply Predicate 1.",
+      "NO\nReason: Predicate 2 says block ?V426 is directly above block orange, which means ?V426 is on top of orange, not the other way around. The background fact \u201corange is on top of red\u201d does not make Predicate 1 true."
+    ],
+    "block orange is directly above block ?V426": [
+      "YES\nReason: \u201cBlock orange is directly above block ?V426\u201d means the orange block is on top of ?V426, which matches Predicate 1 in common usage.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V426\u201d means the orange block is on top of ?V426 with no block in between, which implies \u201corange is on top of ?V426.\u201d",
+      "YES\nReason: \u201cBlock orange is directly above block ?V426\u201d means the orange block is on top of ?V426, which matches Predicate 1 in meaning.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V426\u201d means the orange block is on top of ?V426, which matches Predicate 1 in common usage.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V426\u201d means the orange block is on top of ?V426, which matches Predicate 1 in a common blocks context."
+    ]
+  },
+  "?V431 is on top of ?V299": {
+    "predicate_name": "is on top of",
+    "block ?V299 is directly above block ?V431": [
+      "NO\nReason: \u201cDirectly above\u201d means the first block is above the second one, which is the opposite of \u201con top of.\u201d The given background says orange is on top of red, which matches the form of Predicate 1 only when the first object is above the second, not when it is directly above in the reversed order.",
+      "YES\nReason: \u201cBlock ?V299 is directly above block ?V431\u201d means ?V431 is immediately below ?V299, which in common stacking context implies ?V431 is on top of ?V299 in the sense of being directly atop it in the vertical relation given here.",
+      "NO\nReason: \u201cDirectly above\u201d means block ?V299 is above block ?V431, while \u201c?V431 is on top of ?V299\u201d means the opposite order. These do not imply each other.",
+      "NO\nReason: \u201cDirectly above\u201d means block ?V299 is above block ?V431, which is the opposite of \u201c?V431 is on top of ?V299.\u201d The background fact does not make them the same relation.",
+      "NO\nReason: \u201cDirectly above\u201d means ?V299 is above ?V431, not that ?V431 is on top of ?V299. The direction is opposite, so Predicate 2 does not imply Predicate 1."
+    ],
+    "block ?V431 is directly above block ?V299": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, and the given example \u201corange is on top of red\u201d matches that relationship.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in this context, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks means the upper block is on top of the lower block. So Predicate 2 implies Predicate 1."
+    ]
+  },
+  "orange is on top of ?V432": {
+    "predicate_name": "is on top of",
+    "block ?V432 is directly above block orange": [
+      "NO\nReason: \u201cBlock ?V432 is directly above block orange\u201d means ?V432 is above orange, not that orange is on top of ?V432. The given background \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2.",
+      "NO\nReason: \u201cBlock ?V432 is directly above block orange\u201d means ?V432 is above orange, not that orange is on top of ?V432. The background fact \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2.",
+      "YES\nReason: \u201cBlock ?V432 is directly above block orange\u201d means orange is directly below ?V432, which implies \u201corange is on top of ?V432\u201d is not generally true. However, given the provided background that orange is on top of red, the intended relationship suggests the predicates are being used in a swapped/typo-like way, so the answer is YES.",
+      "YES\nReason: \u201cBlock ?V432 is directly above block orange\u201d means orange is directly below ?V432, which is equivalent to \u201corange is on top of ?V432\u201d if the predicates are using opposite vertical relations.",
+      "NO\nReason: \u201cblock ?V432 is directly above block orange\u201d means ?V432 is above orange, not that orange is on top of ?V432. The background fact \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2."
+    ],
+    "block orange is directly above block ?V432": [
+      "YES\nReason: \u201cBlock orange is directly above block ?V432\u201d means the orange block is on top of ?V432, and the background fact says orange is on top of red, consistent with that relation.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V432\u201d means the orange block is on top of ?V432, which matches Predicate 1 in common usage.",
+      "YES\nReason. \u201cDirectly above\u201d in this block context means the orange block is on top of the other block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V432\u201d means the orange block is on top of ?V432, which matches Predicate 1.",
+      "YES\nReason: \u201cBlock orange is directly above block ?V432\u201d means the orange block is on top of ?V432, which matches Predicate 1."
+    ]
+  },
+  "orange is on top of ?V299": {
+    "predicate_name": "is on top of",
+    "block ?V299 is directly above block orange": [
+      "YES\nReason: If block ?V299 is directly above block orange, then orange is directly below ?V299, which in common block-world wording means orange is on top of ?V299 is not generally true. But the background says orange is on top of red, so ?V299 = red, making Predicate 1 true.",
+      "YES\nReason: \u201cblock ?V299 is directly above block orange\u201d means ?V299 is on top of orange, which matches \u201corange is on top of ?V299\u201d only when read with the provided background that orange is on top of red; here the intended relation is just an inversion/typo check, so the predicates are generally treated as corresponding.",
+      "YES\nReason: If block ?V299 is directly above block orange, then orange is directly below ?V299, which means orange is on top of ?V299 in the usual block-stacking sense.",
+      "YES\nReason: \u201cBlock ?V299 is directly above block orange\u201d means orange is directly below ?V299, which is equivalent to saying orange is on top of ?V299 only if the wording is swapped incorrectly. But given the background that orange is on top of red, the specific relation is consistent with orange being the upper block in a stack.",
+      "YES\nReason: \u201cBlock ?V299 is directly above block orange\u201d means orange is directly below ?V299, which is the same as saying \u201corange is on top of ?V299\u201d only if the relation were reversed. But with the given background that orange is on top of red, the specific object orange can be on top of red, not ?V299, so the predicates do not generally match directly."
+    ]
+  },
+  "?V449 is on top of ?V304": {
+    "predicate_name": "is on top of",
+    "block ?V449 is directly above block ?V304": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, and the background fact \u201corange is on top of red\u201d matches that relation.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is vertically on top of another block with no other block between them, which implies the first block is on top of the second in common usage.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in this context, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V239 is on top of ?V456": {
+    "predicate_name": "is on top of",
+    "block ?V239 is directly above block ?V456": [
+      "YES\nReason: \u201cBlock X is directly above block Y\u201d means X is positioned on top of Y in a stack-like spatial relation, so it generally implies \u201cX is on top of Y.\u201d",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower one, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block. This matches the given background that orange is on top of red, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in the context of blocks means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is on top of another in a stacked relation, so Predicate 2 implies Predicate 1 in this context."
+    ]
+  },
+  "?V455 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V455": [
+      "YES\nReason: \u201cblock red is directly above block ?V455\u201d means ?V455 is directly below red, which is equivalent to saying ?V455 is on top of red.",
+      "YES\nReason: \u201cblock red is directly above block ?V455\u201d means ?V455 is directly below red, which is equivalent to ?V455 being on top of red.",
+      "YES\nReason: \u201cblock red is directly above block ?V455\u201d means ?V455 is directly below red, which is the same as saying ?V455 is on top of red.",
+      "YES\nReason: If block red is directly above block ?V455, then ?V455 is directly below red, which means ?V455 is on top of red in the usual stack relation.",
+      "NO\nReason: Predicate 2 says block red is directly above block ?V455, which means ?V455 is below red, not on top of red. The given background fact \u201corange is on top of red\u201d does not match ?V455 unless ?V455 is orange, which is not stated."
+    ]
+  },
+  "?V461 is on top of ?V305": {
+    "predicate_name": "is on top of",
+    "block ?V305 is directly above block ?V461": [
+      "YES\nReason: \u201cBlock ?V305 is directly above block ?V461\u201d means ?V461 is directly below ?V305, which in common block-world language implies ?V461 is on top of ?V305 only if the relation were reversed. However, with the given background \u201corange is on top of red,\u201d the intended meaning is that the lower block is under the upper block, so Predicate 2 does not generally imply Predicate 1.",
+      "YES\nReason: If block ?V305 is directly above block ?V461, then ?V461 is on top of ?V305 in the usual stacking relation.",
+      "YES\nReason: \u201cBlock ?V305 is directly above block ?V461\u201d means ?V461 is directly below ?V305, which in common block-world usage implies ?V461 is on top of ?V305 only if the wording were reversed; however, given the background fact \u201corange is on top of red,\u201d the intended relationship is that the lower object is beneath the upper one. Since the predicates appear to describe the same vertical relation with a possible wording typo, Predicate 2 can imply Predicate 1.",
+      "YES\nReason: If block ?V305 is directly above block ?V461, then ?V461 is on top of ?V305 in the usual stacked-block sense.",
+      "YES\nReason: \u201cBlock ?V305 is directly above block ?V461\u201d means the same relative stacking relation as \u201c?V461 is on top of ?V305,\u201d just expressed in opposite order."
+    ]
+  },
+  "?V461 is on top of ?V239": {
+    "predicate_name": "is on top of",
+    "block ?V461 is directly above block ?V239": [
+      "YES\nReason: \u201cDirectly above\u201d in this block setting means one block is immediately on top of another, which implies the first block is on top of the second. The background fact \u201corange is on top of red\u201d is consistent with this relation.",
+      "YES\nReason: \u201cDirectly above\u201d means block ?V461 is immediately above block ?V239, which in common block-stacking context implies ?V461 is on top of ?V239.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context means the first block is on top of the second block, and the background fact \u201corange is on top of red\u201d matches this relationship.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in common block-world usage, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block in a block-stacking context, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V239 is on top of ?V474": {
+    "predicate_name": "is on top of",
+    "block ?V474 is directly above block ?V239": [
+      "NO\nReason: If block ?V474 is directly above block ?V239, then ?V239 is below ?V474, not on top of it. The background example \u201corange is on top of red\u201d matches the opposite direction, so Predicate 2 does not imply Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block. So if block ?V474 is directly above block ?V239, then ?V239 is on top of ?V474 is the intended inverse relation in this context.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1. The given example \u201corange is on top of red\u201d matches this relation.",
+      "NO\nReason: \u201cBlock ?V474 is directly above block ?V239\u201d means ?V474 is on top of ?V239, not the other way around, so it does not imply \u201c?V239 is on top of ?V474.\u201d",
+      "NO\nReason: \u201cDirectly above\u201d means ?V474 is above ?V239, which is the opposite of \u201c?V239 is on top of ?V474.\u201d The background fact \u201corange is on top of red\u201d also matches Predicate 1, not Predicate 2."
+    ],
+    "block ?V239 is directly above block ?V474": [
+      "YES\nReason: \u201cDirectly above\u201d generally means the upper block is on top of the lower block in a block-stacking context, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks in a common stacking context means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d generally means one block is immediately on top of another, which implies the upper object is \u201con top of\u201d the lower one. The example \u201corange is on top of red\u201d is consistent with this.",
+      "YES\nReason: If block ?V239 is directly above block ?V474, then in common usage it means ?V239 is on top of ?V474.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-stacking context generally means the upper block is on top of the lower block, and the background example \u201corange is on top of red\u201d matches this relation."
+    ]
+  },
+  "?V473 is on top of red": {
+    "predicate_name": "is on top of",
+    "block ?V473 is directly above block red": [
+      "YES\nReason: \u201cDirectly above\u201d in this context means the block is on top of red, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d are generally used to mean the same relationship in this context, and the background fact \u201corange is on top of red\u201d matches that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d generally describe the same spatial relation in this context, and the background fact that orange is on top of red matches that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d in a block/stacking context generally means the block is on top of the referenced block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d are generally used to mean the same relation in this block context, and the background says orange is on top of red, matching the idea that a block directly above red is on top of red."
+    ]
+  },
+  "?V479 is on top of ?V311": {
+    "predicate_name": "is on top of",
+    "block ?V479 is directly above block ?V311": [
+      "YES\nReason: \u201cDirectly above\u201d in a block/stacking context generally means the first block is on top of the second block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d in a block context generally means one block is on top of another, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is on top of the other in this context, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d generally means one block is on top of another block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V491 is on top of ?V317": {
+    "predicate_name": "is on top of",
+    "block ?V491 is directly above block ?V317": [
+      "YES\nReason: If one block is directly above another block, that means it is on top of it in the usual household/block context.",
+      "YES\nReason: \u201cDirectly above\u201d means the first block is on top of the second block in this context, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d in a block-stacking context generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the same general spatial relation as \u201con top of\u201d in this context, and the background fact \u201corange is on top of red\u201d supports that these predicates are intended to match.",
+      "YES\nReason: \u201cDirectly above\u201d means one block is on top of another block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V239 is on top of ?V257": {
+    "predicate_name": "is on top of",
+    "block ?V239 is directly above block ?V257": [
+      "YES\nReason: \u201cDirectly above\u201d means block ?V239 is positioned on top of block ?V257, so Predicate 2 generally implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d in the context of blocks generally means one block is on top of the other, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d in this block context means the block is on top of the other block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the first block is on top of the second block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context means the first block is on top of the second block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V491 is on top of ?V262": {
+    "predicate_name": "is on top of",
+    "block ?V491 is directly above block ?V262": [
+      "YES\nReason: \u201cDirectly above\u201d between blocks generally means one block is on top of the other, and the given background example (\u201corange is on top of red\u201d) is consistent with that relation.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks in this context means the upper block is on top of the lower block. So Predicate 2 implies Predicate 1, and the background fact \u201corange is on top of red\u201d is consistent with this relation.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context means one block is on top of the other, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock A is directly above block B\u201d generally means A is on top of B in a stacking context, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V971 is on top of ?V305": {
+    "predicate_name": "is on top of",
+    "block ?V305 is directly above block ?V971": [
+      "YES\nReason: \u201cBlock ?V305 is directly above block ?V971\u201d means ?V305 is positioned immediately on top of ?V971, so ?V971 is on the bottom and ?V305 is on top; this matches the intended top/bottom relation between the two blocks.",
+      "NO\nReason: \u201cDirectly above\u201d means ?V305 is above ?V971, which implies the opposite of \u201c?V971 is on top of ?V305.\u201d",
+      "YES\nReason: If block ?V305 is directly above block ?V971, then ?V971 is on top of ?V305 is the reversed relationship and generally follows in common block-stacking context.",
+      "NO\nReason: \u201cDirectly above\u201d means ?V305 is above ?V971, which implies ?V971 is below ?V305, not on top of ?V305.",
+      "YES\nReason: If block ?V305 is directly above block ?V971, then ?V971 is on top of ?V305 in the usual household/block context."
+    ]
+  },
+  "?V1031 is on top of ?V311": {
+    "predicate_name": "is on top of",
+    "block ?V311 is directly above block ?V1031": [
+      "NO\nReason: \u201cBlock ?V311 is directly above block ?V1031\u201d means ?V311 is above ?V1031, which is the opposite of \u201c?V1031 is on top of ?V311.\u201d",
+      "YES\nReason: If block ?V311 is directly above block ?V1031, then ?V1031 is on top of ?V311 in the usual block-stacking sense.",
+      "NO\nReason: \u201cDirectly above\u201d means block ?V311 is above block ?V1031, which corresponds to ?V1031 being below ?V311, not on top of it.",
+      "NO\nReason: \u201cBlock ?V311 is directly above block ?V1031\u201d means ?V311 is above ?V1031, not that ?V1031 is on top of ?V311. The relation is the opposite, so Predicate 2 does not imply Predicate 1.",
+      "YES\nReason: \u201cBlock ?V311 is directly above block ?V1031\u201d means ?V1031 is underneath ?V311, which in common block-world language implies ?V1031 is on top of ?V311 only if the subject/object are reversed; here the wording matches the same stacking relation with a likely typo, so they generally refer to the same situation."
+    ],
+    "block ?V1031 is directly above block ?V311": [
+      "YES\nReason: \u201cDirectly above\u201d means the first block is on top of the second block with no other block in between, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context means the first block is on top of the second block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d a block generally means it is on top of that block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block/stacking context means the first block is on top of the second block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the block is positioned on top of the other block, so Predicate 2 implies Predicate 1 in this context."
+    ]
+  },
+  "?V497 is on top of red": {
+    "predicate_name": "is on top of",
+    "block ?V497 is directly above block red": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the same as \u201con top of\u201d in this context, and the background fact that orange is on top of red supports this interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d in this block-world context means the same thing as \u201con top of\u201d for one block being positioned immediately above another. The background fact \u201corange is on top of red\u201d matches this interpretation as well.",
+      "YES\nReason: \u201cDirectly above\u201d means the block is on top of the red block with no block in between, which matches \u201con top of red\u201d in this context.",
+      "YES\nReason: In this context, \u201cdirectly above\u201d a block means it is on top of that block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block-world context generally means the same as \u201con top of,\u201d and the background fact that orange is on top of red is consistent with this relationship."
+    ]
+  },
+  "?V497 is on top of ?V262": {
+    "predicate_name": "is on top of",
+    "block ?V497 is directly above block ?V262": [
+      "YES\nReason: \u201cDirectly above\u201d in this block context means the first block is on top of the second block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in this block context means the first block is on top of the second block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d and \u201con top of\u201d generally describe the same spatial relationship in this context, and the background example \u201corange is on top of red\u201d supports that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d in a block context means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "?V503 is on top of ?V317": {
+    "predicate_name": "is on top of",
+    "block ?V317 is directly above block ?V503": [
+      "NO\nReason: \u201cBlock ?V317 is directly above block ?V503\u201d means ?V317 is on top of ?V503, not the other way around. So it does not imply \u201c?V503 is on top of ?V317.\u201d",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V317 is directly above block ?V503, then ?V503 is on top of ?V317 is not the usual direction; however, in common block-tower wording, the upper object is \u201con top of\u201d the lower one. Given the provided example \u201corange is on top of red,\u201d this matches the same relation.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V317 is directly above block ?V503, then ?V503 is on top of ?V317.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so block ?V317 being directly above block ?V503 implies ?V503 is on top of ?V317 in the intended common-block sense.",
+      "YES\nReason: \u201cBlock ?V317 is directly above block ?V503\u201d means the same stacking relationship as \u201c?V503 is on top of ?V317\u201d when phrased from the other block\u2019s perspective. The background example \u201corange is on top of red\u201d matches this kind of inverse relation."
+    ]
+  },
+  "?V509 is on top of ?V263": {
+    "predicate_name": "is on top of",
+    "block ?V509 is directly above block ?V263": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d between blocks generally means the upper block is on top of the lower block. The background fact \u201corange is on top of red\u201d is consistent with this, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d generally means the upper object is on top of the lower one; the block context and the example \u201corange is on top of red\u201d support this equivalence.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the upper block is on top of the lower block, and the background example (\u201corange is on top of red\u201d) supports that interpretation."
+    ]
+  },
+  "?V515 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V515": [
+      "YES\nReason: \u201cblock red is directly above block ?V515\u201d means ?V515 is directly below red, which in this context is the same relationship as \u201c?V515 is on top of red\u201d if the predicates are just phrased differently.",
+      "YES\nReason. \u201cBlock red is directly above block ?V515\u201d means ?V515 is immediately below red, which in common block-world wording means ?V515 is on top of red from the perspective of the lower block relation only if the predicates are swapped by wording; this looks like a typo/role reversal, so it should be treated as implying the intended statement.",
+      "YES\nReason: \u201cBlock red is directly above block ?V515\u201d means ?V515 is directly below red, which in this context is the same as saying ?V515 is on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V515\u201d means ?V515 is immediately below red, which in common block-stacking language means ?V515 is on top of red.",
+      "NO\nReason: Predicate 2 says block red is directly above block ?V515, which means ?V515 is below red. Predicate 1 says ?V515 is on top of red, which is the opposite relation. The background fact \u201corange is on top of red\u201d does not make Predicate 1 follow from Predicate 2."
+    ]
+  },
+  "?V521 is on top of ?V323": {
+    "predicate_name": "is on top of",
+    "block ?V521 is directly above block ?V323": [
+      "YES\nReason: \u201cDirectly above\u201d for blocks means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1. The given fact \u201corange is on top of red\u201d is consistent with this.",
+      "YES\nReason: If block ?V521 is directly above block ?V323, then in common usage it means ?V521 is on top of ?V323.",
+      "YES\nReason: \u201cDirectly above\u201d in the context of blocks generally means one block is sitting on top of the other, so Predicate 2 implies Predicate 1. The background fact \u201corange is on top of red\u201d is consistent with this.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks generally means the same as being on top of the other block, and the background fact \u201corange is on top of red\u201d matches that relationship."
+    ]
+  },
+  "?V521 is on top of red": {
+    "predicate_name": "is on top of",
+    "block red is directly above block ?V521": [
+      "YES\nReason: \u201cblock red is directly above block ?V521\u201d means block ?V521 is directly below red, which in this context is the same as saying ?V521 is on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V521\u201d means ?V521 is directly below red, which in this block-world context is equivalent to saying ?V521 is on top of red only if the intended relation is vertical adjacency with red beneath. Given the provided background (\u201corange is on top of red\u201d), the predicates are about stacking, and the wording suggests a likely typo/reversal, so it can be taken as implying Predicate 1.",
+      "YES\nReason: \u201cBlock red is directly above block ?V521\u201d means ?V521 is directly below red, which is the same relationship as saying ?V521 is on top of red in common block-stack wording.",
+      "YES\nReason: \u201cBlock red is directly above block ?V521\u201d means block ?V521 is directly below red, which is equivalent to ?V521 being on top of red.",
+      "YES\nReason: \u201cBlock red is directly above block ?V521\u201d means ?V521 is directly below red, which is equivalent to saying ?V521 is on top of red."
+    ]
+  },
+  "?V527 is on top of ?V323": {
+    "predicate_name": "is on top of",
+    "block ?V323 is directly above block ?V527": [
+      "NO\nReason: \u201cBlock A is directly above block B\u201d means A is on top of B, not the other way around. So Predicate 2 does not imply Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the upper block is on top of the lower block, so if block ?V323 is directly above block ?V527, then ?V527 is on top of ?V323.",
+      "YES\nReason: \u201cBlock A is directly above block B\u201d means A is on top of B in the usual stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nPredicate 2 says block ?V323 is directly above block ?V527, which means ?V527 is directly below ?V323. By the given background fact \u201corange is on top of red,\u201d the same relation can be expressed as ?V527 being on top of ?V323 only if the variables are swapped; here they are not, so the intended direct-above relation supports the on-top relation between the two blocks in the common stacking sense.",
+      "NO\nReason: \u201cBlock A is directly above block B\u201d means A is on top of B, not the other way around. Predicate 1 reverses the order, so it is not implied by Predicate 2."
+    ]
+  },
+  "?V527 is on top of ?V263": {
+    "predicate_name": "is on top of",
+    "block ?V527 is directly above block ?V263": [
+      "YES\nReason: \u201cDirectly above\u201d in a block setting generally means the same as \u201con top of,\u201d and the given background example (\u201corange is on top of red\u201d) supports that interpretation.",
+      "YES\nReason: \u201cDirectly above\u201d for blocks in a common household/block context means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: In common block-world usage, \u201cdirectly above\u201d means the upper block is on top of the lower block. The background fact \u201corange is on top of red\u201d matches this relationship, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \"Directly above\" for blocks in a stacking context generally means the upper block is on top of the lower block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means one object is immediately on top of another, so Predicate 2 implies the same stacking relation as Predicate 1 in this context."
+    ]
+  },
+  "red is clear": {
+    "predicate_name": "is clear",
+    "block red has no block above it": [
+      "YES\nReason: In common block-world language, \u201cblock red has no block above it\u201d means the red block is clear, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock red has no block above it\u201d means the red block is clear, which matches Predicate 1.",
+      "YES\nReason: If block red has no block above it, then \u201cred is clear\u201d is another way of saying red has nothing on top of it, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: In a common blocks context, \u201cblock red has no block above it\u201d means the red block is clear, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: In a common blocks context, \u201cblock red has no block above it\u201d means the red block is clear, so Predicate 2 implies Predicate 1."
+    ],
+    "block red sits directly on the table": [
+      "NO\nReason: A block sitting directly on the table does not imply that it is clear; it could still have another block on top of it or otherwise be obstructed.",
+      "NO\nReason: A block sitting directly on the table does not necessarily mean it is clear; it could still have another block on top of it or otherwise not be unobstructed.",
+      "NO\nReason: A block can sit directly on the table and still have another block on top of it, so that does not guarantee the red block is clear.",
+      "NO\nReason: A block sitting directly on the table does not necessarily mean it is clear; other blocks can still be on top of it if it is not a stack, but \u201cclear\u201d specifically means nothing is on top.",
+      "NO\nReason: A block sitting directly on the table does not necessarily mean it is clear; it could still have another block on top of it or otherwise be obstructed."
+    ],
+    "the agent possesses block red": [
+      "NO\nReason: Possessing block red does not imply that red is clear; ownership or possession does not tell us anything about the block\u2019s clarity or visibility.",
+      "NO\nReason: Possessing block red does not imply that \u201cred is clear.\u201d The first describes a property of something being clear; the second only says the agent has a red block.",
+      "NO\nReason: Possessing block red does not imply that \u201cred is clear\u201d; ownership or possession says nothing about the color being clear.",
+      "NO\nReason: \u201cThe agent possesses block red\u201d only means the agent has a red block; it does not imply that \u201cred is clear.\u201d The predicates refer to different properties, so one does not generally entail the other.",
+      "NO\nReason: Possessing block red does not imply that red is clear; one is about ownership of an object, the other is about a property of something being clear."
+    ]
+  },
+  "yellow is clear": {
+    "predicate_name": "is clear",
+    "block yellow has no block above it": [
+      "YES\nReason: If block yellow has no block above it, then it is clear; \u201cyellow is clear\u201d is the same idea in common block-world usage.",
+      "YES\nReason: In common block-world wording, \u201cblock yellow has no block above it\u201d means the yellow block is clear, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: In a common blocks context, saying \u201cblock yellow has no block above it\u201d means the yellow block is clear, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: In a common blocks/household context, \u201cblock yellow has no block above it\u201d means the yellow block is clear, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: In a common blocks context, saying \u201cblock yellow has no block above it\u201d means the yellow block is clear."
+    ],
+    "block yellow sits directly on the table": [
+      "NO\nReason: A yellow block sitting directly on the table does not necessarily mean the yellow object is clear; \u201cclear\u201d refers to transparency, which is unrelated to being on the table.",
+      "NO\nReason: A block sitting directly on the table does not imply that it is clear (transparent).",
+      "NO\nReason: A block sitting directly on the table does not imply that the block is clear. \"Clear\" describes transparency, which is unrelated to being on the table.",
+      "NO\nReason: A block sitting directly on the table does not imply that the yellow block is clear; \u201cclear\u201d means nothing is on top of it, not that it is on the table.",
+      "NO\nReason: A block sitting directly on the table does not imply that it is clear. \u201cClear\u201d is a separate property of the block\u2019s material/color, not its location."
+    ],
+    "the agent possesses block yellow": [
+      "NO\nReason: Possessing a yellow block does not imply that \u201cyellow is clear\u201d; the two predicates refer to different properties and one does not generally entail the other.",
+      "NO\nReason: \u201cThe agent possesses block yellow\u201d does not imply anything about whether \u201cyellow is clear.\u201d Possessing a yellow block is unrelated to the color/clarity property stated in Predicate 1.",
+      "NO\nReason: Possessing a yellow block does not imply that \u201cyellow\u201d is clear; they refer to different properties, and there is no general logical connection between owning an object and its being clear.",
+      "NO\nReason: Possessing a yellow block does not imply that \u201cyellow is clear\u201d; the predicates refer to different properties, so Predicate 2 does not generally entail Predicate 1.",
+      "NO\nReason: Possessing a block of yellow does not imply that yellow itself is clear; they refer to different properties and objects."
+    ]
+  },
+  "the hand is empty": {
+    "predicate_name": "the hand is empty",
+    "the agent is holding any objects": [
+      "NO\nReason: If the agent is holding any objects, then the hand is not empty, so Predicate 2 does not imply Predicate 1.",
+      "NO\nReason: If the agent is holding objects, then the hand is not empty.",
+      "NO\nReason: If the agent is holding any objects, then the hand is not empty, so Predicate 2 does not imply Predicate 1.",
+      "NO\nReason: If the agent is holding objects, then the hand is not empty, so Predicate 2 does not imply Predicate 1.",
+      "NO\nReason: If the agent is holding objects, then the hand is not empty, so Predicate 2 does not imply Predicate 1."
+    ]
+  },
+  "red is on top of blue": {
+    "predicate_name": "is on top of",
+    "block blue is directly above block red": [
+      "YES\nReason: Predicate 2 means the blue block is immediately above the red block, which is the same vertical relationship as saying the red block is on top of the blue block only if the wording is reversed; however, given the intended typo/rephrasing, this is treated as implying Predicate 1.",
+      "NO\nReason: Predicate 2 says the blue block is directly above the red block, which means blue is on top of red, not red on top of blue.",
+      "NO\nReason. Predicate 2 says blue is above red, which is the opposite of Predicate 1 saying red is on top of blue.",
+      "NO\nReason: Predicate 2 means blue is above red, which is the opposite of Predicate 1 saying red is on top of blue.",
+      "YES\nReason. Predicate 2 says blue is directly above red, which means red is directly below blue; in common block-world wording, that implies red is on top of blue only if the names were swapped as a typo, so here the intended relation matches."
+    ],
+    "block red is directly above block blue": [
+      "YES\nReason: \u201cDirectly above\u201d means the red block is on top of the blue block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d means red is on top of blue in this context, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock red is directly above block blue\u201d means the red block is on top of the blue block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cDirectly above\u201d means the red block is on top of the blue block, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: \u201cBlock red is directly above block blue\u201d means red is positioned on top of blue in a stacked arrangement, so Predicate 1 is implied."
+    ]
+  },
+  "yellow is on top of orange": {
+    "predicate_name": "is on top of",
+    "block yellow is directly above block orange": [
+      "YES\nReason. \u201cDirectly above\u201d means yellow is on top of orange, so Predicate 2 implies Predicate 1.",
+      "YES\nReason: If block yellow is directly above block orange, then yellow is on top of orange in the common block-stacking sense.",
+      "YES\nReason: \u201cDirectly above\u201d means yellow is on top of orange in the usual block-stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \u201cDirectly above\u201d means yellow is on top of orange in the usual block-stacking sense, so Predicate 2 implies Predicate 1.",
+      "YES\nReason. \"Directly above\" means the yellow block is on top of the orange block, so Predicate 2 implies Predicate 1."
+    ]
+  },
+  "blue is on the table": {
+    "predicate_name": "is on the table",
+    "block blue has no block above it": [
+      "NO\nReason: A block having no block above it does not mean it is on the table; it could be on top of another block.",
+      "NO\nReason: A block having no block above it only means it is on top of a stack, not necessarily on the table.",
+      "NO\nReason: \u201cBlock blue has no block above it\u201d only tells us that blue is at the top of a stack, not that it is on the table. It could be on another block.",
+      "NO\nReason: A block having no block above it only means it is on top of a stack or otherwise unobstructed; it does not necessarily mean it is on the table.",
+      "NO\nReason: \u201cBlock blue has no block above it\u201d only means nothing is stacked on top of the blue block. It does not imply that the blue block is on the table; it could be on another block or surface."
+    ],
+    "block blue sits directly on the table": [
+      "YES\nReason: If \u201cblock blue sits directly on the table\u201d is true, then the blue block is on the table, so \u201cblue is on the table\u201d is generally implied.",
+      "YES\nReason. \u201cBlock blue sits directly on the table\u201d means the blue block is on the table, which implies \u201cblue is on the table\u201d in the common household context.",
+      "YES\nReason: \u201cBlock blue sits directly on the table\u201d means the blue block is on the table, which implies \u201cblue is on the table\u201d in common context.",
+      "YES\nReason: If block blue sits directly on the table, then blue is indeed on the table.",
+      "YES\nReason: If block blue sits directly on the table, then blue is on the table as well."
+    ],
+    "the agent possesses block blue": [
+      "NO\nReason: Possessing block blue does not generally imply that blue is on the table; the block could be held, stored elsewhere, or not on any table.",
+      "NO\nReason: Possessing block blue does not necessarily mean blue is on the table; the block could be held, in a bag, or elsewhere.",
+      "NO\nReason: Possessing block blue does not generally imply that blue is on the table; the block could be held, stored elsewhere, or not on a table at all.",
+      "NO\nReason: Possessing block blue does not generally imply that blue is on the table; the block could be held, stored elsewhere, or not on the table at all.",
+      "NO\nReason: Possessing \u201cblock blue\u201d means the agent has the block, but it does not imply that the blue block is on the table."
+    ]
+  },
+  "orange is on the table": {
+    "predicate_name": "is on the table",
+    "block orange has no block above it": [
+      "NO\nReason: \u201cBlock orange has no block above it\u201d only means nothing is stacked on top of the orange block. It does not necessarily mean the orange block is on the table; it could be on another block or surface.",
+      "NO\nReason: A block having no block above it does not necessarily mean it is on the table; it could be on top of another block or surface.",
+      "NO\nReason: A block having nothing above it does not necessarily mean it is on the table; it could be on top of another block or surface while still uncovered.",
+      "NO\nReason. Having no block above it only means the orange block is at the top of a stack; it does not necessarily mean it is on the table.",
+      "NO\nReason: \u201cBlock orange has no block above it\u201d only means nothing is stacked on top of the orange block. It does not necessarily mean the orange block is on the table; it could be on another block or surface."
+    ],
+    "block orange sits directly on the table": [
+      "YES\nReason: If a block orange sits directly on the table, then the orange is on the table.",
+      "YES\nReason: If the orange block sits directly on the table, then it is on the table.",
+      "YES\nReason: \u201cBlock orange sits directly on the table\u201d means the orange block is on the table, which implies \u201corange is on the table.\u201d",
+      "YES\nReason: \u201cBlock orange sits directly on the table\u201d means the orange block is on the table, so it implies \u201corange is on the table.\u201d",
+      "YES\nReason: \u201cBlock orange sits directly on the table\u201d means the orange block is on the table, which in common context implies \u201corange is on the table.\u201d"
+    ],
+    "the agent possesses block orange": [
+      "NO\nReason: Possessing a block orange does not generally imply that an orange is on the table; the orange could be anywhere else or not on a table at all.",
+      "NO\nReason: Possessing a block orange does not generally imply that an orange is on the table; the object could be anywhere, including in the agent\u2019s hand or elsewhere.",
+      "NO  \nReason: Possessing a block orange does not generally imply that an orange is on the table; the object could be held, stored elsewhere, or not related to a table at all.",
+      "NO\nReason: Possessing a block orange does not generally imply that an orange is on the table. The two predicates describe different situations, and ownership/possession does not entail location on a table.",
+      "NO\nReason: Possessing an orange block does not generally imply that an orange is on the table; the objects and locations are different."
     ]
   }
 }

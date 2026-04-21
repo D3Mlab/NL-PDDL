@@ -159,15 +159,13 @@ class NLFOLRegressionPlanner(NLPlanner):
             """
             self.children.append(child_node)
 
-    def extract_plan(self, node: "NLFOLRegressionPlanner.PlanNode") -> List[Action]:
+    def _extract_plan_from_node(self, node: "NLFOLRegressionPlanner.PlanNode") -> List[Action]:
         """
-        Extract the plan from the plan tree.
-
-        Args:
-            node (PlanNode): The node to extract the plan from.
+        Walk a PlanNode back to the root and return the regression-ordered action list.
 
         Returns:
-            List[Action]: The list of actions in the plan.
+            List[Action]: Actions in regression order (root-first). Reverse to get
+            forward execution order from the subgoal to the original goal.
         """
         plan: List[Action] = []
         while node.parent is not None:
@@ -175,6 +173,25 @@ class NLFOLRegressionPlanner(NLPlanner):
             node = node.parent
         plan.reverse()
         return plan
+
+    def extract_plan(self, initial_state, plans):
+        """
+        Pick the subgoal satisfied by ``initial_state`` and return the forward plan.
+
+        Args:
+            initial_state: Either a list of ``(nl_text, type_tags)`` tuples (same
+                format used for goals/domains) or a list of pre-parsed
+                :class:`NLPredicate` objects.
+            plans: The list returned by :meth:`regress_plan` — a sequence of
+                ``(subgoal_formula, reversed_actions, substitution)`` tuples.
+
+        Returns:
+            :class:`pddl_planner.planner.plan_extractor.PlanExtractionResult`
+            containing every matching subgoal sorted by plan length ascending;
+            ``result.best`` is the shortest forward-executable plan.
+        """
+        from pddl_planner.planner.plan_extractor import InitialStatePlanExtractor
+        return InitialStatePlanExtractor(self).extract_plan(initial_state, plans)
 
 
     def create_SSA(self, predicates: List[Predicate] = None) -> Dict[str, Dict[str, SSA_Node]]:
@@ -596,7 +613,7 @@ class NLFOLRegressionPlanner(NLPlanner):
                                 if isinstance(c, ConjunctiveFormula):
                                     visited_goal.append(c)
                             frontier.append(child_node)
-                            plan.append((child_node.sub_goal, self.extract_plan(child_node), child_node.substitution))
+                            plan.append((child_node.sub_goal, self._extract_plan_from_node(child_node), child_node.substitution))
 
                             if save_file_path is not None and len(plan) > 0:
                                 plan_counter = save_plan(plan, save_file_path, plan_counter)
@@ -613,7 +630,7 @@ class NLFOLRegressionPlanner(NLPlanner):
                             else:
                                 logger.debug("Non-conjunctive clause in subgoal: %s", conjunct)
                         frontier.append(child_node)
-                        plan.append((child_node.sub_goal, self.extract_plan(child_node), child_node.substitution))
+                        plan.append((child_node.sub_goal, self._extract_plan_from_node(child_node), child_node.substitution))
 
                         if save_file_path is not None and len(plan) > 0:
                             plan_counter = save_plan(plan, save_file_path, plan_counter)
