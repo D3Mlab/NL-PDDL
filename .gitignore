@@ -60,3 +60,6 @@ share/
 bin/
 
 .claude
+
+#colab
+examples/blockworld_tutorial_colab.ipynb
