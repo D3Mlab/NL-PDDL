@@ -93,12 +93,13 @@ class LLM:
         """Infer the backend from a model name, defaulting to OpenAI.
 
         Any identifier starting with ``"gemma"`` (e.g. ``"gemma-3-4b"``) or
-        ``"google/gemma"`` routes to the local Gemma backend.
+        containing ``"/gemma"`` (e.g. ``"google/gemma-3-4b-it"``,
+        ``"unsloth/gemma-3-4b-it"``) routes to the local Gemma backend.
         """
         if not isinstance(model_name, str):
             return "openai"
         n = model_name.strip().lower()
-        if n.startswith("gemma") or n.startswith("google/gemma"):
+        if n.startswith("gemma") or "/gemma" in n:
             return "gemma"
         return "openai"
 
