@@ -79,15 +79,22 @@ class NLFOLRegressionPlanner(NLPlanner):
         self._log_path = log_path
 
         if log_path is not None:
-            # When log_path is set, send all logs to file only (no console output)
+            # When log_path is set, send all logs to the file only (no console output).
+            # In Jupyter/Colab the root logger has its own stream handler that writes to
+            # the cell output, so we must also disable propagation — otherwise records
+            # reach the root handler even though we only attached a FileHandler here.
+            # Any console handlers added by a previous planner instantiation are dropped
+            # so a second cell run doesn't keep printing.
             file_handler = logging.FileHandler(log_path, mode="w")
             file_handler.setFormatter(logging.Formatter("%(asctime)s | %(name)s | %(levelname)s | %(message)s"))
-            if not logger.handlers:
-                logger.addHandler(file_handler)
-                logger.setLevel(logging.DEBUG)
-            if not llm_logger.handlers:
-                llm_logger.addHandler(file_handler)
-                llm_logger.setLevel(logging.DEBUG)
+            for _lg in (logger, llm_logger):
+                for _h in list(_lg.handlers):
+                    if not isinstance(_h, logging.FileHandler):
+                        _lg.removeHandler(_h)
+                if not any(isinstance(h, logging.FileHandler) for h in _lg.handlers):
+                    _lg.addHandler(file_handler)
+                _lg.setLevel(logging.DEBUG)
+                _lg.propagate = False
         else:
             if verbose and not logger.handlers:
                 logger.addHandler(make_colored_handler())
