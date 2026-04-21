@@ -63,3 +63,5 @@ bin/
 
 #colab
 examples/blockworld_tutorial_colab.ipynb
+examples/cache.json
+cache.json
