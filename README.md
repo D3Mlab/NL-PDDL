@@ -26,7 +26,7 @@ Planning in open-world environments, where agents must act with partially observ
 
 Try NL-PDDL without any local setup, or follow the full interactive walkthrough:
 
-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1TAaTMnMCa3lSt0CJqzVtZAiffBvjVwmU?usp=sharing) &nbsp; **[Blockworld tutorial — Colab notebook](https://colab.research.google.com/drive/13erVzvyZ6XU9dEfGliUU7xdNfd-m87Az?usp=sharing)** — run the end-to-end misaligned-Blockworld tutorial (clone, install, LLM entailment, plan viewer) directly in your browser.
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1TAaTMnMCa3lSt0CJqzVtZAiffBvjVwmU?usp=sharing) &nbsp; **[Blockworld tutorial — Colab notebook](https://colab.research.google.com/drive/1TAaTMnMCa3lSt0CJqzVtZAiffBvjVwmU#scrollTo=S-mpvWddU_TV)** — run the end-to-end misaligned-Blockworld tutorial (clone, install, LLM entailment, plan viewer) directly in your browser with a support of local Gemma-4-E4B-it LLM (no API key needed) or your own OpenAI key (optional).
 - **[HTML tutorial](https://d3mlab.github.io/NL-PDDL/tutorial.html)** — the same walkthrough rendered on the project site
 
 ### Local install
