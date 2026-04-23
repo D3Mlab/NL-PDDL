@@ -2,31 +2,31 @@
 
 This module provides :class:`GemmaLLM`, a drop-in alternative to
 ``openai.OpenAI`` for the rest of :mod:`pddl_planner.llm.llm`. It loads an
-instruction-tuned Gemma checkpoint locally through Hugging Face Transformers
-with CUDA support when a GPU is available.
+instruction-tuned Gemma checkpoint locally through **Unsloth's**
+:class:`unsloth.FastLanguageModel`, which wraps the Hugging Face stack with
+4-bit (bitsandbytes) quantization, fused kernels, and a faster inference
+path — materially less VRAM and latency than the vanilla
+``AutoModelForCausalLM`` loader we used previously.
 
 The object exposes ``client.with_options(timeout=...).chat.completions.create(
 model=..., messages=[...])`` and returns a response whose shape matches
 ``openai.types.chat.ChatCompletion`` enough for downstream code:
 ``response.choices[0].message.content``.
 
-Selecting the model size
-------------------------
-``GemmaLLM(model_size="4b")`` is the default. Any of the canonical Gemma
-instruction-tuned sizes are accepted:
+Selecting the model
+-------------------
+``GemmaLLM(model_size="e4b")`` is the default and resolves to
+``"unsloth/gemma-4-e4b-it-unsloth-bnb-4bit"`` — the 4-bit Efficient-4B
+Gemma-4 instruction checkpoint. Accepted selectors:
 
-    * ``"1b"``  — fastest, text-only, fits comfortably on one consumer GPU.
-    * ``"4b"``  — default, balanced quality/VRAM.
-    * ``"12b"`` — higher quality, needs a high-VRAM GPU.
-    * ``"27b"`` — largest, multi-GPU / 48GB+ recommended.
-
-The Gemma *generation* ("3" by default) can be overridden via the
-``generation`` kwarg, or a full Hugging Face repo id (e.g.
-``"google/gemma-3-4b-it"``) can be passed directly as ``model_size``.
+    * ``"e2b"``, ``"e4b"``           — Gemma 4 Efficient tier (Unsloth 4-bit).
+    * ``"1b"``, ``"4b"``, ``"12b"``, ``"27b"`` — Gemma 3 sizes (Unsloth fp16).
+    * Full repo id, e.g. ``"unsloth/gemma-3-4b-it"`` — used verbatim.
 
 Gemma checkpoints on Hugging Face are gated. Provide an access token via the
 ``hf_token`` kwarg, or set ``HF_TOKEN`` / ``HUGGING_FACE_HUB_TOKEN`` in your
-environment before instantiation.
+environment before instantiation. Unsloth's mirrors are ungated and the
+default path does not require a token.
 """
 
 from __future__ import annotations
@@ -40,155 +40,150 @@ from typing import Any, Dict, List, Optional, Sequence
 logger = logging.getLogger("pddl_planner.llm.gemma")
 
 
-# Canonical Gemma instruction-tuned checkpoint sizes.
-_GEMMA_SIZES: Dict[str, str] = {
-    "1b": "1b",
-    "4b": "4b",
-    "12b": "12b",
-    "27b": "27b",
+# Canonical size tokens → Unsloth repo ids. Gemma 4 uses the Efficient-tier
+# "E2B"/"E4B" naming and ships pre-quantized 4-bit variants; Gemma 3 keeps
+# the parameter-count sizing and is loaded in fp16/bf16.
+_UNSLOTH_GEMMA4_E: Dict[str, str] = {
+    "e2b": "unsloth/gemma-4-e2b-it-unsloth-bnb-4bit",
+    "e4b": "unsloth/gemma-4-e4b-it-unsloth-bnb-4bit",
 }
-_DEFAULT_GENERATION = "3"
+_UNSLOTH_GEMMA3: Dict[str, str] = {
+    "1b": "unsloth/gemma-3-1b-it",
+    "4b": "unsloth/gemma-3-4b-it",
+    "12b": "unsloth/gemma-3-12b-it",
+    "27b": "unsloth/gemma-3-27b-it",
+}
 
 
 def available_sizes() -> List[str]:
     """Return the canonical Gemma sizes accepted by :class:`GemmaLLM`."""
-    return sorted(_GEMMA_SIZES)
+    return sorted(list(_UNSLOTH_GEMMA4_E) + list(_UNSLOTH_GEMMA3))
 
 
-def _resolve_repo_id(model_size: str, generation: str = _DEFAULT_GENERATION) -> str:
+def _resolve_repo_id(model_size: str) -> str:
     """Map a user-friendly size token to a Hugging Face repo id.
 
-    Accepts:
-        * Full repo id — e.g. ``"google/gemma-3-4b-it"`` (returned unchanged).
-        * Generation-qualified name — e.g. ``"gemma-3-4b"`` or
-          ``"gemma-3-4b-it"``.
-        * Bare size token — e.g. ``"4b"``; combined with ``generation``.
-
-    Args:
-        model_size: User-supplied size selector.
-        generation: Gemma generation to assume when only a size is given.
-
-    Returns:
-        A fully qualified Hugging Face repo id for the instruction-tuned
-        (``-it``) variant.
+    Full repo ids (anything containing ``"/"``) are returned verbatim. Size
+    tokens are resolved to Unsloth mirrors — Gemma 4 E-series maps to the
+    4-bit bitsandbytes checkpoints; Gemma 3 sizes map to the fp16 ones.
     """
     if not isinstance(model_size, str) or not model_size.strip():
         raise ValueError("model_size must be a non-empty string.")
     if "/" in model_size:
         return model_size
     s = model_size.strip().lower().removesuffix("-it")
+    if s in _UNSLOTH_GEMMA4_E:
+        return _UNSLOTH_GEMMA4_E[s]
+    if s in _UNSLOTH_GEMMA3:
+        return _UNSLOTH_GEMMA3[s]
+    # Accept "gemma-3-4b" / "gemma-4-e4b" style prefixes too.
     if s.startswith("gemma-"):
         parts = s.split("-")
         if len(parts) >= 3:
-            gen, size = parts[1], parts[2]
-            if size in _GEMMA_SIZES:
-                return f"google/gemma-{gen}-{_GEMMA_SIZES[size]}-it"
-    if s in _GEMMA_SIZES:
-        return f"google/gemma-{generation}-{_GEMMA_SIZES[s]}-it"
+            _, _, size = parts[0], parts[1], "-".join(parts[2:])
+            if size in _UNSLOTH_GEMMA4_E:
+                return _UNSLOTH_GEMMA4_E[size]
+            if size in _UNSLOTH_GEMMA3:
+                return _UNSLOTH_GEMMA3[size]
     raise ValueError(
         f"Unsupported Gemma model selector {model_size!r}. "
-        f"Pass one of {available_sizes()} (optionally prefixed with "
-        f"\"gemma-<generation>-\"), or a full Hugging Face repo id like "
-        f"\"google/gemma-3-4b-it\"."
+        f"Pass one of {available_sizes()}, or a full Hugging Face repo id "
+        f"like \"unsloth/gemma-4-e4b-it-unsloth-bnb-4bit\"."
     )
 
 
 class GemmaLLM:
     """Local Gemma inference client with an OpenAI-compatible chat surface.
 
+    Loads weights through :class:`unsloth.FastLanguageModel`, which enables
+    4-bit quantization (``load_in_4bit=True``) and fused inference kernels.
     The object mirrors the tiny slice of the OpenAI client used by
     :class:`pddl_planner.llm.llm.LLM`: ``with_options`` (no-op here) and
-    ``chat.completions.create``. Generation runs fully locally on the
-    configured Torch device; CUDA is used automatically when available.
+    ``chat.completions.create``. Generation runs fully locally on CUDA.
 
     Attributes:
         model_size (str): User-supplied size selector.
-        generation (str): Gemma generation token (e.g. ``"3"``).
-        repo_id (str): Resolved Hugging Face repo id.
-        device (str): Torch device string (``"cuda"``, ``"cuda:0"``, ``"cpu"``).
-        max_new_tokens (int): Default cap on generated tokens per call.
+        repo_id (str): Resolved Hugging Face repo id actually loaded.
+        device (str): Torch device string used for inputs (``"cuda"`` /
+            ``"cpu"``). Unsloth places the model on CUDA automatically when
+            ``load_in_4bit`` is enabled.
+        max_seq_length (int): Maximum sequence length (caps the KV cache).
+        max_new_tokens (int): Default generation cap per call.
         temperature (float): Default sampling temperature.
         top_p (float): Default nucleus-sampling parameter.
     """
 
-    # Transformers' generate() is not re-entrant across threads on the same
+    # Unsloth's generate() is not safely re-entrant across threads on the same
     # model object. Serialize concurrent requests within a single process.
     _generate_lock = threading.Lock()
 
     def __init__(
         self,
-        model_size: str = "4b",
+        model_size: str = "e4b",
         *,
-        generation: str = _DEFAULT_GENERATION,
-        device: Optional[str] = None,
-        dtype: Optional[str] = None,
+        max_seq_length: int = 8192,
+        load_in_4bit: bool = True,
         max_new_tokens: int = 512,
         temperature: float = 0.7,
         top_p: float = 0.95,
         hf_token: Optional[str] = None,
         cache_dir: Optional[str] = None,
+        device: Optional[str] = None,
     ) -> None:
-        """Load the tokenizer and model weights.
+        """Load the tokenizer and model weights via Unsloth.
 
         Args:
-            model_size: ``"1b"``, ``"4b"``, ``"12b"``, ``"27b"``, or a full
-                Hugging Face repo id. Defaults to ``"4b"``.
-            generation: Gemma generation (``"3"`` by default). Ignored when
-                ``model_size`` is already a full repo id.
-            device: Torch device string. Defaults to ``"cuda"`` when a GPU is
-                visible, else ``"cpu"``.
-            dtype: Torch dtype name (``"bfloat16"``, ``"float16"``,
-                ``"float32"``). Defaults to ``"bfloat16"`` on CUDA and
-                ``"float32"`` on CPU.
-            max_new_tokens: Default generation cap.
+            model_size: Size token (``"e2b"``, ``"e4b"``, ``"1b"``,
+                ``"4b"``, ``"12b"``, ``"27b"``) or a full Hugging Face repo
+                id. Defaults to ``"e4b"`` (Gemma 4 Efficient-4B, 4-bit).
+            max_seq_length: Cap on context length — also caps the KV cache
+                size, so keep it modest to avoid OOM on small GPUs.
+                Defaults to 8192.
+            load_in_4bit: When ``True`` (default) Unsloth loads the
+                bitsandbytes 4-bit quantized weights. Turn off to load
+                fp16/bf16 if you have the VRAM.
+            max_new_tokens: Default per-call generation cap.
             temperature: Default sampling temperature.
             top_p: Default nucleus-sampling parameter.
-            hf_token: Hugging Face access token for gated Gemma weights.
+            hf_token: Hugging Face access token for gated checkpoints.
                 Falls back to ``HF_TOKEN`` / ``HUGGING_FACE_HUB_TOKEN`` in
-                the environment.
+                the environment. Unsloth mirrors are ungated; a token is
+                only needed when you pass a ``google/...`` repo id.
             cache_dir: Optional Hugging Face cache directory override.
+            device: Torch device for the input tensors. Defaults to
+                ``"cuda"`` when a GPU is visible. Unsloth itself manages
+                weight placement; this only affects where we move inputs
+                before generate().
         """
-        # Heavy imports are deferred so `import pddl_planner.llm.llm` does not
-        # pull in torch/transformers for users staying on the OpenAI backend.
+        # Heavy imports are deferred so `import pddl_planner.llm.llm` does
+        # not pull in torch/unsloth for users staying on the OpenAI backend.
         try:
             import torch
-            from transformers import AutoTokenizer, AutoModelForCausalLM
         except ImportError as exc:
             raise ImportError(
-                "GemmaLLM requires `torch` and `transformers`. "
-                "Install with: pip install torch transformers accelerate"
+                "GemmaLLM requires `torch`. Install a CUDA-enabled torch "
+                "build, then: pip install unsloth"
             ) from exc
-
-        # For multimodal-capable Gemma variants (4B/12B/27B) we prefer the
-        # image-text-to-text class and feed it text-only. Fall back silently
-        # when the class is unavailable (older transformers).
         try:
-            from transformers import AutoModelForImageTextToText
-        except ImportError:
-            AutoModelForImageTextToText = None  # type: ignore
+            from unsloth import FastLanguageModel
+        except ImportError as exc:
+            raise ImportError(
+                "GemmaLLM now loads Gemma via Unsloth's FastLanguageModel. "
+                "Install with: `pip install unsloth` (Colab/Linux + CUDA)."
+            ) from exc
 
         self.model_size = model_size
-        self.generation = generation
-        self.repo_id = _resolve_repo_id(model_size, generation)
-        self.max_new_tokens = max_new_tokens
-        self.temperature = temperature
-        self.top_p = top_p
-
-        if device is None:
-            device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.device = device
-        if dtype is None:
-            dtype_str = "bfloat16" if device.startswith("cuda") else "float32"
-        else:
-            dtype_str = dtype
-        try:
-            torch_dtype = getattr(torch, dtype_str)
-        except AttributeError as exc:
-            raise ValueError(
-                f"Unknown torch dtype {dtype_str!r}. Expected one of "
-                f"'bfloat16', 'float16', 'float32'."
-            ) from exc
+        self.repo_id = _resolve_repo_id(model_size)
+        self.max_seq_length = int(max_seq_length)
+        self.load_in_4bit = bool(load_in_4bit)
+        self.max_new_tokens = int(max_new_tokens)
+        self.temperature = float(temperature)
+        self.top_p = float(top_p)
         self._torch = torch
+
+        # Where we move the input token tensor before generate(). Unsloth
+        # puts the model on CUDA internally when load_in_4bit is True.
+        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
 
         token = (
             hf_token
@@ -197,54 +192,32 @@ class GemmaLLM:
         )
 
         logger.info(
-            "Loading Gemma model %s on %s (dtype=%s)", self.repo_id, self.device, dtype_str
+            "Loading Gemma via Unsloth: %s (load_in_4bit=%s, max_seq_length=%d)",
+            self.repo_id, self.load_in_4bit, self.max_seq_length,
         )
         try:
-            self._tokenizer = AutoTokenizer.from_pretrained(
-                self.repo_id, token=token, cache_dir=cache_dir
+            self._model, self._tokenizer = FastLanguageModel.from_pretrained(
+                model_name=self.repo_id,
+                max_seq_length=self.max_seq_length,
+                load_in_4bit=self.load_in_4bit,
+                token=token,
+                cache_dir=cache_dir,
             )
         except ValueError as exc:
-            # Gemma ships a SentencePiece tokenizer — transformers refuses to
-            # load it unless `sentencepiece` (or `tiktoken`) is installed, and
-            # the failure mode is a confusing generic ValueError. Re-raise with
-            # an actionable hint.
+            # Keep the actionable tokenizer hint for the rare case where
+            # sentencepiece is missing; otherwise re-raise unchanged.
             msg = str(exc)
             if "sentencepiece" in msg or "slow tokenizer" in msg:
                 raise ImportError(
                     "Loading the Gemma tokenizer requires `sentencepiece`. "
-                    "Install it with: `pip install sentencepiece` and then "
-                    "restart your Python/kernel session before retrying. "
-                    "(transformers caches the presence check, so installing "
-                    "without a restart isn't enough.)"
+                    "Install it with `pip install sentencepiece` and "
+                    "restart your Python/kernel session."
                 ) from exc
             raise
 
-        model_kwargs: Dict[str, Any] = dict(
-            torch_dtype=torch_dtype,
-            token=token,
-            cache_dir=cache_dir,
-        )
-        if self.device.startswith("cuda"):
-            model_kwargs["device_map"] = self.device
-
-        # Text-only checkpoints (1B) load through AutoModelForCausalLM;
-        # multimodal ones (4B+) register under AutoModelForImageTextToText.
-        try:
-            self._model = AutoModelForCausalLM.from_pretrained(self.repo_id, **model_kwargs)
-        except (ValueError, KeyError) as exc:
-            if AutoModelForImageTextToText is None:
-                raise
-            logger.debug(
-                "AutoModelForCausalLM rejected %s (%s); retrying with "
-                "AutoModelForImageTextToText", self.repo_id, exc,
-            )
-            self._model = AutoModelForImageTextToText.from_pretrained(
-                self.repo_id, **model_kwargs
-            )
-
-        if not self.device.startswith("cuda"):
-            self._model.to(self.device)
-        self._model.eval()
+        # Switch to Unsloth's fast inference path (enables KV-cache tricks and
+        # kernel fusions that speed up generate() by ~2x).
+        FastLanguageModel.for_inference(self._model)
 
         # OpenAI-style access path: ``client.chat.completions.create(...)``.
         self.chat = SimpleNamespace(
@@ -269,21 +242,20 @@ class GemmaLLM:
         top_p: Optional[float] = None,
         **_: Any,
     ) -> Any:
-        """Render the chat template, generate, and wrap in an OpenAI shape."""
-        prompt = self._apply_chat_template(list(messages))
+        """Apply the chat template, generate, and wrap in an OpenAI shape."""
         completion = self._generate(
-            prompt,
+            list(messages),
             temperature=self.temperature if temperature is None else temperature,
             top_p=self.top_p if top_p is None else top_p,
             max_new_tokens=self.max_new_tokens if max_tokens is None else max_tokens,
         )
         return _make_openai_response(completion, self.repo_id)
 
-    def _apply_chat_template(self, messages: List[Dict[str, str]]) -> str:
-        """Render OpenAI-style messages through Gemma's chat template.
+    def _normalize_messages(self, messages: List[Dict[str, str]]) -> List[Dict[str, str]]:
+        """Collapse system-role messages into the first user turn.
 
-        Gemma tokenizers do not expose a dedicated ``system`` role; any
-        system-role content is folded into the first user turn.
+        Gemma's chat template has no dedicated ``system`` role, so any
+        system-role content is prepended to the first user message.
         """
         normalized: List[Dict[str, str]] = []
         system_chunks: List[str] = []
@@ -300,33 +272,37 @@ class GemmaLLM:
             normalized.append({"role": role, "content": content})
         if system_chunks and not normalized:
             normalized.append({"role": "user", "content": "\n".join(system_chunks)})
-
-        return self._tokenizer.apply_chat_template(
-            normalized,
-            tokenize=False,
-            add_generation_prompt=True,
-        )
+        return normalized
 
     def _generate(
         self,
-        prompt: str,
+        messages: List[Dict[str, str]],
         *,
         temperature: float,
         top_p: float,
         max_new_tokens: int,
     ) -> str:
         torch = self._torch
-        inputs = self._tokenizer(prompt, return_tensors="pt").to(self.device)
-        input_len = inputs["input_ids"].shape[-1]
+        normalized = self._normalize_messages(messages)
+        # apply_chat_template with tokenize=True returns a token-id tensor
+        # directly, matching the Unsloth quickstart pattern.
+        input_ids = self._tokenizer.apply_chat_template(
+            normalized,
+            tokenize=True,
+            add_generation_prompt=True,
+            return_tensors="pt",
+        ).to(self.device)
+
+        input_len = input_ids.shape[-1]
         gen_kwargs: Dict[str, Any] = {
-            "max_new_tokens": max_new_tokens,
+            "max_new_tokens": int(max_new_tokens),
             "do_sample": temperature > 0.0,
             "temperature": max(float(temperature), 1e-5),
             "top_p": float(top_p),
             "pad_token_id": self._tokenizer.eos_token_id,
         }
         with self._generate_lock, torch.no_grad():
-            output_ids = self._model.generate(**inputs, **gen_kwargs)
+            output_ids = self._model.generate(input_ids=input_ids, **gen_kwargs)
         new_tokens = output_ids[0, input_len:]
         text = self._tokenizer.decode(new_tokens, skip_special_tokens=True)
         return text.strip()

@@ -92,14 +92,15 @@ class LLM:
     def _detect_backend(model_name: str) -> str:
         """Infer the backend from a model name, defaulting to OpenAI.
 
-        Any identifier starting with ``"gemma"`` (e.g. ``"gemma-3-4b"``) or
-        containing ``"/gemma"`` (e.g. ``"google/gemma-3-4b-it"``,
-        ``"unsloth/gemma-3-4b-it"``) routes to the local Gemma backend.
+        Any identifier starting with ``"gemma"``, containing ``"/gemma"``
+        (e.g. ``"unsloth/gemma-4-e4b-it-unsloth-bnb-4bit"``), or using the
+        Gemma-4 Efficient-tier shorthands ``"e2b"`` / ``"e4b"`` routes to the
+        local Gemma backend.
         """
         if not isinstance(model_name, str):
             return "openai"
-        n = model_name.strip().lower()
-        if n.startswith("gemma") or "/gemma" in n:
+        n = model_name.strip().lower().removesuffix("-it")
+        if n.startswith("gemma") or "/gemma" in n or n in {"e2b", "e4b"}:
             return "gemma"
         return "openai"
 

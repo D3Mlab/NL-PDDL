@@ -13,14 +13,18 @@ dependencies = [
   "pyDatalog",
   "google-genai",
   "python-dotenv",
-  # Required by the local Gemma backend (pddl_planner.llm.gemma_llm).
-  # transformers >= 4.50 is needed for the Gemma 3 model classes; accelerate
-  # powers `device_map=...`; sentencepiece is needed to parse Gemma's
-  # SentencePiece tokenizer (otherwise transformers raises a confusing
-  # "Couldn't instantiate the backend tokenizer" ValueError).
+  # Local Gemma backend (pddl_planner.llm.gemma_llm). We now load Gemma
+  # through Unsloth's FastLanguageModel, which wraps transformers with
+  # 4-bit quantization and fused inference kernels. Unsloth transitively
+  # pulls in a compatible transformers/accelerate, but we keep them pinned
+  # here so `pip install -e .` resolves the full set deterministically.
+  # bitsandbytes provides the 4-bit kernels; sentencepiece is still needed
+  # to parse Gemma's SentencePiece tokenizer for the fp16 Gemma 3 variants.
   "transformers==5.5.0",
   "accelerate",
-  "sentencepiece"
+  "sentencepiece",
+  "bitsandbytes",
+  "unsloth"
 ]
 
 [tool.setuptools.packages.find]
