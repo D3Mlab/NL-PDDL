@@ -18,7 +18,7 @@ dependencies = [
   # powers `device_map=...`; sentencepiece is needed to parse Gemma's
   # SentencePiece tokenizer (otherwise transformers raises a confusing
   # "Couldn't instantiate the backend tokenizer" ValueError).
-  "transformers>=4.50",
+  "transformers==5.5.0",
   "accelerate",
   "sentencepiece"
 ]
