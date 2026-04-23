@@ -4,7 +4,8 @@ import re
 import copy
 class NLPredicate(Predicate):
     def __init__(self, name: str, str_representation: str, is_neg: bool, *terms: "Term",
-     term_type_dict: Dict["Term", Set[str]] = None, entailed_by: "NLPredicate" = None, inital_terms: List["Term"] = None, inital_str: str = None) -> None:
+     term_type_dict: Dict["Term", Set[str]] = None, entailed_by: "NLPredicate" = None, inital_terms: List["Term"] = None, inital_str: str = None,
+     display_name: str = None) -> None:
         """
         A class that represents a NL predicate.
 
@@ -15,19 +16,27 @@ class NLPredicate(Predicate):
             terms (List[Term]): The terms of the predicate.
             term_type_dict (Dict[Term, Set[str]]): The type of the terms.
             entailed_by (NLPredicate|List[NLPredicate]): The predicate that the predicate is entailed by.
+            display_name (str): Human-readable schema name that keeps ?variables
+                intact (e.g. "block ?b1 is directly above block ?b2"). Used only
+                for display in the final regression-plan output — all internal
+                logic (equality, hashing, SSA lookup, caching) still keys off
+                :attr:`name`. Defaults to :attr:`name` when not provided.
         """
 
         super().__init__(name, is_neg, *terms, term_type_dict=term_type_dict)
         self._str_represntation = str_representation
         # keep track of the initial terms and original string for string replacement
         if inital_terms is None:
-            self._inital_terms = copy.deepcopy(terms) 
+            self._inital_terms = copy.deepcopy(terms)
         else:
             self._inital_terms = copy.deepcopy(inital_terms)
         self._inital_str_represntation = copy.deepcopy(inital_str if inital_str is not None else self._str_represntation)
         self._entailed_by: "NLPredicate"|List["NLPredicate"] = entailed_by if entailed_by is not None else self
         # Map from entailed predicate name -> Substitution used for entailment (target_var -> candidate_var)
         self._entailed_substitutions: Dict[str, Substitution] = {}
+        # Display-only schema name (keeps ?vars); fall back to `name` when
+        # no dedicated display form was supplied by the caller.
+        self._display_name: str = display_name if display_name is not None else name
         
     # Optional, planner-injected entailment checker: (a, b) -> bool if a is entailed by b or vice versa
     _entailment_checker: Optional[Callable[["NLPredicate", "NLPredicate"], bool]] = None
@@ -36,8 +45,23 @@ class NLPredicate(Predicate):
     def set_entailment_checker(cls, checker: Callable[["NLPredicate", "NLPredicate"], bool]) -> None:
         cls._entailment_checker = checker
 
-    # def __str__(self) -> str:
-    #     return f'{self._str_represntation}({", ".join(f"{str(term)}" for term in self.terms)})' if not self._is_neg else f'not {self._str_represntation}({", ".join(f"{str(term)}" for term in self.terms)})'
+    def __str__(self) -> str:
+        """Human-readable rendering that keeps ``?variable`` placeholders.
+
+        Uses :attr:`display_name` (which preserves ``?b1``, ``?b2``, …) instead
+        of :attr:`name` (which strips both variables and constants). The
+        display form is strictly for presentation — equality, hashing, SSA
+        lookup and entailment caching still key off :attr:`name` via the base
+        :class:`Predicate` methods.
+
+        Because :meth:`ConjunctiveFormula.__str__` and
+        :meth:`DisjunctiveFormula.__str__` recurse with ``str(clause)``, the
+        readable form automatically propagates when you print a subgoal or
+        any formula that contains :class:`NLPredicate` leaves.
+        """
+        terms_str = ", ".join(str(term) for term in self._terms)
+        head = self.display_name
+        return f"{head}({terms_str})" if not self._is_neg else f"not {head}({terms_str})"
 
     def substitute(self, substitution: "Substitution") -> "NLPredicate":
         """Substitute the variables in the predicate using the provided substitution.
@@ -62,6 +86,7 @@ class NLPredicate(Predicate):
             term_type_dict={substitution.get(term, term): types for term, types in self.term_type_dict.items()} if self.term_type_dict is not None else None,
             inital_terms=self._inital_terms,
             inital_str=self._inital_str_represntation,
+            display_name=self._display_name,
         )
 
     def get_negation(self) -> "NLPredicate":
@@ -70,7 +95,7 @@ class NLPredicate(Predicate):
         Returns:
             Predicate: A new Predicate with the negation flag toggled.
         """
-        return NLPredicate(self.name, self._str_represntation, not self._is_neg, *self.terms, inital_terms=self._inital_terms, inital_str=self._inital_str_represntation)
+        return NLPredicate(self.name, self._str_represntation, not self._is_neg, *self.terms, inital_terms=self._inital_terms, inital_str=self._inital_str_represntation, display_name=self._display_name)
 
     def _equals_helper_with_entailment(self, other: "NLPredicate") -> bool:
         """Predicate equality that is aware of entailment computed by the LLM.
@@ -103,6 +128,18 @@ class NLPredicate(Predicate):
         LLM entailment results to keep hashing stable.
         """
         return super().__hash__()
+
+    @property
+    def display_name(self) -> str:
+        """Readable schema name that keeps ``?variable`` placeholders.
+
+        ``display_name`` is intended for *presentation only* — e.g. formatting
+        the final regression-plan output. All internal operations (equality,
+        hashing, SSA lookup, entailment caching) must continue to use
+        :attr:`name`, which strips both variables and constants so that
+        paraphrased user predicates can be compared to their domain schemas.
+        """
+        return self._display_name
 
     @property
     def entailed(self) -> "NLPredicate":

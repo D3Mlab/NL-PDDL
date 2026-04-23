@@ -60,10 +60,14 @@ class NLParser():
         else:
             is_neg = False
 
-        # pareser 
+        # pareser
         #1. extract possible terms and type tags from the predicate's dictionary
         type_tags = NL_predicate[1]
         predicate_name = NL_predicate[0].strip().lower()
+        # Start display_name as the full raw predicate text; we'll strip only
+        # constants below and keep ?variables so the schema stays readable
+        # (mirrors how Action.name preserves "?b" in "pick up block ?b").
+        display_name = predicate_name
         # 2. parse the terms (constants and variables) within the predicate's dictionary
         if not type_tags == {}: # check if the type tags is empty (no variables or constants)
             terms = tuple(self.parse_term(term, type_tags) for term in type_tags.keys())
@@ -72,11 +76,17 @@ class NLParser():
             # 3. remove the variable terms from the predicate name
             for term in terms:
                 predicate_name = predicate_name.replace(f' {term}', ' ').replace(f'{term} ', ' ').strip()
+                # display_name: strip constants only; keep ?variables intact.
+                if not isinstance(term, Variable):
+                    display_name = display_name.replace(f' {term}', ' ').replace(f'{term} ', ' ').strip()
             predicate_name = predicate_name.strip()
-        else: 
+            # Collapse any double spaces left behind by constant removal.
+            display_name = ' '.join(display_name.split()).strip()
+        else:
             terms = tuple()
             term_type_dict = {}
-        return NLPredicate(predicate_name, NL_predicate[0].strip().lower(), is_neg, *terms, term_type_dict=term_type_dict)
+        return NLPredicate(predicate_name, NL_predicate[0].strip().lower(), is_neg, *terms,
+                           term_type_dict=term_type_dict, display_name=display_name)
 
     def parse_term(self, NL_term: str, type_tags: Dict[str, str] = None) -> Union[Variable, Constant]:
         """

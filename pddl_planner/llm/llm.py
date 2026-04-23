@@ -630,14 +630,18 @@ target_predicate_name: Optional[str] = None, flag: bool = True) -> Tuple[bool, s
         if substitution is not None:
             entailed_predicate_copy = entailed_predicate_copy.substitute(substitution)
 
-        # Create a new NLPredicate with the entailed predicate's name but target predicate's terms
+        # Create a new NLPredicate with the entailed predicate's name but target predicate's terms.
+        # Carry over the entailed predicate's display_name so subsequent printouts
+        # show the readable schema form (with ?variables) instead of the stripped
+        # internal name.
         new_predicate = NLPredicate(
             entailed_predicate_copy.name,
             updated_str_rep,
             target_copy._is_neg,
             *target_copy.terms,
             term_type_dict=entailed_predicate_copy.term_type_dict,
-            entailed_by=entailed_predicate_copy
+            entailed_by=entailed_predicate_copy,
+            display_name=entailed_predicate_copy.display_name,
         )
 
         return new_predicate

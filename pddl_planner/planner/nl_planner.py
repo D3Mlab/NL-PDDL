@@ -46,7 +46,8 @@ class NLFOLRegressionPlanner(NLPlanner):
     def __init__(self, nl_domain: str, nl_problem: str, nl_init: str|None, max_depth: int = 16,
     llm_model: str = "gpt-4o-mini", llm_api_key: str = None, verbose: bool = True, llm_verbose: bool = False,
     log_path: str|None = None, time_limit: int|None = None, cache_path: str|None = None,
-    llm_backend: str|None = None, llm_backend_options: dict|None = None) -> None:
+    llm_backend: str|None = None, llm_backend_options: dict|None = None,
+    auto_match: bool = True) -> None:
         """
         Initialize a FOL-RegressionPlanner based on First-Order Logic (FOL) and uses SSA from Situation Calculus.
 
@@ -67,8 +68,22 @@ class NLFOLRegressionPlanner(NLPlanner):
             llm_backend_options (dict, optional): Extra kwargs forwarded to the
                 chosen backend (e.g. for Gemma: ``device``, ``dtype``,
                 ``max_new_tokens``, ``hf_token``, ``cache_dir``).
+            auto_match (bool, optional): When ``True`` (default) and an
+                ``nl_init`` was provided, :meth:`regress_plan` will automatically
+                run :meth:`match` on the generated plan using that initial state,
+                storing the result on :attr:`match_result` and logging a short
+                summary. Set to ``False`` to opt out and call :meth:`match`
+                manually.
         """
         super().__init__(nl_domain, nl_problem, nl_init)
+        # Keep the raw initial-state input so `match()` receives the exact same
+        # (nl_text, type_tags) format the user originally passed. `nl_init` on
+        # NLInstance is already parsed into a ConjunctiveFormula, which isn't
+        # directly re-usable by the extractor's parse path.
+        self._raw_nl_init = copy.deepcopy(nl_init) if nl_init is not None else None
+        self._auto_match = auto_match
+        # Populated by regress_plan when auto-match runs (or by explicit match calls).
+        self.match_result = None
         self._max_depth = max_depth
         self._time_limit = time_limit
         self._verbose = verbose
@@ -197,7 +212,7 @@ class NLFOLRegressionPlanner(NLPlanner):
         plan.reverse()
         return plan
 
-    def extract_plan(self, initial_state, plans):
+    def match(self, initial_state, plans):
         """
         Pick the subgoal satisfied by ``initial_state`` and return the forward plan.
 
@@ -511,6 +526,9 @@ class NLFOLRegressionPlanner(NLPlanner):
             last_plan = plan[-1]
             with open(save_file_path, 'a') as f:
                 f.write(f"Subgoal S{count}:\n")
+                # `str(...)` recurses into ConjunctiveFormula/DisjunctiveFormula
+                # which delegate to each NLPredicate's `__str__`, which uses
+                # display_name so the subgoal prints in its readable form.
                 f.write(str(last_plan[0]) + '\n')
                 reversed_plan = copy.deepcopy(last_plan[1])
                 reversed_plan.reverse()
@@ -676,4 +694,20 @@ class NLFOLRegressionPlanner(NLPlanner):
                       f"avg latency {lat_sum / max(1, lat_cnt):.4f}s | "
                       f"{getattr(self._llm, 'cache_call_count', 0)} cache hits")
             print(f"Full log saved to: {self._log_path}")
+
+        # Auto-match: if the user supplied an initial state to the constructor,
+        # run match() automatically so they get an executable plan out of the
+        # box. Stored on `self.match_result` and also returned alongside `plan`
+        # via that attribute — `regress_plan` itself still returns `plan` for
+        # backward compatibility with existing callers.
+        if self._auto_match and self._raw_nl_init is not None and len(plan) > 0:
+            try:
+                self.match_result = self.match(self._raw_nl_init, plan)
+                n_matches = len(self.match_result.matches) if self.match_result is not None else 0
+                logger.info("Auto-match complete: %d subgoal(s) satisfied by the initial state", n_matches)
+                if self._log_path:
+                    print(f"Auto-match complete: {n_matches} matching subgoal(s); "
+                          f"see `planner.match_result`.")
+            except Exception as exc:
+                logger.warning("Auto-match failed: %s", exc)
         return plan
