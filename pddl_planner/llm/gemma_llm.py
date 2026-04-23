@@ -199,9 +199,25 @@ class GemmaLLM:
         logger.info(
             "Loading Gemma model %s on %s (dtype=%s)", self.repo_id, self.device, dtype_str
         )
-        self._tokenizer = AutoTokenizer.from_pretrained(
-            self.repo_id, token=token, cache_dir=cache_dir
-        )
+        try:
+            self._tokenizer = AutoTokenizer.from_pretrained(
+                self.repo_id, token=token, cache_dir=cache_dir
+            )
+        except ValueError as exc:
+            # Gemma ships a SentencePiece tokenizer — transformers refuses to
+            # load it unless `sentencepiece` (or `tiktoken`) is installed, and
+            # the failure mode is a confusing generic ValueError. Re-raise with
+            # an actionable hint.
+            msg = str(exc)
+            if "sentencepiece" in msg or "slow tokenizer" in msg:
+                raise ImportError(
+                    "Loading the Gemma tokenizer requires `sentencepiece`. "
+                    "Install it with: `pip install sentencepiece` and then "
+                    "restart your Python/kernel session before retrying. "
+                    "(transformers caches the presence check, so installing "
+                    "without a restart isn't enough.)"
+                ) from exc
+            raise
 
         model_kwargs: Dict[str, Any] = dict(
             torch_dtype=torch_dtype,

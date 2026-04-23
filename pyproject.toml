@@ -12,7 +12,15 @@ dependencies = [
   "opencv-python",
   "pyDatalog",
   "google-genai",
-  "python-dotenv"
+  "python-dotenv",
+  # Required by the local Gemma backend (pddl_planner.llm.gemma_llm).
+  # transformers >= 4.50 is needed for the Gemma 3 model classes; accelerate
+  # powers `device_map=...`; sentencepiece is needed to parse Gemma's
+  # SentencePiece tokenizer (otherwise transformers raises a confusing
+  # "Couldn't instantiate the backend tokenizer" ValueError).
+  "transformers>=4.50",
+  "accelerate",
+  "sentencepiece"
 ]
 
 [tool.setuptools.packages.find]
