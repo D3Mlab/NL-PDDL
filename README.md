@@ -5,7 +5,7 @@
   <a href="https://d3mlab.github.io/NL-PDDL/"><img src="https://img.shields.io/badge/Project-Website-blue?style=for-the-badge&logo=googlechrome&logoColor=red" alt="Website"></a>
   <a href="https://openreview.net/pdf?id=kWCNhRdcDI"><img src="https://img.shields.io/badge/Paper-ICLR%202026-red?style=for-the-badge&logo=arxiv&logoColor=red" alt="Paper"></a>
   <a href="https://github.com/D3Mlab/NL-PDDL"><img src="https://img.shields.io/github/stars/D3Mlab/NL-PDDL?style=for-the-badge&logo=github" alt="Stars"></a>
-  <a href="https://colab.research.google.com/drive/1TAaTMnMCa3lSt0CJqzVtZAiffBvjVwmU?usp=sharing"><img src="https://img.shields.io/badge/Open%20In-Colab-blue?style=for-the-badge&logo=googlecolab&logoColor=yellow" alt="Open In Colab"></a>
+  <a href="https://colab.research.google.com/drive/1GDg7mXKJ__JUgM_YAEbZYclXD2zXkMXc?usp=sharing"><img src="https://img.shields.io/badge/Open%20In-Colab-blue?style=for-the-badge&logo=googlecolab&logoColor=yellow" alt="Open In Colab"></a>
 </p>
 <p align="center">
   <img src="examples/images/nl-pddl-v3.png" alt="NL-PDDL Overview" width="100%">
@@ -26,7 +26,8 @@ Planning in open-world environments, where agents must act with partially observ
 
 Try NL-PDDL without any local setup, or follow the full interactive walkthrough:
 
-- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1TAaTMnMCa3lSt0CJqzVtZAiffBvjVwmU?usp=sharing) &nbsp; **[Blockworld tutorial — Colab notebook](https://colab.research.google.com/drive/1TAaTMnMCa3lSt0CJqzVtZAiffBvjVwmU#scrollTo=S-mpvWddU_TV)** — run the end-to-end misaligned-Blockworld tutorial (clone, install, LLM entailment, plan viewer) directly in your browser with a support of local Gemma-4-E4B-it LLM (no API key needed) or your own OpenAI key (optional).
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1GDg7mXKJ__JUgM_YAEbZYclXD2zXkMXc?usp=sharing) &nbsp; 
+- **[Blockworld tutorial — Colab notebook](https://colab.research.google.com/drive/1GDg7mXKJ__JUgM_YAEbZYclXD2zXkMXc?usp=sharing)** — run the end-to-end misaligned-Blockworld tutorial (clone, install, LLM entailment, plan viewer) directly in your browser with a support of local Gemma-4-E4B-it LLM (no API key needed) or your own OpenAI key (optional).
 - **[HTML tutorial](https://d3mlab.github.io/NL-PDDL/tutorial.html)** — the same walkthrough rendered on the project site
 
 ### Local install
