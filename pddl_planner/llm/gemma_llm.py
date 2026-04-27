@@ -284,10 +284,21 @@ class GemmaLLM:
     ) -> str:
         torch = self._torch
         normalized = self._normalize_messages(messages)
+        # Gemma 3/4 chat templates iterate `content` as a list of typed parts
+        # (multimodal format). Passing a bare string makes the template index
+        # the string with `part["type"]` and raise
+        # `string indices must be integers, not 'str'`.
+        chat_messages = [
+            {
+                "role": m["role"],
+                "content": [{"type": "text", "text": m["content"]}],
+            }
+            for m in normalized
+        ]
         # apply_chat_template with tokenize=True returns a token-id tensor
         # directly, matching the Unsloth quickstart pattern.
         input_ids = self._tokenizer.apply_chat_template(
-            normalized,
+            chat_messages,
             tokenize=True,
             add_generation_prompt=True,
             return_tensors="pt",
